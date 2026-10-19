@@ -1,18 +1,21 @@
-"""Strict input contract: facts and forecasts have separate provenance."""
+"""Configuration for the original AMD model and monthly selector."""
 from __future__ import annotations
 
-import json
-import math
-import re
+from dataclasses import asdict
 from datetime import date
 from importlib.resources import files
+import json
+import math
 from pathlib import Path
 from urllib.parse import urlparse
 
+import numpy as np
 import pandas as pd
 
-NOTICE = ("Illustrative forecast scenario, not a market prediction. Percentiles are "
-          "within-model ranks, not calibrated probabilities or confidence intervals.")
+from . import _core
+
+NOTICE = ("Forecast assumptions and model outputs, not calibrated market probabilities. "
+          "The original scenario inputs are retained; user-supplied inputs are not independently verified disclosures.")
 
 
 def public_facts():
@@ -41,103 +44,124 @@ def _number(value, low, high, label, integer=False):
         raise ValueError(f"{label}: must be an integer")
 
 
-def _text(value, label):
-    if not isinstance(value, str) or not value.strip():
-        raise ValueError(f"{label}: nonempty text required")
+def _text(value, label, blank=False):
+    if not isinstance(value, str) or (not blank and not value.strip()):
+        raise ValueError(f"{label}: text required")
 
 
 def validate_config(c):
-    """Reject unknown fields, malformed dates, nonfinite values and missing provenance.
-
-    Source URLs are provenance assertions, not automated verification of a fact.
-    Only the shipped fact register has been manually checked against its sources.
-    """
-    _keys(c, ["schema_version", "title", "start_month", "horizon_months", "n_paths",
-              "seed", "anchor", "earnings", "priors", "market", "events", "selector"], "config")
-    if type(c["schema_version"]) is not int or c["schema_version"] != 1:
-        raise ValueError("schema_version must be 1")
+    _keys(c, ["schema_version", "title", "start_month", "horizon_months", "n_paths", "seed",
+              "anchor", "settings", "scenario_eps", "priors", "regime_log_premiums",
+              "calibration", "events", "selector", "monthly_overrides"], "config")
+    if type(c["schema_version"]) is not int or c["schema_version"] != 2:
+        raise ValueError("schema_version must be 2; use the restored demo.json or amd-lab init")
     _text(c["title"], "title")
-    if not isinstance(c["start_month"], str) or not re.fullmatch(r"\d{4}-(0[1-9]|1[0-2])", c["start_month"]):
-        raise ValueError("start_month must be YYYY-MM")
-    _number(c["horizon_months"], 1, 60, "horizon_months", True)
-    _number(c["n_paths"], 100, 20000, "n_paths", True)
+    if c["start_month"] != "2026-10" or type(c["horizon_months"]) is not int or c["horizon_months"] != 24:
+        raise ValueError("The original model uses start_month 2026-10 and horizon_months 24")
+    _number(c["n_paths"], 100, 50000, "n_paths", True)
     _number(c["seed"], 0, 2**32 - 1, "seed", True)
-    if c["n_paths"] * (c["horizon_months"] + 1) > 650000:
-        raise ValueError("Reduce paths or horizon: maximum 650,000 path-months")
     a = c["anchor"]
     _keys(a, ["price", "classification", "as_of", "source_url", "note"], "anchor")
-    _number(a["price"], .01, 100000, "anchor.price")
-    if a["classification"] not in ("synthetic_demo", "public_observation", "user_assumption"):
+    _number(a["price"], 1.001, 19999.99, "anchor.price")
+    if a["classification"] not in ("user_supplied_snapshot", "public_observation", "user_assumption", "synthetic_demo"):
         raise ValueError("Unknown anchor classification")
-    _text(a["note"], "anchor.note")
-    if not isinstance(a["source_url"], str):
-        raise ValueError("anchor.source_url must be text")
+    _text(a["note"], "anchor.note", blank=True)
+    _text(a["source_url"], "anchor.source_url", blank=True)
     try:
         observed = date.fromisoformat(a["as_of"])
-    except (TypeError, ValueError) as exc:
+    except (ValueError, TypeError) as exc:
         raise ValueError("anchor.as_of must be YYYY-MM-DD") from exc
     if a["classification"] == "public_observation":
-        u = urlparse(a["source_url"])
-        if u.scheme != "https" or not u.netloc:
+        url = urlparse(a["source_url"])
+        if url.scheme != "https" or not url.netloc:
             raise ValueError("Public anchor needs an HTTPS source_url")
         if observed > date.today() or a["as_of"][:7] != c["start_month"]:
             raise ValueError("Public anchor must be a past observation in start_month")
-    e = c["earnings"]
-    _keys(e, ["base_fact_id", "annual_growth", "classification", "note"], "earnings")
-    if e["classification"] != "forecast_assumption":
-        raise ValueError("Future earnings must be labeled forecast_assumption")
-    _text(e["note"], "earnings.note")
-    if e["base_fact_id"] not in {f["id"] for f in public_facts()["facts"] if f["metric"] == "diluted_eps" and f["period_type"] == "annual"}:
-        raise ValueError("base_fact_id must identify bundled annual disclosed EPS")
-    scenario_names = ["slowdown", "reference", "acceleration"]
-    _keys(e["annual_growth"], scenario_names, "annual_growth")
-    for name, v in e["annual_growth"].items():
-        _number(v, -.8, 2, f"annual_growth.{name}")
-    if not e["annual_growth"]["slowdown"] <= e["annual_growth"]["reference"] <= e["annual_growth"]["acceleration"]:
-        raise ValueError("Growth rates must be ordered slowdown <= reference <= acceleration")
+    limits = {"eps26": (.001, 1000), "eps27": (.001, 1000), "eps28": (.001, 1000),
+              "eps29": (.001, 1000), "eps30": (.001, 1000),
+              "stabilized_forward_pe": (.1, 200), "pe_normalization_months": (.1, 120),
+              "initial_credit_stress": (0, 2), "initial_regime": (-2, 2),
+              "credit_persistence": (.25, 1), "credit_long_run": (0, 2),
+              "credit_monthly_noise": (0, 1), "credit_price_sensitivity": (0, 2),
+              "evidence_strength": (0, 3), "scenario_discrimination": (0, 1),
+              "earnings_scenario_spread": (0, 2), "peer_shock_scale": (0, 3),
+              "idio_shock_scale": (0, 3), "optimism_feedback": (0, 3),
+              "pessimism_feedback": (0, 3), "momentum_feedback": (0, 1),
+              "switching_tendency": (0, 3), "sentiment_persistence": (0, .999),
+              "initial_lookthrough_weight": (0, .5)}
+    _keys(c["settings"], limits, "settings")
+    for key, (lo, hi) in limits.items():
+        _number(c["settings"][key], lo, hi, key, key == "initial_regime")
+    _keys(c["scenario_eps"], _core.SCENARIO_LABELS, "scenario_eps")
+    for name, curve in c["scenario_eps"].items():
+        _keys(curve, [str(y) for y in range(2026, 2031)], name)
+        for year, value in curve.items():
+            _number(value, .001, 1000, f"{name}.{year}")
     if not isinstance(c["priors"], list) or len(c["priors"]) != 3:
-        raise ValueError("priors must be three subjective scenario weights")
+        raise ValueError("priors must contain three subjective scenario weights")
     for p in c["priors"]:
-        _number(p, .0001, 1, "prior")
+        _number(p, .000001, 1, "prior")
     if abs(sum(c["priors"]) - 1) > 1e-9:
         raise ValueError("priors must sum to one")
-    limits = {"terminal_pe": (.1, 200), "pe_normalization_months": (1, 120),
-              "initial_regime": (-2, 2), "initial_credit": (0, 2),
-              "credit_long_run": (0, 2), "credit_persistence": (0, 1),
-              "credit_noise": (0, 1), "credit_sensitivity": (0, 2),
-              "monthly_volatility": (0, 1), "sentiment_persistence": (0, .99),
-              "switch_probability": (0, 1), "regime_premium": (0, .5),
-              "evidence_discrimination": (0, .4), "condition_bandwidth": (.05, 2)}
-    _keys(c["market"], limits, "market")
-    for key, (lo, hi) in limits.items():
-        _number(c["market"][key], lo, hi, key, key == "initial_regime")
-    if not isinstance(c["events"], list):
-        raise ValueError("events must be a list")
-    future_months = {str(m) for m in months(c)[1:]}
-    seen = set()
+    if not isinstance(c["regime_log_premiums"], list) or len(c["regime_log_premiums"]) != 5:
+        raise ValueError("regime_log_premiums must contain five values")
+    for value in c["regime_log_premiums"]:
+        _number(value, -2, 2, "regime_log_premium")
+    _keys(c["calibration"], ["dataset", "window_start", "window_end", "classification"], "calibration")
+    if c["calibration"] != {"dataset":"amd_peer_history.csv", "window_start":"2024-11", "window_end":"2026-09", "classification":"user_supplied_model_input"}:
+        raise ValueError("Use the original bundled calibration dataset and its 23-month window")
+    if not isinstance(c["events"], list) or len(c["events"]) != 24:
+        raise ValueError("Exactly 24 monthly evidence rows are required")
+    event_keys = ["month", "catalyst", "upside_evidence", "downside_evidence", "timing",
+                  "prob_positive", "revelation_chance", "materiality", "status", "classification"]
     for event in c["events"]:
-        _keys(event, ["month", "label", "classification", "prob_positive", "revelation_chance", "materiality", "status"], "event")
-        if event["month"] not in future_months or event["month"] in seen:
-            raise ValueError("Events need unique months inside the forecast horizon")
-        seen.add(event["month"])
-        _text(event["label"], "event.label")
+        _keys(event, event_keys, "event")
+        for key in ("month", "catalyst", "upside_evidence", "downside_evidence", "timing"):
+            _text(event[key], f"event.{key}")
         if event["classification"] != "forecast_assumption":
-            raise ValueError("Event timing and outcomes must be forecast_assumption")
+            raise ValueError("Event rows must be forecast_assumption")
+        for key, high in (("prob_positive", 1), ("revelation_chance", 1), ("materiality", 3)):
+            _number(event[key], 0, high, f"event.{key}")
         if event["status"] not in ("pending", "positive", "negative", "neutral"):
-            raise ValueError("Invalid hypothetical event status")
-        for key in ("prob_positive", "revelation_chance", "materiality"):
-            _number(event[key], 0, 1, f"event.{key}")
-    _keys(c["selector"], ["seed", "method", "path_index"], "selector")
-    _number(c["selector"]["seed"], 0, 2**32 - 1, "selector.seed", True)
-    if c["selector"]["method"] not in ("conditioned", "path_rank"):
-        raise ValueError("selector.method must be conditioned or path_rank")
-    if c["selector"]["path_index"] is not None:
-        _number(c["selector"]["path_index"], 0, c["n_paths"] - 1, "selector.path_index", True)
+            raise ValueError("Invalid event status")
+    if [e["month"] for e in c["events"]] != [str(m) for m in months(c)[1:]]:
+        raise ValueError("Events must cover each forecast month once, in order")
+    from .selector import SelectorConfig, _validated_overrides
+    selector_keys = asdict(SelectorConfig())
+    _keys(c["selector"], selector_keys, "selector")
+    s = c["selector"]
+    _number(s["selector_seed"], 0, 2**32 - 1, "selector_seed", True)
+    _number(s["min_conditional_paths"], 1, c["n_paths"], "min_conditional_paths", True)
+    for key, high in (("low_percentile", 1), ("high_percentile", 1), ("condition_strength", 4), ("psyche_strength", 2)):
+        _number(s[key], 0, high, key)
+    if s["path_index"] is not None:
+        _number(s["path_index"], 0, c["n_paths"]-1, "path_index", True)
+    SelectorConfig(**s).validate(c["n_paths"])
+    if not isinstance(c["monthly_overrides"], list):
+        raise ValueError("monthly_overrides must be a list")
+    for row in c["monthly_overrides"]:
+        _keys(row, ["month", "market_condition", "manual_percentile", "notes"], "monthly override")
+        _text(row["month"], "override.month")
+        _text(row["market_condition"], "override.market_condition")
+        _text(row["notes"], "override.notes", blank=True)
+        _number(row["manual_percentile"], 0, 100, "manual_percentile")
+    controls = _validated_overrides(pd.DataFrame(c["monthly_overrides"]), [str(m) for m in months(c)])
+    if controls.iloc[0].market_condition != "Auto" or controls.iloc[0].manual_percentile != 0:
+        raise ValueError("The initial anchor cannot have a monthly override")
+    for row in c["monthly_overrides"]:
+        p = row["manual_percentile"] / 100
+        if p and not s["low_percentile"] <= p <= s["high_percentile"]:
+            raise ValueError("Forced percentiles must be inside the selector bounds")
+    settings = _core.Settings(spot=a["price"], n_paths=c["n_paths"], seed=c["seed"], **c["settings"])
+    settings.validate()
+    curves = {name:{int(y):v for y,v in curve.items()} for name,curve in c["scenario_eps"].items()}
+    for matrix in _core._eps_matrices(settings, curves):
+        if not np.isfinite(matrix).all() or not (matrix > 0).all():
+            raise ValueError("Scenario spread produces nonpositive or nonfinite EPS")
     return c
 
 
 def load_config(path):
-    def reject_constant(s):
-        raise ValueError(f"Nonfinite JSON value: {s}")
-    c = json.loads(Path(path).read_text(encoding="utf-8"), parse_constant=reject_constant)
-    return validate_config(c)
+    def reject_constant(value):
+        raise ValueError(f"Nonfinite JSON value: {value}")
+    return validate_config(json.loads(Path(path).read_text(encoding="utf-8"), parse_constant=reject_constant))

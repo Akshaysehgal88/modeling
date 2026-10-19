@@ -1,2 +1,3 @@
 include demo.json run_windows.bat run_mac_linux.sh
 recursive-include docs *.md
+recursive-include tests/fixtures *.csv

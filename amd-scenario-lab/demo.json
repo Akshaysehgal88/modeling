@@ -1,40 +1,534 @@
 {
-  "schema_version": 1,
-  "title": "AMD illustrative forecast scenario",
+  "schema_version": 2,
+  "title": "Demo",
   "start_month": "2026-10",
   "horizon_months": 24,
-  "n_paths": 3000,
-  "seed": 42,
+  "n_paths": 6000,
+  "seed": 20261018,
   "anchor": {
-    "price": 100.0,
-    "classification": "synthetic_demo",
-    "as_of": "2026-10-19",
+    "price": 528.75,
+    "classification": "user_supplied_snapshot",
+    "as_of": "2026-10-16",
     "source_url": "",
-    "note": "Synthetic $100 starting value for demonstration; not an AMD quote."
+    "note": "Original scenario anchor; retained as an input, not independently verified by this package."
   },
-  "earnings": {
-    "base_fact_id": "amd_fy2025_nongaap_eps",
-    "annual_growth": {"slowdown": 0.0, "reference": 0.15, "acceleration": 0.3},
-    "classification": "forecast_assumption",
-    "note": "Round illustrative annual growth rates chosen for this public demo. Not company guidance or analyst consensus."
-  },
-  "priors": [0.25, 0.5, 0.25],
-  "market": {
-    "terminal_pe": 25.0,
+  "settings": {
+    "eps26": 7.72,
+    "eps27": 16.07,
+    "eps28": 23.48,
+    "eps29": 29.19,
+    "eps30": 42.37,
+    "stabilized_forward_pe": 26.0,
     "pe_normalization_months": 24.0,
-    "initial_regime": 0,
-    "initial_credit": 0.5,
-    "credit_long_run": 0.5,
-    "credit_persistence": 0.9,
-    "credit_noise": 0.1,
-    "credit_sensitivity": 0.2,
-    "monthly_volatility": 0.1,
-    "sentiment_persistence": 0.8,
-    "switch_probability": 0.1,
-    "regime_premium": 0.1,
-    "evidence_discrimination": 0.2,
-    "condition_bandwidth": 0.4
+    "initial_credit_stress": 0.9,
+    "initial_regime": -1,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.65,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
   },
-  "events": [],
-  "selector": {"seed": 7, "method": "conditioned", "path_index": null}
+  "scenario_eps": {
+    "slowdown": {
+      "2026": 7.72,
+      "2027": 11.8,
+      "2028": 15.5,
+      "2029": 19.0,
+      "2030": 24.0
+    },
+    "reference": {
+      "2026": 7.72,
+      "2027": 16.07,
+      "2028": 23.48,
+      "2029": 29.19,
+      "2030": 42.37
+    },
+    "acceleration": {
+      "2026": 7.72,
+      "2027": 19.3,
+      "2028": 33.72,
+      "2029": 48.54,
+      "2030": 64.85
+    }
+  },
+  "priors": [
+    0.25,
+    0.55,
+    0.2
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "amd_peer_history.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "user_supplied_model_input"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "AMD Q3 earnings Nov 3; Q4 revenue/margin guidance",
+      "upside_evidence": "AMD revenue above $12.7\u201313.3B outlook and firm MI450 shipments",
+      "downside_evidence": "Demand digestion, GM weakness, backlog adjustments",
+      "timing": "Confirmed date for Nov 3; outcomes unknown",
+      "prob_positive": 0.56,
+      "revelation_chance": 0.92,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "AMD investor conferences Dec 1/9; year-end production",
+      "upside_evidence": "Full-stack order and shipment visibility, customer prepay evidence",
+      "downside_evidence": "Incremental vendor financing or un-funded leases",
+      "timing": "Conference dates confirmed; outcome unknown",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.42,
+      "materiality": 0.4,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Hyperscaler FY26 capex and TSMC Q4 2026",
+      "upside_evidence": "Capex commitments intact and TSMC advanced-node expansion",
+      "downside_evidence": "Capex cuts, weaker utilization, funding delays",
+      "timing": "Expected periodic reporting window",
+      "prob_positive": 0.58,
+      "revelation_chance": 0.7,
+      "materiality": 0.6,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "AMD Q4/FY26 results and 2027 guidance",
+      "upside_evidence": "MI450 revenue conversion, margins, 2027 acceleration backed by orders",
+      "downside_evidence": "Capacity exists but rack delivery/monetization slips",
+      "timing": "Estimated reporting window, not announced date",
+      "prob_positive": 0.6,
+      "revelation_chance": 0.85,
+      "materiality": 1.0,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "AI cloud debt refinancing and grid/buildout",
+      "upside_evidence": "Affordable committed financing and commissioned racks",
+      "downside_evidence": "Spread contagion / commissioning slips",
+      "timing": "Recurring monitoring, not dated event",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.4,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "H1 Anthropic rollout; capex budgets",
+      "upside_evidence": "Verified racks delivered with ROCm acceptance",
+      "downside_evidence": "Delayed power, cooling, HBM or software qualification",
+      "timing": "Announced H1 2027 window",
+      "prob_positive": 0.6,
+      "revelation_chance": 0.6,
+      "materiality": 0.7,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "AMD FY27 Q1 likely reporting",
+      "upside_evidence": "DC segment growth and gross margin strengthen",
+      "downside_evidence": "Sequential DC softening/inventory growth",
+      "timing": "Estimated reporting window",
+      "prob_positive": 0.6,
+      "revelation_chance": 0.85,
+      "materiality": 0.7,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Anthropic first-GW H1 deployment target",
+      "upside_evidence": "Initial GW begins on schedule with commercial workloads",
+      "downside_evidence": "Deployments delayed beyond H1; contracts re-sized",
+      "timing": "H1 milestone disclosed by AMD",
+      "prob_positive": 0.62,
+      "revelation_chance": 0.92,
+      "materiality": 1.0,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "MI500 2027 roadmap; TSMC H1 supply",
+      "upside_evidence": "Supply/ramp visibility and productive full-rack orders",
+      "downside_evidence": "Product readiness or yields disappoint",
+      "timing": "Roadmap year only; month not committed",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.5,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "AMD FY27 Q2 likely earnings + hyperscaler results",
+      "upside_evidence": "Revenue, GM, FCF and receivables validate shipments",
+      "downside_evidence": "Large order concentration, inventory build, receivable delays",
+      "timing": "Estimated reporting window",
+      "prob_positive": 0.62,
+      "revelation_chance": 0.92,
+      "materiality": 1.0,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Customer utilization, HBM/packaging supply, rates",
+      "upside_evidence": "Repeat customer expansions, deployment payback improving",
+      "downside_evidence": "Compute utilization and funding economics weaken",
+      "timing": "Recurring evidence window",
+      "prob_positive": 0.57,
+      "revelation_chance": 0.55,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "FY27 Q3 and full-stack customer progress",
+      "upside_evidence": "MI500/Helios 500 commercial adoption validated",
+      "downside_evidence": "Platform orders do not repeat, ASP weakness",
+      "timing": "Roadmap year only; reporting later",
+      "prob_positive": 0.58,
+      "revelation_chance": 0.5,
+      "materiality": 0.6,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "AMD FY27 Q3 likely earnings",
+      "upside_evidence": "2028 earnings upgrades supported by deliveries",
+      "downside_evidence": "Run-rate and margins miss, procurement delays",
+      "timing": "Estimated reporting window",
+      "prob_positive": 0.62,
+      "revelation_chance": 0.9,
+      "materiality": 0.95,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "FY27 annual customer spending and rack commissioning",
+      "upside_evidence": "Further orders and year-end shipment proof",
+      "downside_evidence": "Power/permit or credit contagion persists",
+      "timing": "Recurring year-end checkpoint",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.5,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Cloud FY27 capex and 2028 budgets",
+      "upside_evidence": "FY28 investment plans funded, diversifying buyers",
+      "downside_evidence": "Retrenchment in hyperscaler capex plans",
+      "timing": "Estimated reporting window",
+      "prob_positive": 0.57,
+      "revelation_chance": 0.75,
+      "materiality": 0.7,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "AMD FY27 annual results + FY28 outlook",
+      "upside_evidence": "FY27 EPS cash conversion and 2028 gross margin",
+      "downside_evidence": "Sales accounting outruns cash generation",
+      "timing": "Estimated reporting window",
+      "prob_positive": 0.62,
+      "revelation_chance": 0.92,
+      "materiality": 1.0,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "TensorWave/Fermi phased leasing completion expected early 2028",
+      "upside_evidence": "Tenant occupancy financed; AMD credit exposure contained",
+      "downside_evidence": "Construction, lease and AMD credit support under strain",
+      "timing": "Fermi SEC states delivery Q4 2027 to early 2028",
+      "prob_positive": 0.6,
+      "revelation_chance": 0.68,
+      "materiality": 0.6,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "MI600 and Zen7 2028 roadmap milestones",
+      "upside_evidence": "System throughput/economics beat competitor benchmarks",
+      "downside_evidence": "GPU/CPU/network software readiness falls short",
+      "timing": "Annual roadmap; exact timing not promised",
+      "prob_positive": 0.58,
+      "revelation_chance": 0.45,
+      "materiality": 0.7,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "AMD FY28 Q1 likely earnings",
+      "upside_evidence": "Higher EPS expectations supported by Q1 revenue/margins",
+      "downside_evidence": "Growth from purchase timing rather than installed demand",
+      "timing": "Estimated reporting window",
+      "prob_positive": 0.6,
+      "revelation_chance": 0.9,
+      "materiality": 0.85,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "H1 2028 commissioned capacity and utilization",
+      "upside_evidence": "Production workload utilization and repeat buying accelerate",
+      "downside_evidence": "Growing unsold or delayed capacity despite orders",
+      "timing": "Recurring first-half operating checkpoint",
+      "prob_positive": 0.57,
+      "revelation_chance": 0.5,
+      "materiality": 0.45,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Foundry advanced-node and packaging availability",
+      "upside_evidence": "MI600 supply and roadmap supported by TSMC/HBM chain",
+      "downside_evidence": "Packaging/HBM/yield bottlenecks constrain revenue",
+      "timing": "Recurring quarterly capacity checkpoint",
+      "prob_positive": 0.59,
+      "revelation_chance": 0.5,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "AMD FY28 Q2 likely earnings",
+      "upside_evidence": "FY29 outlook/FCF and earnings revisions rise",
+      "downside_evidence": "Margin dilution, deferred customer payments",
+      "timing": "Estimated reporting window",
+      "prob_positive": 0.62,
+      "revelation_chance": 0.92,
+      "materiality": 0.95,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "MI600/Zen7 roadmap progress, competitor platforms",
+      "upside_evidence": "Repeat full-stack demand and healthy customer economics",
+      "downside_evidence": "Nvidia/custom ASIC share pressure",
+      "timing": "Annual 2028 roadmap, no fixed launch month",
+      "prob_positive": 0.6,
+      "revelation_chance": 0.6,
+      "materiality": 0.6,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "FY29 EPS visibility and FY28 Q3 pre-report",
+      "upside_evidence": "FY29/30 estimates broaden with funded orders",
+      "downside_evidence": "Thin 2029/30 consensus or AI-capex digestion",
+      "timing": "Recurring quarterly checkpoint",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.55,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ]
 }

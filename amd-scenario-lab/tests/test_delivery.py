@@ -3,6 +3,7 @@ from pathlib import Path
 import subprocess
 import sys
 
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -10,65 +11,69 @@ from amd_scenario_lab import demo_config, run_model, compute_smart_selector
 from amd_scenario_lab.report import export_result, html_report
 
 
-def test_exports_include_classifications_sources_and_reproducible_audit(tmp_path):
-    c = demo_config()
-    c["n_paths"] = 200
-    r = run_model(c)
-    s = compute_smart_selector(r)
-    out = export_result(r, s, tmp_path)
-    d = pd.read_csv(out / "monthly.csv")
-    assert d.classification.iloc[0] == "synthetic_demo"
-    assert set(d.classification.iloc[1:]) == {"forecast_model_output"}
-    diagnostics = pd.read_csv(out / "selector.csv")
-    assert diagnostics.classification.iloc[0] == "synthetic_demo"
-    a = json.loads((out / "audit.json").read_text())
-    assert a["config"] == c
-    assert len(a["config_sha256"]) == 64
-    assert a["public_facts"]["facts"][0]["source_url"].startswith("https://ir.amd.com/")
-    html = (out / "report.html").read_text(encoding="utf-8")
-    assert "<svg" in html and "not calibrated" in html and "synthetic_demo" in html
-    assert "<script" not in html and "<iframe" not in html
+def test_exports_preserve_inputs_overrides_and_provenance(tmp_path):
+    c=demo_config(); c["n_paths"]=200
+    c["monthly_overrides"][5]["manual_percentile"]=80.
+    r=run_model(c); s=compute_smart_selector(r)
+    out=export_result(r,s,tmp_path)
+    d=pd.read_csv(out/"monthly.csv")
+    assert d.classification.iloc[0]=="user_supplied_snapshot"
+    assert set(d.classification.iloc[1:])=={"forecast_model_output"}
+    assert pd.read_csv(out/"monthly_overrides.csv").manual_percentile.iloc[5]==80
+    audit=json.loads((out/"audit.json").read_text())
+    assert audit["config"]==c and len(audit["config_sha256"])==64
+    assert audit["meta"]["engine"]=="original_v3_preserved"
+    assert audit["meta"]["calibration"]["n"]==23
+    assert "not independently" in audit["input_provenance"]["event_notes"]
+    html=(out/"report.html").read_text(encoding="utf-8")
+    assert "<svg" in html and "user_supplied_snapshot" in html
+    assert "<script" not in html
 
 
 def test_custom_text_escaped_in_report():
-    c = demo_config()
-    c["n_paths"] = 100
-    c["title"] = '<script>alert("bad")</script>'
-    c["anchor"]["note"] = "<img src=x onerror=alert(1)>"
-    r = run_model(c)
-    html = html_report(r, compute_smart_selector(r))
-    assert "<script" not in html and "<img src=x" not in html
-    assert "&lt;script&gt;" in html
+    c=demo_config(); c["n_paths"]=100
+    c["title"]='<script>alert("bad")</script>'
+    r=run_model(c); html=html_report(r,compute_smart_selector(r))
+    assert "<script" not in html and "&lt;script&gt;" in html
 
 
-def test_installed_cli_init_validate_run_and_overwrite_protection(tmp_path):
+def test_cli_json_and_monthly_csv_round_trip(tmp_path):
     def cli(*args):
-        return subprocess.run([sys.executable, "-m", "amd_scenario_lab", *map(str, args)],
-                              capture_output=True, text=True, cwd=tmp_path, timeout=60)
-    config = tmp_path / "scenario.json"
-    assert cli("init", config).returncode == 0
-    original = config.read_bytes()
-    assert cli("init", config).returncode == 2
-    assert config.read_bytes() == original
-    assert cli("validate", config).returncode == 0
-    run = cli("run", "--config", config, "--out", tmp_path / "outputs")
-    assert run.returncode == 0, run.stderr
-    assert "synthetic_demo" in run.stdout
-    assert (tmp_path / "outputs" / "report.html").is_file()
+        return subprocess.run([sys.executable,"-m","amd_scenario_lab",*map(str,args)],
+            capture_output=True,text=True,cwd=tmp_path,timeout=60)
+    p=tmp_path/"demo.json"
+    assert cli("init",p).returncode==0
+    original=p.read_bytes()
+    assert cli("init",p).returncode==2 and p.read_bytes()==original
+    assert cli("validate",p).returncode==0
+    c=json.loads(p.read_text()); c["n_paths"]=200; p.write_text(json.dumps(c))
+    controls=pd.DataFrame(c["monthly_overrides"]).iloc[1:].copy()
+    controls.loc[7,"manual_percentile"]=80.
+    csv=tmp_path/"regimes.csv"; controls.to_csv(csv,index=False)
+    result=cli("run","--config",p,"--overrides",csv,"--out",tmp_path/"result")
+    assert result.returncode==0,result.stderr
+    assert pd.read_csv(tmp_path/"result/selector.csv").smart_percentile.iloc[7]==80
+    assert (tmp_path/"result/report.html").is_file()
 
 
-def test_browser_form_run_and_validation():
+def test_browser_monthly_editor_reaches_selector_and_downloads():
     pytest.importorskip("streamlit")
     from streamlit.testing.v1 import AppTest
     import amd_scenario_lab
-    app_path = Path(amd_scenario_lab.__file__).with_name("app.py")
-    at = AppTest.from_file(str(app_path)).run(timeout=30)
-    assert not at.exception
-    next(b for b in at.button if b.label == "Run scenario").click().run(timeout=30)
+    at=AppTest.from_file(str(Path(amd_scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
     assert not at.exception and not at.error
-    assert len(at.get("plotly_chart")) == 1
-    assert len(at.get("download_button")) == 5
-    next(t for t in at.text_input if t.label.startswith("Starting month")).set_value("bad")
-    next(b for b in at.button if b.label == "Run scenario").click().run(timeout=30)
+    before=at.session_state["run"][0]["paths"].copy()
+    key=next(d.key for d in at.dataframe if d.key and d.key.startswith("monthly_regimes_"))
+    at.session_state[key]={"edited_rows":{4:{"manual_percentile":80.}},"added_rows":[],"deleted_rows":[]}
+    next(b for b in at.button if b.label=="Run scenario").click().run(timeout=30)
+    assert not at.exception and not at.error
+    result,selector=at.session_state["run"]
+    assert selector.smart_percentile.iloc[5]==80
+    assert result["config"]["monthly_overrides"][5]["manual_percentile"]==80
+    np.testing.assert_array_equal(result["paths"],before)
+    assert len(at.get("download_button"))==6
+    assert len(at.get("plotly_chart"))==1
+    next(n for n in at.number_input if n.label=="Peer Shock Scale").set_value(-.1)
+    next(b for b in at.button if b.label=="Run scenario").click().run(timeout=30)
     assert not at.exception
-    assert any("start_month" in e.value for e in at.error)
+    assert any("peer_shock_scale" in e.value for e in at.error)

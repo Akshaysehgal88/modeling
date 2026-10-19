@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "amd-scenario-lab"
-version = "1.0.0"
-description = "Public-source AMD scenario modeling with explicit forecast assumptions"
+version = "1.1.0"
+description = "Original AMD scenario modeling with monthly regime and percentile controls"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -22,7 +22,7 @@ amd-lab = "amd_scenario_lab.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-amd_scenario_lab = ["data/*.json"]
+amd_scenario_lab = ["data/*.json", "data/*.csv"]
 
 [tool.setuptools.data-files]
 "share/amd-scenario-lab/docs" = ["docs/*.md"]

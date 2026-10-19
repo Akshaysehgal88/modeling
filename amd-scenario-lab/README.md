@@ -1,156 +1,146 @@
 # AMD Scenario Lab
 
-A local research tool for exploring AMD earnings, valuation, credit conditions,
-market regimes and an adaptive percentile overlay. Start with the demo, change
-assumptions, and export a report anyone can open without Python.
+A local interface and Python package around the **original AMD v3 research
+model**: annual earnings scenarios, monthly evidence updates, paired-return
+calibration, credit dynamics, market regimes, momentum, sentiment and the adaptive
+percentile selector. The original assumptions are included in [demo.json](demo.json).
 
-**Every future earnings figure, event outcome, price and percentile is a forecast
-assumption or model output.** The model is uncalibrated. Its percentile bands are
-not market probabilities or confidence intervals, and the adaptive overlay does
-not know future conditions.
+Personal holdings, sale targets, currency conversion, tax assumptions and personal
+context are excluded. Forecast assumptions remain part of the model; they are not
+replaced by historical disclosed EPS or generic random shocks.
 
-## Quick start
+## Start the tool
 
-Install Python 3.10 or newer. From this folder:
+Install Python 3.10+. Double-click `run_windows.bat` on Windows, or run
+`bash run_mac_linux.sh` on macOS/Linux. The launchers create a local virtual
+environment and install dependencies if needed. Installation requires internet;
+the model runs locally without API keys or live data access.
+
+For an existing installation, update it after pulling changes:
+
+```bash
+python -m pip install --upgrade ".[ui]"
+amd-lab ui
+```
+
+For a fresh manual installation:
 
 ```bash
 python -m venv .venv
 ```
 
-Activate it on Windows PowerShell:
+Activate `.venv\Scripts\Activate.ps1` in Windows PowerShell or
+`source .venv/bin/activate` on macOS/Linux, then run the installation commands
+above. Open the local address shown in the terminal, normally
+[http://127.0.0.1:8501](http://127.0.0.1:8501). Stop with Ctrl+C.
 
-```powershell
-.venv\Scripts\Activate.ps1
-```
+## Monthly regime selector
 
-Or macOS/Linux:
+The browser shows a **Month-by-month market regime selector** table with one row
+for each forecast month. Choose:
 
-```bash
-source .venv/bin/activate
-```
+- **Auto:** the original conditional selector for that month's simulated conditions.
+- **Severe panic / Risk-off / Neutral / Optimistic / Euphoric:** a regime override
+  for that month's conditional selection.
+- **Percentile:** 0 uses Auto or the selected regime; 10 through 90 forces a
+  percentile. A forced percentile takes precedence over the regime choice.
+- **Notes:** optional scenario notes saved with the configuration.
 
-Then:
+Click **Run scenario** to apply changes. These controls change the magenta overlay,
+not the underlying simulated distribution. A manual regime with too few supporting
+paths produces a clear error; increase paths or choose another regime. The
+October 2026 anchor is fixed and cannot be overridden through the monthly table.
 
-```bash
-python -m pip install ".[ui]"
-amd-lab ui
-```
+Download the complete **scenario JSON** to preserve all inputs, including monthly
+choices. Download **monthly regime CSV** to edit only those choices in a spreadsheet,
+and reload it through the sidebar. CSVs can contain all 25 chart points or just
+the 24 future months. Required columns: `month`, `market_condition`,
+`manual_percentile`; `notes` is optional on import.
 
-Open the local address shown in the terminal, normally
-[http://127.0.0.1:8501](http://127.0.0.1:8501). Select assumptions and click **Run
-scenario**. The app binds to your own computer. Stop it with Ctrl+C.
+## Original assumptions included
 
-Alternatively, double-click `run_windows.bat`, or run `bash run_mac_linux.sh`.
-Those launchers create a folder-local virtual environment and install dependencies
-on first use. Installation requires internet; simulation and report export do not.
-No API key, subscription or live data connection is needed. The launcher does not
-upgrade installed packages on subsequent runs.
-
-## What the demo contains
-
-| Input | Status |
+| Component | Restored default |
 | --- | --- |
-| Historical annual GAAP and non-GAAP EPS | Public disclosed facts, with issuer URL, publication date, period and accounting basis |
-| Historical quarterly non-GAAP EPS | Public fact for context only; not annualized |
-| Starting price of $100 | **Synthetic demo value, not an AMD quote** |
-| Annual EPS growth: 0%, 15%, 30% | **Illustrative forecast assumptions, not guidance or consensus** |
-| P/E, volatility, credit, regimes, scenario weights | **Illustrative forecast assumptions; not estimated from market history** |
-| Future event schedule | Empty by default; custom events are hypothetical forecast assumptions |
-| All future chart points | **Model outputs**, including the earnings/P/E reference |
+| Price anchor | $528.75, dated 16 October 2026; original user-supplied snapshot |
+| Reference adjusted EPS, FY2026-2030 | 7.72, 16.07, 23.48, 29.19, 42.37 |
+| Slowdown EPS template | 7.72, 11.80, 15.50, 19.00, 24.00 |
+| Acceleration EPS template | 7.72, 19.30, 33.72, 48.54, 64.85 |
+| Slowdown/reference/acceleration priors | 25% / 55% / 20% |
+| Calibration | Original 23 paired monthly AMD/peer returns, November 2024-September 2026 |
+| Evidence | All original 24 monthly evidence windows, likelihoods, arrival chances and materialities |
+| Market state | Original credit, regime hazards, peer/idiosyncratic shocks, momentum and look-through dynamics |
+| Selector | Original conditional weights, bandwidths, seed and P10-P90 bounds |
+| Simulation | 6,000 paths; model seed 20261018; selector seed 20261019 |
+| Horizon | Original October 2026 anchor through October 2028 |
 
-The public fact register is frozen and reviewed on **19 October 2026**. It is a
-small teaching reference, not a complete or continuously updated financial dataset.
-The quarterly fact does not replace the annual EPS base.
+The model uses its original fixed dates and five-year EPS structure. Refreshing
+that timeline requires updating the model and data together. No live-data refresh
+is implied. All assumptions can be inspected in the JSON; settings, scenario
+curves, priors, premiums, evidence rows and monthly choices have browser controls.
+The bundled calibration CSV remains the original sample.
 
-## Use your own scenario
+Scenario EPS templates set slowdown/acceleration **ratios around the edited annual
+reference EPS**, scaled by `earnings_scenario_spread`, exactly as in the original.
+Changing a template's reference row alone does not overwrite the five reference
+EPS settings; it changes the ratio denominator.
 
-Demo JSON: [demo.json](demo.json).
+## Command-line use
 
 ```bash
 amd-lab run --config demo.json --out outputs/demo
+amd-lab init my-scenario.json
+amd-lab validate my-scenario.json
+amd-lab run --config my-scenario.json --overrides monthly_overrides.csv --out outputs/custom
 ```
 
-```bash
-amd-lab init scenario.json
-amd-lab validate scenario.json
-amd-lab run --config scenario.json --out outputs/my-scenario
-```
+`init` refuses to overwrite an existing file. `run` overwrites its five output
+filenames in the selected output folder:
 
-`init` refuses to overwrite an existing file. Edit the JSON or load it through the
-browser interface. Configuration validation rejects unknown fields, invalid
-probabilities, nonfinite numbers and incompatible dates. It does **not** certify
-that a custom URL or note is true or public.
+- `report.html`: standalone offline chart, output tables and provenance.
+- `monthly.csv`: original monthly model outputs, export aliases and adaptive overlay.
+- `selector.csv`: original selector diagnostics and export aliases.
+- `monthly_overrides.csv`: the monthly controls used in this run.
+- `audit.json`: full configuration, calibration/source metadata, runtime versions and configuration hash.
 
-For a real price anchor, choose `public_observation`, provide an HTTPS source URL
-and its actual observation date, and align `start_month` with that date's month.
-The application does not fetch or verify that quote. Otherwise keep
-`synthetic_demo` or use `user_assumption`. A midmonth observation is treated as
-the first monthly anchor; subsequent points represent the following monthly
-scenario checkpoints, an explicit timing approximation.
+Core-only use requires NumPy and pandas: `python -m pip install .` then
+`python -m amd_scenario_lab run`. HTML reports have no external script or data
+requests. Exports include custom notes; review them before sharing.
 
-Edit `annual_growth`, the three `priors` (sum to one), and `market` settings.
-The annual EPS base must be one of the disclosed annual facts in the register.
-All forward EPS figures are derived assumptions even when their starting value
-is disclosed. Keep the valuation multiple consistent with GAAP or non-GAAP EPS.
+## Read the chart
 
-Optional event example, inserted into `events`:
+Blue is the original EPS/P-E reference; green is P50 and amber is P80 of the same
+simulated price distribution. Magenta is the adaptive monthly selection inside
+the gray P10-P90 envelope. The original chart presentation is retained.
 
-```json
-{
-  "month": "2027-02",
-  "label": "Hypothetical earnings evidence checkpoint",
-  "classification": "forecast_assumption",
-  "prob_positive": 0.5,
-  "revelation_chance": 0.8,
-  "materiality": 0.7,
-  "status": "pending"
-}
-```
+In `conditioned` mode, one seeded hypothetical market history supplies monthly
+credit, regime, earnings beliefs and sentiment. The selector computes each
+month's conditional weighted median across paths with comparable conditions.
+Those monthly values need not be one coherent traded-price path. `path_rank`
+follows a sampled price path except where percentile clipping changes it.
 
-There can be at most one event per future month. `pending` simulates an unknown
-outcome. `positive` and `negative` force hypothetical outcomes for stress testing;
-`neutral` supplies no evidence. These are not claims of actual announced events
-or actual future observations. When changing the horizon, update custom event
-months too. For a publicly announced future milestone, cite its announcement in
-your working notes and still treat future completion and model probabilities as
-assumptions; this version intentionally bundles no such milestones.
+The model is stochastic but reproducible with the same inputs and dependency
+versions. Regime transitions and innovations are part of the original model,
+not newly added randomness. Percentile bands remain within-model ranks rather
+than empirically calibrated market probabilities or confidence intervals.
 
-## Command-line demo without the browser
+## Provenance and validation
 
-The core install needs only NumPy and pandas:
+The original anchor and paired-return history are retained as **user-supplied
+model inputs**. They are not relabeled as independently verified public facts.
+Event descriptions and timing notes are original **scenario assumptions**, even
+where their original wording refers to confirmed dates or disclosed milestones.
+Forward EPS values, likelihoods and market parameters are forecast assumptions.
+The separate historical issuer fact register provides background references and
+does not replace the original earnings curves.
 
-```bash
-python -m pip install .
-python -m amd_scenario_lab run --out outputs/demo
-```
+Regression checks compare all numeric columns against both original supplied CSV
+outputs. The restored defaults reproduce their monthly comparison and selector
+diagnostics. The full numerical engine is preserved; only personal finance fields
+and their proceeds/target calculations have been removed from it.
 
-Output files:
-
-- `report.html`: standalone, offline chart, tables, diagnostics and provenance.
-- `monthly.csv`: earnings/P/E reference, P10/P25/P50/P75/P80/P90 and adaptive overlay.
-- `selector.csv`: raw versus clipped ranks, market state and conditioning support.
-- `audit.json`: complete scenario, configuration hash, source register and model limitations.
-
-The report is self-contained; it makes no external script or data requests.
-Repeated runs with identical configuration and dependency versions reproduce the
-same results. `run` overwrites these four filenames in the chosen output folder.
-Exports include custom configuration text: review it before sharing.
-
-## How to read the chart
-
-- **Blue:** projected EPS mixture multiplied by an assumed P/E reference.
-- **Green:** monthly P50 across the shared simulated price distribution.
-- **Amber:** monthly P80 across that same distribution.
-- **Magenta:** an adaptive scenario overlay within P10-P90.
-- **Gray:** P10-P90 model range, not an empirical 80% confidence interval.
-
-In `conditioned` mode, one seeded hypothetical market history supplies credit,
-regime, earnings-belief and sentiment conditions. Each month then selects a
-weighted median across paths with similar conditions. This can jump between
-months and is not a coherent individual price path. `path_rank` follows one
-simulated price path, except where clipping to P10-P90 changes it. Neither mode
-is a most-likely forecast or a trade instruction. Changing the selector seed
-changes the overlay without changing the underlying price distribution.
+The configuration uses **schema version 2**. Configurations from the earlier
+simplified package are not silently reinterpreted. Start with `demo.json` or
+`amd-lab init` to use the restored original model.
 
 ## Python API
 
@@ -159,7 +149,8 @@ from amd_scenario_lab import demo_config, run_model, compute_smart_selector
 from amd_scenario_lab.report import export_result
 
 config = demo_config()
-config["seed"] = 123
+config["monthly_overrides"][5]["market_condition"] = "Risk-off"
+config["monthly_overrides"][8]["manual_percentile"] = 80.0
 result = run_model(config)
 overlay = compute_smart_selector(result)
 export_result(result, overlay, "outputs/python-demo")
@@ -173,14 +164,9 @@ python -m pytest
 python -m build
 ```
 
-CI exercises numerical invariants, event conditioning, input validation, output
-provenance, installed CLI behavior and Streamlit controls. The code uses a `src`
-layout and includes its JSON resources in wheels.
-
-Read [Methodology](docs/METHODOLOGY.md) for equations and limitations,
-[Public data policy](docs/PUBLIC_DATA_POLICY.md) for the publication boundary,
-and [Sources](docs/SOURCES.md) for the exact bundled disclosures.
-
-MIT license applies to this project's code. AMD names belong to their owners.
-Referenced issuer material remains subject to its owners' rights. This project
-is independent of AMD.
+Tests cover original-output regression, numerical invariants, monthly overrides,
+rare-regime handling, JSON/CSV round trips, browser table edits and provenance.
+See [Methodology](docs/METHODOLOGY.md), [Input policy](docs/PUBLIC_DATA_POLICY.md)
+and [Sources](docs/SOURCES.md). MIT license covers project code; issuer material
+and AMD trademarks remain subject to their owners' rights. This project is
+independent of AMD.

@@ -12,7 +12,10 @@ from .config import NOTICE, public_facts
 
 
 def output_table(result, selector):
-    table = result["monthly"].merge(selector[["month", "selected_price", "percentile"]], on="month", validate="one_to_one")
+    columns = ["month", "smart_selected_price", "smart_percentile", "market_type",
+               "selected_monthly_return_percent", "capped_to_p10_p90", "selector_source",
+               "selected_price", "percentile"]
+    table = result["monthly"].merge(selector[columns], on="month", validate="one_to_one")
     table["classification"] = "forecast_model_output"
     table.loc[0, "classification"] = result["config"]["anchor"]["classification"]
     table["anchor_classification"] = result["config"]["anchor"]["classification"]
@@ -22,34 +25,24 @@ def output_table(result, selector):
 
 def audit_record(result, selector):
     config_json = json.dumps(result["config"], sort_keys=True, allow_nan=False)
-    return {"schema_version": 1, "package_version": "1.0.0",
+    return {"schema_version": 2, "package_version": "1.1.0",
             "runtime": {"python": platform.python_version(),
                         "numpy": version("numpy"), "pandas": version("pandas")},
             "config_sha256": sha256(config_json.encode()).hexdigest(),
             "meta": result["meta"], "config": result["config"],
             "public_facts": public_facts(),
+            "month_end_touch_frequencies": result["touches"],
             "selector_path_index": int(selector.path_index.iloc[0]),
-            "methodology": "See docs/METHODOLOGY.md for equations and every fixed modeling coefficient."}
+            "input_provenance": {
+                "forecast_settings": "Original scenario assumptions, preserved",
+                "event_notes": "Original scenario narratives and timing assumptions, not independently verified announcements",
+                "calibration": result["meta"]["calibration_source"]},
+            "methodology": "See docs/METHODOLOGY.md for the preserved original equations and regression results."}
 
 
 def chart_plotly(result, selector):
-    import plotly.graph_objects as go
-
-    d = result["monthly"]
-    fig = go.Figure()
-    fig.add_scatter(x=d.month, y=d.p90, mode="lines", line={"width": 0}, showlegend=False, hoverinfo="skip")
-    fig.add_scatter(x=d.month, y=d.p10, mode="lines", line={"width": 0}, fill="tonexty",
-                    fillcolor="rgba(100,140,180,.15)", name="P10-P90 model range")
-    for key, label, color in [("earnings_reference", "Earnings x P/E reference", "#5688e5"),
-                              ("p50", "P50 model median", "#18a58a"),
-                              ("p80", "P80 model percentile", "#d69327")]:
-        fig.add_scatter(x=d.month, y=d[key], name=label, line={"color": color})
-    fig.add_scatter(x=selector.month, y=selector.selected_price, name="Adaptive scenario overlay",
-                    line={"color": "#b95ca2"}, customdata=selector[["percentile"]],
-                    hovertemplate="%{x}: $%{y:.2f}, P%{customdata[0]:.1f}<extra></extra>")
-    fig.update_layout(title="Illustrative forecast scenario", yaxis_title="USD/share (synthetic anchor in demo)",
-                      height=520, hovermode="x unified", legend={"orientation": "h"})
-    return fig
+    from ._core import chart_plotly as original_chart
+    return original_chart(result, selector=selector)
 
 
 def html_report(result, selector):
@@ -72,7 +65,7 @@ def html_report(result, selector):
     legend = " | ".join(f'<span style="color:{color}">{escape(name)}</span>' for name, _, color in series)
     sources = "".join(f'<li>{escape(f["period"])} {escape(f["basis"])} EPS ${f["value"]:.2f} - <a href="{escape(f["source_url"], quote=True)}">AMD disclosure</a></li>' for f in public_facts()["facts"])
     config = result["config"]
-    basis = result["eps_base_fact"]["basis"]
+    basis = result["earnings_basis"]
     audit = escape(json.dumps(audit_record(result, selector), indent=2, allow_nan=False))
     diagnostics = selector.copy()
     diagnostics["classification"] = "forecast_model_output"
@@ -89,7 +82,7 @@ table{{border-collapse:collapse;font-size:13px}}td,th{{border-bottom:1px solid #
 <section class="panel">{chart}<p>{legend}</p><p>Gray: P10-P90. The adaptive overlay uses hypothetical future conditions. Conditional monthly medians and percentile curves need not form one simulated trading path.</p></section>
 <section class="panel"><h2>Monthly model outputs</h2>{output_table(result, selector).round(4).to_html(index=False, escape=True)}</section>
 <section class="panel"><h2>Selector diagnostics</h2>{diagnostics.round(4).to_html(index=False, escape=True)}</section>
-<section class="panel"><h2>Public sources</h2><p>Frozen facts reviewed {public_facts()['reviewed_on']}; no live prices or news feed.</p><ul>{sources}</ul></section>
+<section class="panel"><h2>Input provenance</h2><p>The original forecast curves, event assumptions, calibration dataset and selector settings are preserved. Event descriptions and timing notes are user-supplied scenario inputs. The anchor and calibration history have not been independently verified by this package. Historical issuer EPS facts below are separate background information and do not replace the scenario curves.</p><ul>{sources}</ul></section>
 <details class="panel"><summary>Configuration and provenance</summary><pre>{audit}</pre></details></main></html>'''
 
 
@@ -104,4 +97,6 @@ def export_result(result, selector, directory):
     diagnostics.to_csv(out / "selector.csv", index=False)
     (out / "audit.json").write_text(json.dumps(audit_record(result, selector), indent=2, allow_nan=False) + "\n", encoding="utf-8")
     (out / "report.html").write_text(html_report(result, selector), encoding="utf-8")
+    import pandas as pd
+    pd.DataFrame(result["config"]["monthly_overrides"]).to_csv(out / "monthly_overrides.csv", index=False)
     return out

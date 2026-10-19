@@ -10,15 +10,16 @@ from .config import NOTICE, demo_config, load_config
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="AMD Scenario Lab - explicit forecast assumptions, public-source facts")
+    parser = argparse.ArgumentParser(description="AMD Scenario Lab - original model and monthly regime controls")
     commands = parser.add_subparsers(dest="command", required=True)
     init = commands.add_parser("init", help="Write an editable demo configuration")
     init.add_argument("path", nargs="?", default="scenario.json")
     validate = commands.add_parser("validate", help="Validate a scenario JSON file")
     validate.add_argument("config")
     run = commands.add_parser("run", help="Generate CSV, audit JSON and standalone HTML")
-    run.add_argument("--config", help="Scenario JSON; omit for the synthetic demo")
+    run.add_argument("--config", help="Scenario JSON; omit for the original demo")
     run.add_argument("--out", default="outputs/demo")
+    run.add_argument("--overrides", help="Monthly regime CSV with 24 future rows or all 25 chart points")
     ui = commands.add_parser("ui", help="Open the local browser interface (requires [ui] extra)")
     ui.add_argument("--port", type=int, default=8501)
     args = parser.parse_args(argv)
@@ -29,15 +30,22 @@ def main(argv=None):
                 f.write("\n")
             print(f"Created {Path(args.path).resolve()}. Edit forecast assumptions before running.")
         elif args.command == "validate":
-            from .engine import earnings_grid
-            c = load_config(args.config)
-            earnings_grid(c)
+            load_config(args.config)
             print("Valid scenario. Source URLs are assertions; validation does not verify custom facts.")
         elif args.command == "run":
             from .engine import run_model
             from .report import export_result
             from .selector import compute_smart_selector
-            result = run_model(load_config(args.config) if args.config else demo_config())
+            c = load_config(args.config) if args.config else demo_config()
+            if args.overrides:
+                import pandas as pd
+                rows = pd.read_csv(args.overrides).fillna("")
+                if "notes" not in rows:
+                    rows["notes"] = ""
+                if len(rows) == 24:
+                    rows = pd.concat([pd.DataFrame([c["monthly_overrides"][0]]), rows], ignore_index=True)
+                c["monthly_overrides"] = rows.to_dict("records")
+            result = run_model(c)
             selector = compute_smart_selector(result)
             directory = export_result(result, selector, args.out)
             print(NOTICE)

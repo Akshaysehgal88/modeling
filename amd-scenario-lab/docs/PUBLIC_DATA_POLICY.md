@@ -1,59 +1,58 @@
-# Public data and forecasting policy
+# Input and publication policy
 
-This package was rebuilt from an AMD research prototype using an explicit
-allowlist. Original archives, generated HTML/images/CSV outputs, local paths,
-portfolio settings, tax calculations, unverified histories, original earnings
-forecasts and unsourced customer/milestone narratives were not imported.
-
-## Publication boundary
-
-The only bundled company-specific numerical facts are in
-`src/amd_scenario_lab/data/public_facts.json`. Each has a public issuer source,
-publication date, reporting period, accounting basis and a precise table location.
-Only selected numbers are recorded; no entire source documents are redistributed.
-
-The clean demo configuration has no portfolio size, sale objective, tax rate,
-private financial plan, customer contract detail or proprietary analyst estimate.
-The market model uses synthetic Gaussian innovations rather than the prototype's
-unsourced peer-return history. No terminal or paywalled research is bundled.
+The package preserves the supplied AMD model, including its forecast assumptions,
+calibration sample, evidence windows and adaptive selector. Personal portfolio,
+proceeds, currency conversion, tax planning and personal-context material are
+excluded. The original archive and original personal reports are not distributed.
 
 ## Classifications
 
 | Classification | Meaning |
 | --- | --- |
-| `public_disclosed_fact` | Historical fact manually checked in a publicly accessible issuer disclosure |
-| `public_observation` | Custom price anchor with a user-provided public source; not independently verified by the app |
-| `synthetic_demo` | Artificial demo anchor, not an observed security price |
-| `user_assumption` | User-entered starting anchor with no verified public-fact claim |
-| `forecast_assumption` | Forward growth, event, outcome or other modeling hypothesis |
-| `forecast_model_output` / `model_output` | Derived simulated result, not a disclosed fact |
+| `public_disclosed_fact` | Historical issuer figure with a manually reviewed public source |
+| `user_supplied_snapshot` | Original scenario anchor; not independently verified by this package |
+| `user_supplied_model_input` | Original paired-return calibration series; not independently source-verified |
+| `forecast_assumption` | Earnings curve, event window, likelihood, outcome or other model hypothesis |
+| `public_observation` | Custom anchor with a user-provided HTTPS source; the application does not verify it |
+| `user_assumption` / `synthetic_demo` | Optional custom anchor classifications |
+| `forecast_model_output` / `model_output` | Simulated result, not a disclosed fact |
 
-All numeric market parameters, priors, fixed method coefficients and selector
-settings are forecast/model assumptions, even where the JSON groups those
-parameters instead of repeating the classification on every value. Dates and
-seeds are scenario controls. The UI, methodology and every exported report state
-this distinction. Only the initial chart point inherits the anchor classification.
+Settings, priors, scenario EPS templates, regime premiums and selector settings
+are model/forecast assumptions. They remain in the JSON and in the calculation.
+This labeling does not change their numerical values. The initial chart point
+inherits the anchor classification; future chart values are model outputs.
 
-Relabeling confidential information as an assumption does not make it publishable.
-Do not add nonpublic customer details, unpublished forecasts, private account
-information or restricted research to this repository. The software cannot
-determine whether arbitrary user text or numbers are confidential. Custom inputs
-and exports stay local unless the user shares or commits them.
+The historical issuer register is a separate reference dataset. It does not
+constrain or overwrite the original forward EPS assumptions. This is deliberately
+a scenario tool rather than a model restricted to already reported figures.
 
-## Updating facts
+## Event and calibration handling
 
-1. Use an original public issuer filing or earnings release.
-2. Record period, units, basis, exact source location, publication date and review date.
-3. Verify the numerical value and check whether it was restated.
-4. Keep quarterly EPS separate from annual EPS. Do not mix GAAP and non-GAAP figures.
-5. Keep guidance separate from historical facts. Publicly announced future plans
-   do not guarantee future delivery or turn assumed probabilities into facts.
-6. Review the diff and run the tests before publishing.
+The original event narratives are retained as scenario notes. Their timing text
+may refer to announced dates, milestones or customer plans; these assertions
+have not been independently verified in this package. The entire row is labeled
+as a forecast assumption. This preserves the original scenario without promoting
+its narrative into verified fact. Future outcomes and likelihoods remain assumptions.
 
-`validate` checks structure and ranges, not source authenticity. A URL is not
-proof that a claim appears on that page. No heuristic scanner can guarantee that
-future contributions contain no confidential information; manual source review
-remains required.
+`data/amd_peer_history.csv` is the original nonpersonal paired-return input.
+Its provenance is user-supplied. The November 2024-September 2026 subset is used
+for calibration exactly as in the original. The full 25-row source is retained;
+the first and final rows lie outside that calibration window. A source hash is
+included in audit exports.
 
-Local `outputs/`, `local-inputs/`, virtual environments and `.env` files are
-ignored by Git. Explicitly stage only reviewed source files.
+## Contributing and sharing
+
+Do not add nonpublic customer details, confidential information, private financial
+plans or restricted third-party research. Labeling confidential material as an
+assumption does not make it public. The existing original model assumptions are
+included at the user's direction; custom inputs still require their own review.
+
+For a new verified fact, cite an original public issuer filing or release, record
+the exact location, date, period, units and accounting basis, and check restatements.
+Keep GAAP and non-GAAP figures and annual/quarterly periods distinct. Publicly
+announced future plans are separate from successful future execution.
+
+Validation checks structure, date coverage, ranges and numerical consistency;
+it does not certify the public status or truth of arbitrary text or source URLs.
+Custom notes are included in downloads. Local `outputs/`, `local-inputs/`, `.env`
+files and virtual environments are ignored by Git. Stage only reviewed files.

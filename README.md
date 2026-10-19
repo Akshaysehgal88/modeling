@@ -2,8 +2,8 @@
 
 Transparent, reproducible financial modeling tools.
 
-- [AMD Scenario Lab](amd-scenario-lab/README.md): an offline earnings, valuation,
-  market-regime and adaptive-percentile simulator with a local browser interface.
-  Bundled company facts have public primary-source citations. All forward inputs
-  and simulated outputs are explicitly labeled as forecast assumptions or model
-  results.
+- [AMD Scenario Lab](amd-scenario-lab/README.md): the original AMD earnings,
+  evidence, credit, regime and adaptive-percentile model with a local browser
+  interface and monthly regime controls. Original nonpersonal assumptions are
+  retained; historical issuer facts, scenario inputs and model outputs have
+  distinct provenance.
