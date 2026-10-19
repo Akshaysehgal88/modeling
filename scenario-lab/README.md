@@ -36,10 +36,13 @@ binds to your own computer and needs no API key or market-data subscription.
 
 ## Select a company
 
-The **Company** control loads the selected company's demo. Earnings inputs,
-business events, monthly market choices, charts, and downloads follow the same
+The app opens on a neutral company picker, with no preset selected or simulation
+loaded. Choose from the **Company** list to open that company's demo. Earnings
+inputs, business events, monthly market choices, charts, and downloads follow the same
 workflow for every company. Each company's edits are kept separately during the
-session, so switching back restores that company's working scenario.
+session, so switching back restores that company's working scenario. Clearing
+the company selection returns to the picker without discarding saved company
+edits.
 
 For a first run, review **Starting point and earnings forecast**, optionally edit
 the **Month-by-month market regime selector**, then click **Run scenario**. The

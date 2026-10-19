@@ -193,6 +193,7 @@ def test_company_switch_keeps_amd_edits_and_cannot_leak_them():
     from streamlit.testing.v1 import AppTest
     import scenario_lab
     at = AppTest.from_file(str(Path(scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
+    next(s for s in at.selectbox if s.label == "Company").set_value("AMD").run(timeout=30)
     assert not at.exception and not at.error
     key = next(d.key for d in at.dataframe if d.key and d.key.startswith("monthly_regimes_"))
     at.session_state[key] = {"edited_rows": {4: {"manual_percentile": 80.}}, "added_rows": [], "deleted_rows": []}

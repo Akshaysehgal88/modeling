@@ -1,4 +1,4 @@
-"""Browser controls around the preserved original AMD model."""
+"""Company selection and browser controls for Scenario Lab."""
 from copy import deepcopy
 from hashlib import sha256
 import json
@@ -47,11 +47,23 @@ st.title("Scenario Lab")
 st.caption("Choose a company, review its earnings assumptions, then adjust the monthly market conditions if needed.")
 st.caption("Demos use dated inputs and editable forecast assumptions. They are not live prices or company guidance.")
 
+if st.session_state.get("selected_company") is None:
+    st.subheader("Choose a company to begin")
+
 company_column, currency_column = st.columns([2, 1])
 with company_column:
-    ids = [entry["id"] for entry in list_companies()]
-    selected_company = st.selectbox("Company", ids, key="selected_company",
+    ids = sorted(entry["id"] for entry in list_companies())
+    selected_company = st.selectbox("Company", ids, index=None, key="selected_company",
+        placeholder="Select a company...",
+        help="Choose from 20 company presets, listed by ID. Each opens its own demo and simulation workspace.",
         format_func=lambda id: f"{get_company(id)['name']} ({get_company(id)['symbol']} · {get_company(id)['currency']})")
+
+if selected_company is None:
+    st.session_state.pop("run", None)
+    st.info("Select a company to load its demo inputs, charts, and monthly market controls.")
+    st.caption("Each preset uses the same workflow with company-specific inputs and listing currency.")
+    st.stop()
+
 company = get_company(selected_company)
 native_currency = company["currency"]
 with currency_column:

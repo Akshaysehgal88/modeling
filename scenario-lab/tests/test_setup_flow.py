@@ -8,11 +8,14 @@ import pytest
 from scenario_lab import demo_config, run_model
 
 
-def app():
+def app(company="AMD"):
     pytest.importorskip("streamlit")
     from streamlit.testing.v1 import AppTest
     import scenario_lab
-    return AppTest.from_file(str(Path(scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
+    at = AppTest.from_file(str(Path(scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
+    if company is not None:
+        next(s for s in at.selectbox if s.label == "Company").set_value(company).run(timeout=30)
+    return at
 
 
 def submit(at):
@@ -28,9 +31,7 @@ def edit_table(at, prefix, rows):
 
 @pytest.mark.parametrize("company", ["AMD", "NVDA", "SNDK", "SAMSUNG", "TSMC", "ASML"])
 def test_no_edit_submission_preserves_config_and_all_simulation_arrays(company):
-    at = app()
-    if company != "AMD":
-        next(s for s in at.selectbox if s.label == "Company").set_value(company).run(timeout=30)
+    at = app(company)
     assert not at.exception and not at.error
     before = at.session_state["run"][0]
     after = submit(at)
@@ -76,3 +77,39 @@ def test_invalid_starting_weights_show_actionable_error_and_keep_last_run():
     assert not at.exception
     assert any("Starting weights must total 100%" in e.value for e in at.error)
     assert at.session_state["run"][0]["config"] == before["config"]
+
+
+def test_landing_screen_does_not_load_or_run_a_company(monkeypatch):
+    from scenario_lab import config, engine
+
+    def unexpected(*args, **kwargs):
+        pytest.fail("The landing screen must not load or simulate a company")
+
+    monkeypatch.setattr(config, "demo_config", unexpected)
+    monkeypatch.setattr(engine, "run_model", unexpected)
+    at = app(None)
+    assert not at.exception and not at.error
+    assert len(at.selectbox) == 1 and at.selectbox[0].value is None
+    assert len(at.selectbox[0].options) == 20
+    assert not at.number_input and not at.dataframe and not at.get("file_uploader")
+    assert not at.get("plotly_chart") and not at.get("download_button")
+    assert "run" not in at.session_state
+    assert "company_workspaces" not in at.session_state
+
+
+def test_returning_to_company_picker_keeps_saved_company_scenario():
+    at = app("NVDA")
+    edit_table(at, "monthly_regimes_", {4: {"manual_percentile": 80.}})
+    before = submit(at)
+    next(s for s in at.selectbox if s.label == "Company").set_value(None).run(timeout=30)
+    assert not at.exception and not at.error
+    assert at.selectbox[0].value is None
+    assert not at.get("plotly_chart") and not at.number_input
+    assert "run" not in at.session_state
+    assert at.session_state["company_workspaces"]["NVDA"]["scenario"] == before["config"]
+    next(s for s in at.selectbox if s.label == "Company").set_value("NVDA").run(timeout=30)
+    assert not at.exception and not at.error
+    after, selector = at.session_state["run"]
+    assert after["config"] == before["config"]
+    np.testing.assert_array_equal(after["paths"], before["paths"])
+    assert selector.smart_percentile.iloc[5] == 80.

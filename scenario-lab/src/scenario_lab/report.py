@@ -34,7 +34,7 @@ def output_table(result, selector):
 
 def audit_record(result, selector):
     config_json = json.dumps(result["config"], sort_keys=True, allow_nan=False)
-    return {"schema_version": 2, "package_version": "2.0.1",
+    return {"schema_version": 2, "package_version": "2.0.2",
             "runtime": {"python": platform.python_version(),
                         "numpy": version("numpy"), "pandas": version("pandas")},
             "config_sha256": sha256(config_json.encode()).hexdigest(),

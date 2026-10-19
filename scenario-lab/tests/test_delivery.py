@@ -61,6 +61,7 @@ def test_browser_monthly_editor_reaches_selector_and_downloads():
     from streamlit.testing.v1 import AppTest
     import scenario_lab
     at=AppTest.from_file(str(Path(scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
+    next(s for s in at.selectbox if s.label == "Company").set_value("AMD").run(timeout=30)
     assert not at.exception and not at.error
     before=at.session_state["run"][0]["paths"].copy()
     key=next(d.key for d in at.dataframe if d.key and d.key.startswith("monthly_regimes_"))
