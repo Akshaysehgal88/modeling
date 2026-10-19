@@ -1,14 +1,13 @@
 # Scenario Lab
 
-Run equity scenarios for 20 semiconductor and AI infrastructure companies.
-Select a company, review its earnings assumptions, and explore monthly market
-conditions using a shared simulation model. The interface includes **20 company demos**, native
-listing currencies and optional display conversion.
+Explore equity scenarios for a curated set of 20 semiconductor and AI
+infrastructure companies. Select a company, load its demo assumptions, and
+explore earnings forecasts, business events, and monthly market conditions.
 
-Choosing **AMD** loads the preserved original model, assumptions, calibration,
-monthly controls and four-line chart. Its default results still reproduce the
-original supplied outputs. Other companies load their own public quote and
-return history, EPS reference, forecast curves and evidence checklist.
+Every company uses the same simulation engine and interface, with its own
+starting price, earnings assumptions, return history, and event inputs. The tool
+includes interactive charts, native listing currencies, optional currency
+conversion, and downloadable scenarios and results.
 
 ## Start
 
@@ -37,11 +36,10 @@ binds to your own computer and needs no API key or market-data subscription.
 
 ## Select a company
 
-The **Company** control sits above the existing workflow. It loads the selected
-company's demo. The inputs, evidence editor, monthly regime selector, original
-chart layout and diagnostics follow the same flow for every company. Edits are
-kept separately within each company's session; switching back to AMD restores
-its working scenario rather than copying another company's edits into it.
+The **Company** control loads the selected company's demo. Earnings inputs,
+business events, monthly market choices, charts, and downloads follow the same
+workflow for every company. Each company's edits are kept separately during the
+session, so switching back restores that company's working scenario.
 
 For a first run, review **Starting point and earnings forecast**, optionally edit
 the **Month-by-month market regime selector**, then click **Run scenario**. The
@@ -51,7 +49,7 @@ the monthly choices in a loaded JSON.
 Enter annual base EPS once. **Alternative earnings cases and starting weights**
 shows slowdown and acceleration as percentage differences from that base. Starting
 weights must each be positive and total 100%. These percentages are only an editor
-view: saved JSON retains the original EPS templates and fractional weights.
+view: saved JSON stores EPS templates and fractional weights.
 
 Optional advanced sections group valuation, funding, price swings, market condition
 adjustments, the magenta line, and repeatability. Each numerical control explains
@@ -62,28 +60,30 @@ outcomes** affect the full simulation. Starting price sources are kept separatel
 This is a curated semiconductor and AI infrastructure focus list, not an
 objective market-cap ranking or an investment recommendation.
 
+Presets are listed alphabetically by ID.
+
 | ID | Company | Listed instrument | Native currency |
 | --- | --- | --- | --- |
+| ADI | Analog Devices | ADI | USD |
+| AMAT | Applied Materials | AMAT | USD |
 | AMD | Advanced Micro Devices | AMD | USD |
-| NVDA | NVIDIA | NVDA | USD |
+| ARM | Arm Holdings | ARM | USD |
+| ASML | ASML Holding | ASML.AS | EUR |
 | AVGO | Broadcom | AVGO | USD |
 | INTC | Intel | INTC | USD |
-| QCOM | Qualcomm | QCOM | USD |
-| MU | Micron Technology | MU | USD |
-| SNDK | SanDisk | SNDK | USD |
-| WDC | Western Digital | WDC | USD |
-| STX | Seagate Technology | STX | USD |
+| KLAC | KLA Corporation | KLAC | USD |
+| LRCX | Lam Research | LRCX | USD |
 | MRVL | Marvell Technology | MRVL | USD |
-| TSMC | Taiwan Semiconductor Manufacturing | 2330.TW | TWD |
+| MU | Micron Technology | MU | USD |
+| NVDA | NVIDIA | NVDA | USD |
+| NXPI | NXP Semiconductors | NXPI | USD |
+| QCOM | Qualcomm | QCOM | USD |
 | SAMSUNG | Samsung Electronics | 005930.KS | KRW |
 | SKHYNIX | SK hynix | 000660.KS | KRW |
-| ASML | ASML Holding | ASML.AS | EUR |
-| AMAT | Applied Materials | AMAT | USD |
-| LRCX | Lam Research | LRCX | USD |
-| KLAC | KLA Corporation | KLAC | USD |
-| ARM | Arm Holdings | ARM | USD |
-| ADI | Analog Devices | ADI | USD |
-| NXPI | NXP Semiconductors | NXPI | USD |
+| SNDK | SanDisk | SNDK | USD |
+| STX | Seagate Technology | STX | USD |
+| TSMC | Taiwan Semiconductor Manufacturing | 2330.TW | TWD |
+| WDC | Western Digital | WDC | USD |
 
 Samsung and SK hynix use their Korean **ordinary shares in KRW**. TSMC uses
 **2330.TW ordinary shares in TWD**, rather than mixing an ADR price with ordinary
@@ -106,36 +106,29 @@ native currency, display currency and rate. Scenario JSON remains in native unit
 
 ## Demos and assumptions
 
-Each company has a loadable file in [demos/](demos/), such as
-[AMD](demos/AMD.json), [NVIDIA](demos/NVDA.json), [SanDisk](demos/SNDK.json),
-[Samsung](demos/SAMSUNG.json) and [SK hynix](demos/SKHYNIX.json).
-`demo.json` remains the original AMD preset for compatibility.
+Each company has a loadable JSON file in [demos/](demos/), named by its preset ID.
+Choose a company in the app to load its demo automatically, or load that file
+when you want to start from a saved set of assumptions.
 
-For the 19 new presets:
+Each demo keeps historical references separate from forecasts:
 
-- Historical EPS comes from a cited issuer release or original filing, retaining
-  its annual period, accounting basis and listed-share units.
-- The anchor is the selected instrument's public **16 October 2026** close.
-- Calibration uses its own split/dividend-adjusted monthly returns and an explicit
-  five-company peer basket. No AMD return series is substituted.
-- Year-specific reference/slowdown/acceleration earnings, P/E, priors and event
-  probabilities are **authored demo assumptions**, not analyst consensus or
-  company guidance. They are inspectable and editable.
-- Evidence checkpoints describe company-specific business drivers; their future
-  dates and outcomes are hypothetical.
+- Starting prices and return histories have a recorded date and source basis.
+- Historical EPS references retain their reporting period, accounting basis,
+  currency, and listed-share units.
+- Base, slowdown, and acceleration earnings forecasts, P/E assumptions, starting
+  case weights, and event probabilities are editable model assumptions.
+- Business-event dates and outcomes describe hypothetical scenarios to explore.
 
-Most presets have 23 paired monthly observations through September 2026. SanDisk
-has 19 complete pairs in the public feed; the shorter history is kept explicitly,
-with no filled or borrowed returns. KLA's EPS base reflects its 2026 ten-for-one
-split. Samsung's EPS base is consolidated diluted **ordinary-share** EPS, not its
-standalone-company or preference-share figure. ASML's EPS reference is explicitly
-basic; Intel uses its disclosed non-GAAP EPS rather than turning a GAAP loss into
-a positive reported result.
+Public issuer references, provider observations, and supplied model inputs are
+identified separately. Their exact coverage and any preset-specific exceptions
+are documented in [Company inputs and sources](docs/COMPANY_DATA.md) and
+[Sources and input records](docs/SOURCES.md). Forecast assumptions are authored
+demos rather than analyst consensus or company guidance.
 
-Issuer fiscal calendars differ. Each profile records its fiscal-year convention;
-the unchanged core uses its original calendar-month interpolation of annual EPS.
-That approximation remains a modeling assumption. The simulation grid stays
-October 2026 through October 2028, preserving the original AMD flow.
+The bundled market snapshot is dated **16 October 2026**, with calibration
+observations through September 2026. History lengths vary by company. Each
+profile records its fiscal-year convention; the model blends annual EPS by
+calendar month. The shared chart period runs from October 2026 to October 2028.
 
 ## Monthly regime selector
 
@@ -157,17 +150,16 @@ are `month`, `market_condition`, `manual_percentile`; `notes` is optional on imp
 
 ## Read the chart
 
-The original layout and colors remain: blue EPS/P-E reference, green integrated
-P50, amber P80, magenta adaptive selection and a gray P10-P90 range. All quantiles
-come from the same simulated price distribution.
+The chart shows a blue earnings reference, green median (P50), amber 80th
+percentile (P80), magenta monthly selection, and a gray P10–P90 range. All
+percentiles come from the same simulated price distribution.
 
 **Match similar market conditions** (`conditioned` in JSON) selects monthly
 weighted medians around one hypothetical market history. Those monthly prices
 need not form one coherent trading path.
 **Follow one simulated price path** (`path_rank` in JSON) follows one simulated
 price path except where the percentile limits change it.
-The model remains seeded and reproducible, with no added smoothing or calendar
-turning points. Percentile bands are model ranks, not calibrated probabilities.
+The model uses random seeds for reproducible results. Percentile bands are model ranks, not calibrated probabilities.
 
 ## Command line
 
@@ -181,10 +173,9 @@ scenario-lab run --config my-nvidia.json --overrides monthly_overrides.csv --out
 ```
 
 `--fx-rate` can override the display conversion. `init` refuses to overwrite a file.
-A company flag and supplied JSON must agree; the tool rejects mismatches instead
-of silently falling back to AMD. Use the `scenario-lab` command and
-`scenario_lab` Python imports. The former AMD folder, command, and module name
-have been retired; everything is contained in this `scenario-lab` folder.
+A company flag and supplied JSON must refer to the same company; mismatches are
+rejected. Use the `scenario-lab` command and `scenario_lab` Python imports.
+Everything needed to run the tool is contained in this `scenario-lab` folder.
 
 The five output files are `report.html`, `monthly.csv`, `selector.csv`,
 `monthly_overrides.csv` and `audit.json`. Reports work offline. Audit records

@@ -1,74 +1,63 @@
-# Scenario Lab input and publication policy
+# Input and publication policy
 
-The package preserves the supplied AMD model, including its forecast assumptions,
-calibration sample, evidence windows and adaptive selector. Personal portfolio, proceeds, personal currency/tax planning and personal-context
-material are excluded. Generic instrument-currency presentation is supported. The original archive and original personal reports are not distributed.
+Scenario Lab separates disclosed historical figures, dated market observations,
+editable forecast assumptions, and simulated results. Each company preset uses
+the same classification rules. Source records and preset-specific exceptions
+are documented in [Sources and input records](SOURCES.md) and
+[Company inputs and sources](COMPANY_DATA.md).
 
 ## Classifications
 
 | Classification | Meaning |
 | --- | --- |
-| `public_disclosed_fact` | Historical issuer figure with a manually reviewed public source |
-| `user_supplied_snapshot` | Original scenario anchor; not independently verified by this package |
-| `user_supplied_model_input` | Original paired-return calibration series; not independently source-verified |
-| `forecast_assumption` | Earnings curve, event window, likelihood, outcome or other model hypothesis |
-| `public_observation` | Custom anchor with a user-provided HTTPS source; the application does not verify it |
-| `user_assumption` / `synthetic_demo` | Optional custom anchor classifications |
+| `public_disclosed_fact` | Historical issuer figure with a reviewed public source |
+| `public_market_data` | Provider-sourced price, return, or exchange-rate observation |
+| `public_observation` | Dated starting price with an HTTPS source; custom entries are not independently verified |
+| `user_supplied_snapshot` | Supplied starting price, not independently source-verified by the package |
+| `user_supplied_model_input` | Supplied calibration series, not independently source-verified by the package |
+| `forecast_assumption` | Earnings curve, event window, likelihood, outcome, or other model assumption |
+| `user_assumption` / `synthetic_demo` | Optional starting-price classifications for hypothetical scenarios |
 | `forecast_model_output` / `model_output` | Simulated result, not a disclosed fact |
 
-Settings, priors, scenario EPS templates, regime premiums and selector settings
-are model/forecast assumptions. They remain in the JSON and in the calculation.
-This labeling does not change their numerical values. The initial chart point
-inherits the anchor classification; future chart values are model outputs.
+Earnings cases, starting weights, valuation multiples, market-condition price
+adjustments, and selector settings are model assumptions. Historical issuer
+figures provide a separate reference; they do not overwrite forward earnings
+forecasts. The starting chart point inherits the starting-price classification.
+Future chart values are model outputs.
 
-The historical issuer register is a separate reference dataset. It does not
-constrain or overwrite the original forward EPS assumptions. This is deliberately
-a scenario tool rather than a model restricted to already reported figures.
+## Events and historical returns
 
-## Event and calibration handling
+Business-event descriptions, timing, likelihoods, and outcomes are scenario
+assumptions. A note referring to a date or milestone does not independently
+verify the announcement or its future outcome.
 
-The original event narratives are retained as scenario notes. Their timing text
-may refer to announced dates, milestones or customer plans; these assertions
-have not been independently verified in this package. The entire row is labeled
-as a forecast assumption. This preserves the original scenario without promoting
-its narrative into verified fact. Future outcomes and likelihoods remain assumptions.
+Each calibration dataset has a defined date window and source basis. The
+selected company must match its dataset and peer basket. Audit exports include
+a dataset hash. Supplied histories and provider-sourced observations remain
+explicitly distinguished in the source records.
 
-`data/amd_peer_history.csv` is the original nonpersonal paired-return input.
-Its provenance is user-supplied. The November 2024-September 2026 subset is used
-for calibration exactly as in the original. The full 25-row source is retained;
-the first and final rows lie outside that calibration window. A source hash is
-included in audit exports.
+## Listing units and currency
+
+Each profile identifies its company, exchange, currency, and listed share or
+ADS unit. Price and EPS must refer to the same unit. Saved scenario inputs stay
+in their native currency; optional display conversion is recorded separately.
+Provider observations are not issuer forecasts. Future curves and event outcomes
+remain assumptions even when their historical references are public.
 
 ## Contributing and sharing
 
-Do not add nonpublic customer details, confidential information, private financial
-plans or restricted third-party research. Labeling confidential material as an
-assumption does not make it public. The existing original model assumptions are
-included at the user's direction; custom inputs still require their own review.
+Include only public information and shareable model assumptions. Do not add
+nonpublic customer details, confidential material, private financial plans, or
+restricted third-party research. Calling confidential information an assumption
+does not make it public. Personal holdings, tax plans, sale targets, and private
+reports are outside the distributed package.
 
-For a new verified fact, cite an original public issuer filing or release, record
-the exact location, date, period, units and accounting basis, and check restatements.
-Keep GAAP and non-GAAP figures and annual/quarterly periods distinct. Publicly
-announced future plans are separate from successful future execution.
+For a verified fact, cite the public issuer filing or release and record its
+location, date, reporting period, units, and accounting basis. Check restatements.
+Keep GAAP and non-GAAP figures and annual and quarterly periods distinct.
+Announced plans and successful future execution are separate claims.
 
-Validation checks structure, date coverage, ranges and numerical consistency;
-it does not certify the public status or truth of arbitrary text or source URLs.
-Custom notes are included in downloads. Local `outputs/`, `local-inputs/`, `.env`
-files and virtual environments are ignored by Git. Stage only reviewed files.
-
-
-## Additional company presets
-
-Nineteen additional company profiles use public issuer EPS references and dated
-public market observations, with explicit company-specific forecast assumptions.
-They are not copies of the original AMD earnings, quote, history or event rows.
-The classification `public_market_data` denotes provider-sourced quote/return/FX
-observations; `public_observation` identifies a dated anchor. Provider data is not
-an issuer forecast. `forecast_assumption` continues to identify authored future
-curves, outcomes and likelihoods.
-
-Each profile binds company, exchange, currency and share/ADS unit. Price and EPS
-must refer to the same listed unit. Native inputs remain native in saved scenarios;
-optional display conversion is recorded separately. Source URLs, disclosure basis,
-retrieval dates, dataset hashes and version metadata remain inspectable. No
-nonpublic data or personal finance information has been introduced.
+Validation checks structure, dates, ranges, and numerical consistency. It does
+not certify the truth or public status of arbitrary notes or source URLs.
+Custom notes appear in downloads. Local `outputs/`, `local-inputs/`, `.env` files,
+and virtual environments are ignored by Git. Stage only reviewed files.

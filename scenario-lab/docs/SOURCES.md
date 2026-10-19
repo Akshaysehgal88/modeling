@@ -1,30 +1,52 @@
-# Original AMD sources and input provenance
+# Sources and input records
 
-For all additional company presets, see [Company data and sources](COMPANY_DATA.md).
+Each company preset separates historical references from editable forecast
+assumptions. Source records identify the issuer or provider, reporting period,
+listing units, accounting basis, observation dates, and calibration window.
 
-## Original model inputs
+## Find a company's inputs
 
-The packaged calibration CSV and demo configuration preserve the supplied AMD v3
-research model's inputs. These are identified as user-supplied model inputs and
-forecast assumptions; they are not independently verified public disclosures.
+- [Company inputs, units, and sources](COMPANY_DATA.md) lists the 20 presets,
+  issuer references, listing conventions, and data limitations.
+- [Company demo files](../demos/) contain loadable scenarios named by preset ID.
+- `src/scenario_lab/data/companies/` contains the company profiles, return
+  samples, instrument catalog, and exchange-rate snapshot.
+- `definitions.json` in that directory records the disclosed EPS bases and
+  authored forecast assumptions used to prepare the provider-sourced profiles.
+- Each run's `audit.json` records its inputs, source metadata, dataset hash,
+  currency conversion, and runtime versions.
 
-- `data/amd_peer_history.csv`: original 25-row history; the model calibrates on
-  23 paired monthly AMD/peer returns from November 2024 through September 2026.
-- `demo.json`: original anchor, annual EPS settings, three scenario templates,
-  priors, regime premiums, credit/market parameters, all 24 evidence rows,
-  selector configuration and monthly override controls.
-- `tests/fixtures/original_monthly.csv` and `original_selector.csv`: nonpersonal
-  numerical reference outputs used for regression checks. They are model outputs,
+Issuer disclosures provide historical facts. Provider price, return, and
+exchange-rate observations have a separate source basis. Future earnings,
+valuation assumptions, event likelihoods, and event outcomes are scenarios,
+not disclosed results or analyst consensus. The tool has no live data feed.
+
+## Preset-specific source notes
+
+### AMD: supplied scenario and calibration
+
+This preset uses supplied forecast assumptions and a supplied return sample.
+Those inputs are not independently verified public disclosures. Its historical
+issuer EPS register is a separate background reference and does not replace its
+forward earnings assumptions.
+
+- `src/scenario_lab/data/amd_peer_history.csv`: 25 recorded rows, of which
+  23 paired asset/peer returns from November 2024 through September 2026 are
+  used for calibration. The first and final rows are outside that window.
+- `demo.json` and `demos/AMD.json`: the same supplied starting price, annual
+  EPS settings, three earnings cases, starting weights, market and funding
+  parameters, 24 business-event rows, and monthly selection controls.
+- `tests/fixtures/original_monthly.csv` and `original_selector.csv`: numerical
+  reference outputs used for regression checks. They are simulated results,
   not evidence that future prices or scenarios occurred.
 
-Original event timing narratives are retained as assumptions. Wording about
-confirmed dates or milestones has not been independently checked. No personal
-holdings, sale targets, tax settings or personal reports are included.
+Event narratives and timing assertions remain forecast assumptions, including
+references to dates or milestones that have not been independently checked.
 
-## Separate public fact register
+### AMD: historical issuer references
 
 Reviewed on **19 October 2026**. These historical EPS values are background
-references and do not overwrite the model's forward adjusted-EPS assumptions.
+references and do not overwrite this preset's forward adjusted-EPS assumptions.
 
 | Fact | Value | Publication | Location |
 | --- | --- | --- | --- |
@@ -41,6 +63,7 @@ Results](https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-s
 quarter ended 27 June 2026. This figure is not annualized or substituted into
 forward scenarios.
 
-Machine-readable public citations remain in `data/public_facts.json`. Audit
-exports include both that register and the distinct original-input provenance.
+Machine-readable background citations are stored in
+`src/scenario_lab/data/public_facts.json`. Audit exports include the relevant
+reference register and input-source records.
 There is no live quote, news or financial-data feed.

@@ -1,39 +1,37 @@
-# Shared methodology and preserved AMD core
+# Simulation methodology
 
-The model is the supplied AMD v3 numerical engine. Packaging adapters expose its
-inputs and add provenance/export fields; they do not replace the equations or
-random sampling. The original personal-finance settings and proceeds/target
-calculations are removed. The original selector and chart routines are retained.
+Scenario Lab uses one shared engine for all 20 company presets. A selected
+company supplies its own starting price, earnings cases, historical returns,
+business-event assumptions, and listing currency. The engine combines these
+inputs with funding conditions, market mood, and price variation to produce a
+monthly distribution of scenarios.
 
-## Default reproduction
-
-The default scenario includes the original 6,000 paths, model seed 20261018,
-selector seed 20261019, $528.75 anchor, 24 evidence rows, forward EPS assumptions
-and paired-return dataset. Tests compare every numeric column of the original
-monthly comparison and selector CSVs against restored results. The default
-selected conditioning path remains index 2053. Original rounding is retained.
+The monthly selector chooses values from that distribution for the magenta
+line. It does not change the simulated paths. Currency conversion applies only
+to the displayed and exported amounts.
 
 ## Paired-return calibration
 
-Filter the original history to November 2024-September 2026 (23 observations).
-Convert peer and AMD simple returns to logarithms using `log1p`. Estimate:
+Use the selected company's paired asset and peer returns over its recorded
+calibration window. Convert simple returns to logarithms using `log1p`. Estimate:
 
 ```
-beta = sample_covariance(peer_log_return, AMD_log_return) / sample_variance(peer_log_return)
-residual = AMD_log_return - (mean(AMD_log_return) - beta * mean(peer_log_return))
+beta = sample_covariance(peer_log_return, asset_log_return) / sample_variance(peer_log_return)
+residual = asset_log_return - (mean(asset_log_return) - beta * mean(peer_log_return))
            - beta * peer_log_return
 ```
 
 Demean peer returns and residuals. Each simulation month bootstraps from those
 two arrays, scaled separately by `peer_shock_scale` and `idio_shock_scale`.
-The original data are user-supplied model inputs, not independently verified
-market observations in this package. No synthetic Gaussian process is substituted
-for these return draws. Credit innovations remain Gaussian as in the original.
+Each dataset records its source basis and observation count. Supplied model
+inputs are distinguished from provider-sourced observations. Return draws use
+the recorded samples; funding-stress innovations use Gaussian noise. See
+[Company inputs and sources](COMPANY_DATA.md) for data coverage and exceptions.
 
 ## Earnings scenarios and reference
 
 For each year, the reference EPS is the editable FY2026-FY2030 setting. Scenario
-templates preserve the original relative slowdown/acceleration distances:
+templates define the relative slowdown/acceleration differences:
 
 ```
 scenario_EPS(year) = edited_reference_EPS(year) *
@@ -48,15 +46,15 @@ anchors the reference to the starting price. P/E exponentially normalizes to
 `stabilized_forward_pe` over `pe_normalization_months`. This is an assumed
 valuation reference, not disclosed forward earnings, fair value or consensus.
 
-Initial priors are 25% slowdown, 55% reference and 20% acceleration. For pathwise
+Starting case weights come from the selected preset and are editable. For pathwise
 pricing, farther-ahead look-through equals the starting weight plus 0.068 times
 positive regime change plus 0.10 times the change in acceleration belief, clipped
 to [0.03, 0.62]. The reference uses unchanged initial weights. These coefficients
-are the original modeling assumptions.
+are shared modeling assumptions.
 
 ## Evidence and credit
 
-For each month's original event row, relevance is materiality times evidence
+For each month's event row, relevance is materiality times evidence
 strength. Likelihood separation is discrimination times `min(relevance, 1.6)`,
 clipped to [0, 0.35]. Positive-evidence likelihoods are the row's base probability
 minus that separation, unchanged, and plus that separation, clipped to
@@ -68,14 +66,14 @@ outcomes condition every path and resample the latent case from the updated
 posterior for subsequent evidence. Neutral means no evidence. Bayes' rule updates
 scenario weights; remaining in a bearish regime alone does not downgrade EPS.
 
-Credit stress follows its original mean-reverting process, plus Gaussian noise
+Credit stress follows a mean-reverting process, plus Gaussian noise
 and evidence news of -0.11 for positive or +0.12 for negative evidence times
-`min(relevance, 1.5)`. Credit is clipped to [0, 2]. Original event descriptions,
+`min(relevance, 1.5)`. Credit is clipped to [0, 2]. Event descriptions,
 including timing assertions, are scenario inputs, not independently verified facts.
 
 ## Regime hazards, sentiment and feedback
 
-The switching signal is the original combination:
+The switching signal combines:
 
 ```
 2.2 * change_in_acceleration_belief
@@ -92,15 +90,15 @@ are `regime * signal * 1.5 - 0.7 * distance - 0.12 * abs(regime)`, excluding
 the current regime. Softmax exponent differences are clipped to [-40, 0].
 
 Return innovation is `beta * peer_shock + idiosyncratic_shock`, amplified by 1.22
-in extreme regimes. Sentiment persistence and bounded momentum feedback are
-unchanged. Feedback uses optimism/pessimism strengths (0.65 in neutral),
+in extreme regimes. Sentiment persistence and bounded momentum feedback carry
+price effects between months. Feedback uses optimism/pessimism strengths (0.65 in neutral),
 `tanh(momentum * 3) * 0.06`, scaled by `momentum_feedback`. Sentiment uses
 `1.25 * tanh(residual / 1.25)` saturation. Updated momentum is
 `clip(0.65 * old_momentum + 0.35 * log_return, -0.5, 0.5)`.
 
 Price equals the reference times the exponential of posterior-EPS, regime,
-credit-change and sentiment effects, clipped jointly to [-2.4, 2.4]. The original
-regime log premiums are [-0.18, -0.09, 0, 0.10, 0.24]. Regime and credit effects
+credit-change and sentiment effects, clipped jointly to [-2.4, 2.4]. Regime log
+premiums come from the selected scenario configuration. Regime and credit effects
 are measured relative to the common starting state. An unchanged bearish state
 does not impose a new bearish discount every month.
 
@@ -109,12 +107,12 @@ does not impose a new bearish discount every month.
 One selector seed chooses a hypothetical market/evidence path. In `conditioned`
 mode, weight prices with the same contemporaneous regime by credit distance
 (bandwidth 0.40), acceleration-belief distance (0.23), and sentiment distance
-(0.38), with the original condition and psyche strengths. Weight penalties are
+(0.38), scaled by the configured matching strengths. Weight penalties are
 `0.5 * condition_strength * (credit_distance + belief_distance + psyche_strength * sentiment_distance)`,
 clipped to [0, 50] before exponentiation.
 
-Automatic rare regimes with fewer than 12 matching paths soften regime matching
-using `exp(-1.8 * regime_distance)`. Explicitly requested regimes with too few
+Automatic rare regimes with fewer than the configured minimum number of paths
+(12 by default) soften regime matching using `exp(-1.8 * regime_distance)`. Explicitly requested regimes with too few
 paths raise an error. Effective support is `sum(weights)^2 / sum(weights^2)`;
 it is a simulation diagnostic, not empirical confidence.
 
@@ -132,42 +130,42 @@ JSON and CSV exports preserve the exact controls used.
 
 ## Interpretation and limitations
 
-The original model remains stochastic. Its randomness is seeded and reproducible;
-there is no added postprocessing to make the curve look sharper or to force
-calendar turning points. The restoration preserves model behavior rather than
-optimizing the appearance of results.
+Randomness is seeded and reproducible. The model does not add smoothing or
+assign market turning points to particular calendar months.
 
-The 23-month sample does not reliably estimate tails or credit crises. Priors,
-likelihoods, hazards, future EPS, credit dynamics and feedback strengths are
-hypotheses rather than fitted market probabilities. Quantile bands are
-within-model ranks, not calibrated confidence intervals. Conditional monthly
-medians need not be a coherent price path. Neither a manually selected regime
-nor a future event outcome is known in advance.
+The short calibration samples do not reliably estimate tails or credit crises.
+Starting case weights, evidence likelihoods, regime transitions, future EPS,
+funding dynamics, and feedback strengths are assumptions rather than fitted
+market probabilities. Percentile bands are within-model ranks, not calibrated
+confidence intervals. Conditional monthly medians need not form one continuous
+simulated price path. Manually selected conditions and future event outcomes
+are what-if assumptions.
 
-The date grid is intentionally the original October 2026-October 2028 snapshot.
-Rebasing it requires updating the earnings and data together. The tool has no live
-market-data feed, full three-statement financial model or personal tax/portfolio
-planning module. Reproduction assumes consistent dependency versions and
-floating-point behavior; audit exports record Python, NumPy and pandas versions.
+The shared date grid runs from October 2026 to October 2028. Rebasing requires
+updating earnings and market data together. There is no live market-data feed.
+Reproduction assumes consistent dependency versions and floating-point behavior;
+audit exports record Python, NumPy, and pandas versions.
 
+## Company inputs and currency
 
-## Company-selection adapter (version 2.0)
+Each preset supplies instrument metadata, annual EPS curves, starting
+conditions, event assumptions, native-unit price levels, and a calibrated
+return sample to the shared engine. Selecting a company does not change the
+formulas, random-draw sequence, or monthly selection rules.
 
-Company selection supplies instrument metadata, annual EPS curves, initial
-conditions, event assumptions, native-unit price levels and a calibrated return
-sample to the same engine. The original formulas, random draw order, regime
-hazards, credit innovations, momentum, belief updates and selector weights are
-unchanged. The AMD schema-2 preset still takes the original history/default path;
-new schema-3 presets inject their own calibrated sample without global mutation.
+The loader checks complete monthly coverage and uses the same covariance-beta
+and residual formulas across companies. Input bounds accommodate each listing's
+price and EPS scale. Values remain in the native currency during simulation.
+Display conversion leaves returns, P/E ratios, case weights, percentile choices,
+and random draws unchanged.
 
-The generic loader uses the identical log-return covariance-beta and residual
-formula, with a strict complete-month data contract. Won-denominated prices and
-EPS require larger input validation bounds; they do not require currency scaling
-inside the model. The anchor numerical check uses a scale-aware tolerance.
+Company workspaces isolate edits and restore each company's saved session when
+switching back. See [Company inputs and sources](COMPANY_DATA.md) for listing,
+fiscal-calendar, price-adjustment, and EPS-basis conventions.
 
-The original AMD chart is compared directly with the wrapped chart in tests,
-and both original output fixtures remain regression checks. Company workspaces
-isolate edits and restore a previous AMD session when switching back. Display FX
-is an external presentation adapter and never changes any simulation inputs or
-random draws. See COMPANY_DATA.md for exact listing, fiscal-calendar, adjustment
-and EPS-basis conventions.
+## Numerical regression checks
+
+Tests compare the baseline monthly results and selector outputs with the
+bundled reference fixtures. Separate checks cover company-specific inputs,
+currency presentation, and monthly controls. These checks verify consistency
+of calculations; they do not validate the forecasts as market predictions.
