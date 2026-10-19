@@ -1,0 +1,54 @@
+{
+  "reviewed_on": "2026-10-19",
+  "scope": "Selected historical EPS disclosures; a frozen reference, not a live feed or a complete financial dataset.",
+  "facts": [
+    {
+      "id": "amd_fy2025_nongaap_eps",
+      "company": "Advanced Micro Devices, Inc.",
+      "metric": "diluted_eps",
+      "value": 4.17,
+      "unit": "USD/share",
+      "basis": "non-GAAP",
+      "period": "FY2025",
+      "period_type": "annual",
+      "period_end": "2025-12-27",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1276/amd-reports-fourth-quarter-and-full-year-2025-financial-results",
+      "published_on": "2026-02-03",
+      "source_location": "Annual Financial Results; Diluted earnings per share, 2025 non-GAAP column",
+      "note": "Company-defined non-GAAP measure; see issuer reconciliation. Historical, not a forward EPS estimate."
+    },
+    {
+      "id": "amd_fy2025_gaap_eps",
+      "company": "Advanced Micro Devices, Inc.",
+      "metric": "diluted_eps",
+      "value": 2.65,
+      "unit": "USD/share",
+      "basis": "GAAP",
+      "period": "FY2025",
+      "period_type": "annual",
+      "period_end": "2025-12-27",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1276/amd-reports-fourth-quarter-and-full-year-2025-financial-results",
+      "published_on": "2026-02-03",
+      "source_location": "Annual Financial Results; Diluted earnings per share, 2025 GAAP column",
+      "note": "Historical GAAP EPS. Use a valuation multiple consistent with the selected earnings basis."
+    },
+    {
+      "id": "amd_q22026_nongaap_eps",
+      "company": "Advanced Micro Devices, Inc.",
+      "metric": "diluted_eps",
+      "value": 1.66,
+      "unit": "USD/share",
+      "basis": "non-GAAP",
+      "period": "Q2 2026",
+      "period_type": "quarterly",
+      "period_end": "2026-06-27",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results",
+      "published_on": "2026-08-04",
+      "source_location": "Non-GAAP Quarterly Financial Results; Diluted earnings per share, Q2'26 column",
+      "note": "Context only. Quarterly EPS is not annualized or mixed into the annual earnings base."
+    }
+  ]
+}
