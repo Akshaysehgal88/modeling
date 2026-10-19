@@ -42,6 +42,22 @@ chart layout and diagnostics follow the same flow for every company. Edits are
 kept separately within each company's session; switching back to AMD restores
 its working scenario rather than copying another company's edits into it.
 
+For a first run, review **Starting point and earnings forecast**, optionally edit
+the **Month-by-month market regime selector**, then click **Run scenario**. The
+company demo is already loaded. File uploads are optional; a monthly CSV replaces
+the monthly choices in a loaded JSON.
+
+Enter annual base EPS once. **Alternative earnings cases and starting weights**
+shows slowdown and acceleration as percentage differences from that base. Starting
+weights must each be positive and total 100%. These percentages are only an editor
+view: saved JSON retains the original EPS templates and fractional weights.
+
+Optional advanced sections group valuation, funding, price swings, market condition
+adjustments, the magenta line, and repeatability. Each numerical control explains
+its purpose and scale. **Starting market condition** affects the full simulation;
+monthly market choices affect only the magenta line. **Monthly business events and
+outcomes** affect the full simulation. Starting price sources are kept separately.
+
 This is a curated semiconductor and AI infrastructure focus list, not an
 objective market-cap ranking or an investment recommendation.
 
@@ -124,7 +140,9 @@ October 2026 through October 2028, preserving the original AMD flow.
 
 For each forecast month choose **Auto**, Severe panic, Risk-off, Neutral,
 Optimistic or Euphoric. Set a percentile from **10 to 90** to override selection;
-**0** uses Auto or the selected regime. A forced percentile takes precedence.
+**a blank cell** uses Auto or the selected regime in the app. CSV/JSON still use
+**0** for this choice. An entered percentile takes precedence over the condition
+and must lie within the magenta line's limits (10–90 by default).
 Click **Run scenario** to apply edits.
 
 Monthly choices alter only the magenta overlay. They never rewrite the underlying
@@ -142,9 +160,11 @@ The original layout and colors remain: blue EPS/P-E reference, green integrated
 P50, amber P80, magenta adaptive selection and a gray P10-P90 range. All quantiles
 come from the same simulated price distribution.
 
-`conditioned` selects monthly weighted medians around one hypothetical market
-history. Those monthly prices need not form one coherent trading path.
-`path_rank` follows one simulated price path except where clipping changes it.
+**Match similar market conditions** (`conditioned` in JSON) selects monthly
+weighted medians around one hypothetical market history. Those monthly prices
+need not form one coherent trading path.
+**Follow one simulated price path** (`path_rank` in JSON) follows one simulated
+price path except where the percentile limits change it.
 The model remains seeded and reproducible, with no added smoothing or calendar
 turning points. Percentile bands are model ranks, not calibrated probabilities.
 

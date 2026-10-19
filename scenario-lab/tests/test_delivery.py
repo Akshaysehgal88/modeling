@@ -73,7 +73,7 @@ def test_browser_monthly_editor_reaches_selector_and_downloads():
     np.testing.assert_array_equal(result["paths"],before)
     assert len(at.get("download_button"))==6
     assert len(at.get("plotly_chart"))==1
-    next(n for n in at.number_input if n.label=="Peer Shock Scale").set_value(-.1)
+    next(n for n in at.number_input if n.label=="Peer-market price swing multiplier").set_value(-.1)
     next(b for b in at.button if b.label=="Run scenario").click().run(timeout=30)
     assert not at.exception
-    assert any("peer_shock_scale" in e.value for e in at.error)
+    assert any("Peer-market price swing multiplier" in e.value for e in at.error)
