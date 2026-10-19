@@ -1,2 +1,2 @@
-include run_windows.bat run_mac_linux.sh
+include demo.json run_windows.bat run_mac_linux.sh
 recursive-include docs *.md

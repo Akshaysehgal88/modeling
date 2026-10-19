@@ -64,6 +64,12 @@ The quarterly fact does not replace the annual EPS base.
 
 ## Use your own scenario
 
+Demo JSON: [demo.json](demo.json).
+
+```bash
+amd-lab run --config demo.json --out outputs/demo
+```
+
 ```bash
 amd-lab init scenario.json
 amd-lab validate scenario.json
