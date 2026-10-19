@@ -7,7 +7,7 @@ import pandas as pd
 
 def load_company_history(config):
     source = config["calibration"]
-    path = files("amd_scenario_lab").joinpath("data/" + source["dataset"])
+    path = files("scenario_lab").joinpath("data/" + source["dataset"])
     with path.open("r", encoding="utf-8") as f:
         frame = pd.read_csv(f, dtype={"month": str})
     if set(frame) != {"month", "asset_return", "peer_return"}:

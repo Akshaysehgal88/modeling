@@ -6,7 +6,7 @@ import json
 
 
 def read_data(name):
-    return json.loads(files("amd_scenario_lab").joinpath("data/" + name).read_text(encoding="utf-8"))
+    return json.loads(files("scenario_lab").joinpath("data/" + name).read_text(encoding="utf-8"))
 
 
 @lru_cache(maxsize=1)

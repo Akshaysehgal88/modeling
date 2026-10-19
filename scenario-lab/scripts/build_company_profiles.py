@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "src/amd_scenario_lab/data"
+DATA = ROOT / "src/scenario_lab/data"
 COMPANIES = DATA / "companies"
 CACHE = ROOT / "outputs/market-cache"
 AS_OF = "2026-10-16"

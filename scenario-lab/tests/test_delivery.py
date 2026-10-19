@@ -7,8 +7,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from amd_scenario_lab import demo_config, run_model, compute_smart_selector
-from amd_scenario_lab.report import export_result, html_report
+from scenario_lab import demo_config, run_model, compute_smart_selector
+from scenario_lab.report import export_result, html_report
 
 
 def test_exports_preserve_inputs_overrides_and_provenance(tmp_path):
@@ -39,7 +39,7 @@ def test_custom_text_escaped_in_report():
 
 def test_cli_json_and_monthly_csv_round_trip(tmp_path):
     def cli(*args):
-        return subprocess.run([sys.executable,"-m","amd_scenario_lab",*map(str,args)],
+        return subprocess.run([sys.executable,"-m","scenario_lab",*map(str,args)],
             capture_output=True,text=True,cwd=tmp_path,timeout=60)
     p=tmp_path/"demo.json"
     assert cli("init",p).returncode==0
@@ -59,8 +59,8 @@ def test_cli_json_and_monthly_csv_round_trip(tmp_path):
 def test_browser_monthly_editor_reaches_selector_and_downloads():
     pytest.importorskip("streamlit")
     from streamlit.testing.v1 import AppTest
-    import amd_scenario_lab
-    at=AppTest.from_file(str(Path(amd_scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
+    import scenario_lab
+    at=AppTest.from_file(str(Path(scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
     assert not at.exception and not at.error
     before=at.session_state["run"][0]["paths"].copy()
     key=next(d.key for d in at.dataframe if d.key and d.key.startswith("monthly_regimes_"))

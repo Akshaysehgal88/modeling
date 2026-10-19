@@ -5,14 +5,14 @@ import math
 import numpy as np
 import pytest
 
-from amd_scenario_lab import demo_config, run_model
+from scenario_lab import demo_config, run_model
 
 
 def app():
     pytest.importorskip("streamlit")
     from streamlit.testing.v1 import AppTest
-    import amd_scenario_lab
-    return AppTest.from_file(str(Path(amd_scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
+    import scenario_lab
+    return AppTest.from_file(str(Path(scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
 
 
 def submit(at):

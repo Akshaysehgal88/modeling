@@ -1,11 +1,12 @@
-"""Scenario Lab public API; the original AMD API remains compatible."""
-from importlib import import_module
-import sys
+"""Scenario Lab: company-specific equity simulations and monthly market controls."""
 
-from amd_scenario_lab import *
-from amd_scenario_lab import __version__
-from amd_scenario_lab.catalog import list_companies, get_company, company_info
-from amd_scenario_lab.currency import for_display
+from .config import demo_config, load_config, validate_config
+from .engine import run_model
+from .selector import SelectorConfig, compute_smart_selector, blank_overrides
 
-for _module in ("config", "engine", "selector", "report", "catalog", "currency", "market_data", "cli"):
-    sys.modules[f"{__name__}.{_module}"] = import_module(f"amd_scenario_lab.{_module}")
+__version__ = "2.0.1"
+__all__ = ["demo_config", "load_config", "validate_config", "run_model",
+           "SelectorConfig", "compute_smart_selector", "blank_overrides", "list_companies", "get_company", "company_info", "for_display"]
+
+from .catalog import list_companies, get_company, company_info
+from .currency import for_display

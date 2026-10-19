@@ -20,7 +20,7 @@ NOTICE = ("Forecast assumptions and model outputs, not calibrated market probabi
 
 def public_facts(config=None):
     if config is None:
-        return json.loads(files("amd_scenario_lab").joinpath("data/public_facts.json").read_text(encoding="utf-8"))
+        return json.loads(files("scenario_lab").joinpath("data/public_facts.json").read_text(encoding="utf-8"))
     from .catalog import company_facts
     return company_facts(config)
 

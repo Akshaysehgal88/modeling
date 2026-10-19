@@ -5,8 +5,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from amd_scenario_lab import demo_config, run_model, compute_smart_selector, SelectorConfig
-from amd_scenario_lab.report import output_table
+from scenario_lab import demo_config, run_model, compute_smart_selector, SelectorConfig
+from scenario_lab.report import output_table
 
 
 @pytest.fixture

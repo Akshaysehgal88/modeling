@@ -1,9 +1,9 @@
 # Modeling
 
-Transparent, reproducible financial modeling tools.
+Tools for company-level financial modeling and scenario analysis.
 
-- [Scenario Lab](scenario-lab/README.md): select from 20 semiconductor and AI
-  infrastructure companies, load company-specific demos, and run the shared
-  earnings, evidence, credit and market-regime model. Includes native currencies,
-  optional display FX and monthly regime controls. AMD retains its original
-  model and supplied nonpersonal assumptions.
+- [Scenario Lab](scenario-lab/README.md): an equity simulation tool covering 20
+  semiconductor and AI infrastructure companies. Select a company, load its demo
+  assumptions, and explore earnings forecasts and monthly market conditions.
+  Includes company-specific data, native currencies, optional currency conversion,
+  and interactive charts.

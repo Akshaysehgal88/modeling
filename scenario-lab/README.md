@@ -1,7 +1,8 @@
 # Scenario Lab
 
-Select a company and run the same earnings, evidence, credit, market-regime and
-adaptive-percentile model. The interface includes **20 company demos**, native
+Run equity scenarios for 20 semiconductor and AI infrastructure companies.
+Select a company, review its earnings assumptions, and explore monthly market
+conditions using a shared simulation model. The interface includes **20 company demos**, native
 listing currencies and optional display conversion.
 
 Choosing **AMD** loads the preserved original model, assumptions, calibration,
@@ -181,8 +182,9 @@ scenario-lab run --config my-nvidia.json --overrides monthly_overrides.csv --out
 
 `--fx-rate` can override the display conversion. `init` refuses to overwrite a file.
 A company flag and supplied JSON must agree; the tool rejects mismatches instead
-of silently falling back to AMD. The legacy `amd-lab` command and
-`amd_scenario_lab` Python imports still work.
+of silently falling back to AMD. Use the `scenario-lab` command and
+`scenario_lab` Python imports. The former AMD folder, command, and module name
+have been retired; everything is contained in this `scenario-lab` folder.
 
 The five output files are `report.html`, `monthly.csv`, `selector.csv`,
 `monthly_overrides.csv` and `audit.json`. Reports work offline. Audit records

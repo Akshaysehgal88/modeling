@@ -28,7 +28,7 @@ def run_model(config):
     result["sentiment"] = result["sentiment_log_residual"]
     result["config"] = c
     result["earnings_basis"] = (company["eps_basis"] + " scenario assumptions") if multi else "Adjusted EPS forecast assumptions (original year-by-year curves)"
-    calibration_bytes = files("amd_scenario_lab").joinpath("data/" + c["calibration"]["dataset"]).read_bytes()
+    calibration_bytes = files("scenario_lab").joinpath("data/" + c["calibration"]["dataset"]).read_bytes()
     result["meta"].update(classification="model_output", notice=NOTICE,
                          engine="original_v3_preserved", anchor_classification=c["anchor"]["classification"],
                          anchor_as_of=c["anchor"]["as_of"], facts_reviewed_on=public_facts(c)["reviewed_on"],

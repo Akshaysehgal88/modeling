@@ -7,12 +7,12 @@ import math
 import pandas as pd
 import streamlit as st
 
-from amd_scenario_lab.config import NOTICE, demo_config, public_facts, validate_config
-from amd_scenario_lab.engine import run_model
-from amd_scenario_lab.report import audit_record, chart_plotly, html_report, output_table
-from amd_scenario_lab.selector import compute_smart_selector, MARKET_OPTIONS
-from amd_scenario_lab.catalog import list_companies, get_company, company_info
-from amd_scenario_lab.currency import SYMBOLS, fx_snapshot, reference_rate, for_display
+from scenario_lab.config import NOTICE, demo_config, public_facts, validate_config
+from scenario_lab.engine import run_model
+from scenario_lab.report import audit_record, chart_plotly, html_report, output_table
+from scenario_lab.selector import compute_smart_selector, MARKET_OPTIONS
+from scenario_lab.catalog import list_companies, get_company, company_info
+from scenario_lab.currency import SYMBOLS, fx_snapshot, reference_rate, for_display
 
 
 def input_error(exc):

@@ -12,7 +12,7 @@ from scenario_lab.catalog import company_info, get_company
 from scenario_lab.config import validate_config
 from scenario_lab.currency import for_display, reference_rate
 from scenario_lab.report import audit_record, chart_plotly, html_report, output_table
-from amd_scenario_lab import _core
+from scenario_lab import _core
 
 IDS = [c["id"] for c in list_companies()]
 
@@ -134,7 +134,7 @@ def test_company_history_rejects_bad_calibration_pairs(tmp_path, monkeypatch, pr
     from scenario_lab import market_data
     from importlib.resources import files
     c = demo_config("NVDA")
-    with files("amd_scenario_lab").joinpath("data/" + c["calibration"]["dataset"]).open("r") as f:
+    with files("scenario_lab").joinpath("data/" + c["calibration"]["dataset"]).open("r") as f:
         frame = pd.read_csv(f)
     if problem == "duplicate":
         frame.loc[1, "month"] = frame.loc[0, "month"]
@@ -153,8 +153,8 @@ def test_company_history_rejects_bad_calibration_pairs(tmp_path, monkeypatch, pr
 
 
 def test_unicode_labels_are_not_mojibake():
-    import amd_scenario_lab
-    package = Path(amd_scenario_lab.__file__).parent
+    import scenario_lab
+    package = Path(scenario_lab.__file__).parent
     for name in ("app.py", "report.py", "currency.py"):
         content = (package / name).read_text(encoding="utf-8")
         assert "\u00c3\u201a" not in content and "\u00f0\u0178" not in content
@@ -191,8 +191,8 @@ def test_company_cli_and_currency_exports(tmp_path):
 def test_company_switch_keeps_amd_edits_and_cannot_leak_them():
     pytest.importorskip("streamlit")
     from streamlit.testing.v1 import AppTest
-    import amd_scenario_lab
-    at = AppTest.from_file(str(Path(amd_scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
+    import scenario_lab
+    at = AppTest.from_file(str(Path(scenario_lab.__file__).with_name("app.py"))).run(timeout=30)
     assert not at.exception and not at.error
     key = next(d.key for d in at.dataframe if d.key and d.key.startswith("monthly_regimes_"))
     at.session_state[key] = {"edited_rows": {4: {"manual_percentile": 80.}}, "added_rows": [], "deleted_rows": []}

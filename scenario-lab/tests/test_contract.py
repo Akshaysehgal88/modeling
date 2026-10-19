@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from amd_scenario_lab.config import demo_config, load_config, public_facts, validate_config
-from amd_scenario_lab._core import Settings
+from scenario_lab.config import demo_config, load_config, public_facts, validate_config
+from scenario_lab._core import Settings
 
 
 @pytest.mark.parametrize("path,value", [
@@ -73,7 +73,7 @@ def test_provenance_and_packaged_data_allowlist():
     assert c["anchor"]["classification"]=="user_supplied_snapshot"
     assert c["calibration"]["classification"]=="user_supplied_model_input"
     assert all(e["classification"]=="forecast_assumption" for e in c["events"])
-    data=Path(__file__).parents[1]/"src/amd_scenario_lab/data"
+    data=Path(__file__).parents[1]/"src/scenario_lab/data"
     assert {p.name for p in data.iterdir() if p.is_file()}=={"demo.json","public_facts.json","amd_peer_history.csv"}
     standalone=Path(__file__).parents[1]/"demo.json"
     assert json.loads(standalone.read_text())==c
