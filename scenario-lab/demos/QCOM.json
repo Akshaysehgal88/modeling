@@ -1,0 +1,632 @@
+{
+  "schema_version": 3,
+  "title": "Qualcomm demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 172.11000061035156,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/QCOM?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 12.5112,
+    "eps27": 13.5121,
+    "eps28": 14.8633,
+    "eps29": 16.201,
+    "eps30": 17.4971,
+    "stabilized_forward_pe": 17,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.35,
+    "initial_regime": 0,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.26249999999999996,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 12.5112,
+      "2027": 13.5121,
+      "2028": 14.8633,
+      "2029": 16.201,
+      "2030": 17.4971
+    },
+    "slowdown": {
+      "2026": 10.827,
+      "2027": 10.2856,
+      "2028": 10.3885,
+      "2029": 10.7002,
+      "2030": 11.0212
+    },
+    "acceleration": {
+      "2026": 13.7142,
+      "2027": 16.1828,
+      "2028": 19.4193,
+      "2029": 22.5264,
+      "2030": 25.4548
+    }
+  },
+  "priors": [
+    0.25,
+    0.5,
+    0.25
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/QCOM.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "Qualcomm: earnings and outlook checkpoint; premium handset chipset mix",
+      "upside_evidence": "Improvement in premium handset chipset mix versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in premium handset chipset mix versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "Qualcomm: operating checkpoint; automotive and connected-device demand",
+      "upside_evidence": "Improvement in automotive and connected-device demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in automotive and connected-device demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Qualcomm: operating checkpoint; licensing renewals and customer insourcing",
+      "upside_evidence": "Improvement in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "Qualcomm: earnings and outlook checkpoint; premium handset chipset mix",
+      "upside_evidence": "Improvement in premium handset chipset mix versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in premium handset chipset mix versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "Qualcomm: operating checkpoint; automotive and connected-device demand",
+      "upside_evidence": "Improvement in automotive and connected-device demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in automotive and connected-device demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "Qualcomm: operating checkpoint; licensing renewals and customer insourcing",
+      "upside_evidence": "Improvement in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "Qualcomm: earnings and outlook checkpoint; premium handset chipset mix",
+      "upside_evidence": "Improvement in premium handset chipset mix versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in premium handset chipset mix versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Qualcomm: operating checkpoint; automotive and connected-device demand",
+      "upside_evidence": "Improvement in automotive and connected-device demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in automotive and connected-device demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "Qualcomm: operating checkpoint; licensing renewals and customer insourcing",
+      "upside_evidence": "Improvement in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "Qualcomm: earnings and outlook checkpoint; premium handset chipset mix",
+      "upside_evidence": "Improvement in premium handset chipset mix versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in premium handset chipset mix versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Qualcomm: operating checkpoint; automotive and connected-device demand",
+      "upside_evidence": "Improvement in automotive and connected-device demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in automotive and connected-device demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "Qualcomm: operating checkpoint; licensing renewals and customer insourcing",
+      "upside_evidence": "Improvement in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "Qualcomm: earnings and outlook checkpoint; premium handset chipset mix",
+      "upside_evidence": "Improvement in premium handset chipset mix versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in premium handset chipset mix versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "Qualcomm: operating checkpoint; automotive and connected-device demand",
+      "upside_evidence": "Improvement in automotive and connected-device demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in automotive and connected-device demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Qualcomm: operating checkpoint; licensing renewals and customer insourcing",
+      "upside_evidence": "Improvement in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "Qualcomm: earnings and outlook checkpoint; premium handset chipset mix",
+      "upside_evidence": "Improvement in premium handset chipset mix versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in premium handset chipset mix versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "Qualcomm: operating checkpoint; automotive and connected-device demand",
+      "upside_evidence": "Improvement in automotive and connected-device demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in automotive and connected-device demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "Qualcomm: operating checkpoint; licensing renewals and customer insourcing",
+      "upside_evidence": "Improvement in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "Qualcomm: earnings and outlook checkpoint; premium handset chipset mix",
+      "upside_evidence": "Improvement in premium handset chipset mix versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in premium handset chipset mix versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "Qualcomm: operating checkpoint; automotive and connected-device demand",
+      "upside_evidence": "Improvement in automotive and connected-device demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in automotive and connected-device demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Qualcomm: operating checkpoint; licensing renewals and customer insourcing",
+      "upside_evidence": "Improvement in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "Qualcomm: earnings and outlook checkpoint; premium handset chipset mix",
+      "upside_evidence": "Improvement in premium handset chipset mix versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in premium handset chipset mix versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "Qualcomm: operating checkpoint; automotive and connected-device demand",
+      "upside_evidence": "Improvement in automotive and connected-device demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in automotive and connected-device demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "Qualcomm: operating checkpoint; licensing renewals and customer insourcing",
+      "upside_evidence": "Improvement in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in licensing renewals and customer insourcing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "QCOM",
+    "name": "Qualcomm",
+    "symbol": "QCOM",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "unit": "common_share",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "Last Sunday of September",
+    "eps_basis": "non-GAAP diluted"
+  },
+  "price_levels": [
+    137.688,
+    172.11,
+    206.532,
+    258.165,
+    344.22
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 12.03,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://www.qualcomm.com/news/releases/2025/11/qualcomm-announces-fourth-quarter-and-fiscal-2025-results",
+      "published_on": "2025-11-05",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 12.03
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/QCOM?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "USD",
+      "unit": "common_share"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/QCOM?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "NXPI",
+        "ADI",
+        "AVGO",
+        "ARM",
+        "INTC"
+      ],
+      "peer_urls": {
+        "NXPI": "https://query1.finance.yahoo.com/v8/finance/chart/NXPI?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "ADI": "https://query1.finance.yahoo.com/v8/finance/chart/ADI?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "AVGO": "https://query1.finance.yahoo.com/v8/finance/chart/AVGO?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "ARM": "https://query1.finance.yahoo.com/v8/finance/chart/ARM?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "INTC": "https://query1.finance.yahoo.com/v8/finance/chart/INTC?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        0.04,
+        0.08,
+        0.1,
+        0.09,
+        0.08
+      ],
+      "slowdown": [
+        -0.1,
+        -0.05,
+        0.01,
+        0.03,
+        0.03
+      ],
+      "acceleration": [
+        0.14,
+        0.18,
+        0.2,
+        0.16,
+        0.13
+      ]
+    },
+    "drivers": [
+      "premium handset chipset mix",
+      "automotive and connected-device demand",
+      "licensing renewals and customer insourcing"
+    ],
+    "earnings_basis": "non-GAAP diluted",
+    "fiscal_year_end": "Last Sunday of September",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}

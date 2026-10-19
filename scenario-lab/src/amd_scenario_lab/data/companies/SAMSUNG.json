@@ -1,0 +1,632 @@
+{
+  "schema_version": 3,
+  "title": "Samsung Electronics demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 215500.0,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/005930.KS?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 19809.0,
+    "eps27": 22186.08,
+    "eps28": 20411.1936,
+    "eps29": 22044.0891,
+    "eps30": 23807.6162,
+    "stabilized_forward_pe": 15,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.55,
+    "initial_regime": 0,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.41250000000000003,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 19809.0,
+      "2027": 22186.08,
+      "2028": 20411.1936,
+      "2029": 22044.0891,
+      "2030": 23807.6162
+    },
+    "slowdown": {
+      "2026": 10234.65,
+      "2027": 7164.255,
+      "2028": 5731.404,
+      "2029": 5903.3461,
+      "2030": 6139.48
+    },
+    "acceleration": {
+      "2026": 26412.0,
+      "2027": 35656.2,
+      "2028": 41004.63,
+      "2029": 47565.3708,
+      "2030": 53273.2153
+    }
+  },
+  "priors": [
+    0.35,
+    0.45,
+    0.2
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/SAMSUNG.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "Samsung Electronics: operating checkpoint; memory pricing and high-bandwidth memory qualification",
+      "upside_evidence": "Improvement in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "Samsung Electronics: operating checkpoint; foundry yield progress and utilization",
+      "upside_evidence": "Improvement in foundry yield progress and utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yield progress and utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Samsung Electronics: earnings and outlook checkpoint; handset mix and capital allocation",
+      "upside_evidence": "Improvement in handset mix and capital allocation versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in handset mix and capital allocation versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "Samsung Electronics: operating checkpoint; memory pricing and high-bandwidth memory qualification",
+      "upside_evidence": "Improvement in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "Samsung Electronics: operating checkpoint; foundry yield progress and utilization",
+      "upside_evidence": "Improvement in foundry yield progress and utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yield progress and utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "Samsung Electronics: earnings and outlook checkpoint; handset mix and capital allocation",
+      "upside_evidence": "Improvement in handset mix and capital allocation versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in handset mix and capital allocation versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "Samsung Electronics: operating checkpoint; memory pricing and high-bandwidth memory qualification",
+      "upside_evidence": "Improvement in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Samsung Electronics: operating checkpoint; foundry yield progress and utilization",
+      "upside_evidence": "Improvement in foundry yield progress and utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yield progress and utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "Samsung Electronics: earnings and outlook checkpoint; handset mix and capital allocation",
+      "upside_evidence": "Improvement in handset mix and capital allocation versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in handset mix and capital allocation versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "Samsung Electronics: operating checkpoint; memory pricing and high-bandwidth memory qualification",
+      "upside_evidence": "Improvement in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Samsung Electronics: operating checkpoint; foundry yield progress and utilization",
+      "upside_evidence": "Improvement in foundry yield progress and utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yield progress and utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "Samsung Electronics: earnings and outlook checkpoint; handset mix and capital allocation",
+      "upside_evidence": "Improvement in handset mix and capital allocation versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in handset mix and capital allocation versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "Samsung Electronics: operating checkpoint; memory pricing and high-bandwidth memory qualification",
+      "upside_evidence": "Improvement in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "Samsung Electronics: operating checkpoint; foundry yield progress and utilization",
+      "upside_evidence": "Improvement in foundry yield progress and utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yield progress and utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Samsung Electronics: earnings and outlook checkpoint; handset mix and capital allocation",
+      "upside_evidence": "Improvement in handset mix and capital allocation versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in handset mix and capital allocation versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "Samsung Electronics: operating checkpoint; memory pricing and high-bandwidth memory qualification",
+      "upside_evidence": "Improvement in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "Samsung Electronics: operating checkpoint; foundry yield progress and utilization",
+      "upside_evidence": "Improvement in foundry yield progress and utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yield progress and utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "Samsung Electronics: earnings and outlook checkpoint; handset mix and capital allocation",
+      "upside_evidence": "Improvement in handset mix and capital allocation versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in handset mix and capital allocation versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "Samsung Electronics: operating checkpoint; memory pricing and high-bandwidth memory qualification",
+      "upside_evidence": "Improvement in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "Samsung Electronics: operating checkpoint; foundry yield progress and utilization",
+      "upside_evidence": "Improvement in foundry yield progress and utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yield progress and utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Samsung Electronics: earnings and outlook checkpoint; handset mix and capital allocation",
+      "upside_evidence": "Improvement in handset mix and capital allocation versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in handset mix and capital allocation versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "Samsung Electronics: operating checkpoint; memory pricing and high-bandwidth memory qualification",
+      "upside_evidence": "Improvement in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory pricing and high-bandwidth memory qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "Samsung Electronics: operating checkpoint; foundry yield progress and utilization",
+      "upside_evidence": "Improvement in foundry yield progress and utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yield progress and utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "Samsung Electronics: earnings and outlook checkpoint; handset mix and capital allocation",
+      "upside_evidence": "Improvement in handset mix and capital allocation versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in handset mix and capital allocation versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "SAMSUNG",
+    "name": "Samsung Electronics",
+    "symbol": "005930.KS",
+    "exchange": "KRX",
+    "currency": "KRW",
+    "unit": "ordinary_share",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "12-31",
+    "eps_basis": "K-IFRS consolidated diluted ordinary"
+  },
+  "price_levels": [
+    172400.0,
+    215500.0,
+    258600.0,
+    323250.0,
+    431000.0
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 6603.0,
+      "year": 2025,
+      "currency": "KRW",
+      "basis": "K-IFRS consolidated diluted ordinary",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://images.samsung.com/is/content/samsung/assets/global/ir/docs/2025_con_quarter04_all.pdf",
+      "published_on": null,
+      "reviewed_on": "2026-10-19",
+      "source_location": "Consolidated financial statements, Note 26(A)(2), PDF page 75; ordinary-share diluted EPS (not standalone or preference shares)",
+      "unit": "KRW per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 6603.0
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/005930.KS?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "KRW",
+      "unit": "ordinary_share"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/005930.KS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "SKHYNIX",
+        "MU",
+        "TSMC",
+        "QCOM",
+        "INTC"
+      ],
+      "peer_urls": {
+        "SKHYNIX": "https://query1.finance.yahoo.com/v8/finance/chart/000660.KS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "MU": "https://query1.finance.yahoo.com/v8/finance/chart/MU?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "TSMC": "https://query1.finance.yahoo.com/v8/finance/chart/2330.TW?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "QCOM": "https://query1.finance.yahoo.com/v8/finance/chart/QCOM?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "INTC": "https://query1.finance.yahoo.com/v8/finance/chart/INTC?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        2.0,
+        0.12,
+        -0.08,
+        0.08,
+        0.08
+      ],
+      "slowdown": [
+        0.55,
+        -0.3,
+        -0.2,
+        0.03,
+        0.04
+      ],
+      "acceleration": [
+        3.0,
+        0.35,
+        0.15,
+        0.16,
+        0.12
+      ]
+    },
+    "drivers": [
+      "memory pricing and high-bandwidth memory qualification",
+      "foundry yield progress and utilization",
+      "handset mix and capital allocation"
+    ],
+    "earnings_basis": "K-IFRS consolidated diluted ordinary",
+    "fiscal_year_end": "12-31",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}

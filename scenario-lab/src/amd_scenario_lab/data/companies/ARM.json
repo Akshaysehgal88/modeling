@@ -1,0 +1,629 @@
+{
+  "schema_version": 3,
+  "title": "Arm Holdings demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 227.8000030517578,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ARM?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 1.77,
+    "eps27": 2.301,
+    "eps28": 2.9453,
+    "eps29": 3.6227,
+    "eps30": 4.2748,
+    "stabilized_forward_pe": 45,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.5,
+    "initial_regime": 0,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.375,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 1.77,
+      "2027": 2.301,
+      "2028": 2.9453,
+      "2029": 3.6227,
+      "2030": 4.2748
+    },
+    "slowdown": {
+      "2026": 1.77,
+      "2027": 1.8762,
+      "2028": 1.9512,
+      "2029": 2.0293,
+      "2030": 2.1308
+    },
+    "acceleration": {
+      "2026": 1.77,
+      "2027": 2.832,
+      "2028": 4.1064,
+      "2029": 5.5436,
+      "2030": 7.0959
+    }
+  },
+  "priors": [
+    0.25,
+    0.5,
+    0.25
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/ARM.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "Arm Holdings: earnings and outlook checkpoint; architecture royalty mix and compute subsystem adoption",
+      "upside_evidence": "Improvement in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "Arm Holdings: operating checkpoint; data-center CPU licensing and royalty conversion",
+      "upside_evidence": "Improvement in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Arm Holdings: operating checkpoint; customer chip shipment volumes and design concentration",
+      "upside_evidence": "Improvement in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "Arm Holdings: earnings and outlook checkpoint; architecture royalty mix and compute subsystem adoption",
+      "upside_evidence": "Improvement in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "Arm Holdings: operating checkpoint; data-center CPU licensing and royalty conversion",
+      "upside_evidence": "Improvement in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "Arm Holdings: operating checkpoint; customer chip shipment volumes and design concentration",
+      "upside_evidence": "Improvement in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "Arm Holdings: earnings and outlook checkpoint; architecture royalty mix and compute subsystem adoption",
+      "upside_evidence": "Improvement in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Arm Holdings: operating checkpoint; data-center CPU licensing and royalty conversion",
+      "upside_evidence": "Improvement in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "Arm Holdings: operating checkpoint; customer chip shipment volumes and design concentration",
+      "upside_evidence": "Improvement in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "Arm Holdings: earnings and outlook checkpoint; architecture royalty mix and compute subsystem adoption",
+      "upside_evidence": "Improvement in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Arm Holdings: operating checkpoint; data-center CPU licensing and royalty conversion",
+      "upside_evidence": "Improvement in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "Arm Holdings: operating checkpoint; customer chip shipment volumes and design concentration",
+      "upside_evidence": "Improvement in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "Arm Holdings: earnings and outlook checkpoint; architecture royalty mix and compute subsystem adoption",
+      "upside_evidence": "Improvement in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "Arm Holdings: operating checkpoint; data-center CPU licensing and royalty conversion",
+      "upside_evidence": "Improvement in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Arm Holdings: operating checkpoint; customer chip shipment volumes and design concentration",
+      "upside_evidence": "Improvement in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "Arm Holdings: earnings and outlook checkpoint; architecture royalty mix and compute subsystem adoption",
+      "upside_evidence": "Improvement in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "Arm Holdings: operating checkpoint; data-center CPU licensing and royalty conversion",
+      "upside_evidence": "Improvement in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "Arm Holdings: operating checkpoint; customer chip shipment volumes and design concentration",
+      "upside_evidence": "Improvement in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "Arm Holdings: earnings and outlook checkpoint; architecture royalty mix and compute subsystem adoption",
+      "upside_evidence": "Improvement in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "Arm Holdings: operating checkpoint; data-center CPU licensing and royalty conversion",
+      "upside_evidence": "Improvement in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Arm Holdings: operating checkpoint; customer chip shipment volumes and design concentration",
+      "upside_evidence": "Improvement in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "Arm Holdings: earnings and outlook checkpoint; architecture royalty mix and compute subsystem adoption",
+      "upside_evidence": "Improvement in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in architecture royalty mix and compute subsystem adoption versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "Arm Holdings: operating checkpoint; data-center CPU licensing and royalty conversion",
+      "upside_evidence": "Improvement in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in data-center CPU licensing and royalty conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "Arm Holdings: operating checkpoint; customer chip shipment volumes and design concentration",
+      "upside_evidence": "Improvement in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer chip shipment volumes and design concentration versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "ARM",
+    "name": "Arm Holdings",
+    "symbol": "ARM",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "unit": "ADS",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "03-31",
+    "eps_basis": "non-GAAP diluted per ordinary share / ADS"
+  },
+  "price_levels": [
+    182.24,
+    227.8,
+    273.36,
+    341.7,
+    455.6
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 1.77,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted per ordinary share / ADS",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.arm.com/static-files/344cbcfe-e28b-48ab-b272-c856e0756a91",
+      "published_on": "2026-05-06",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 1.77
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/ARM?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "USD",
+      "unit": "ADS"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/ARM?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "QCOM",
+        "NVDA",
+        "AMD",
+        "NXPI",
+        "AVGO"
+      ],
+      "peer_urls": {
+        "QCOM": "https://query1.finance.yahoo.com/v8/finance/chart/QCOM?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "NVDA": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "AMD": "https://query1.finance.yahoo.com/v8/finance/chart/AMD?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "NXPI": "https://query1.finance.yahoo.com/v8/finance/chart/NXPI?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "AVGO": "https://query1.finance.yahoo.com/v8/finance/chart/AVGO?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        0.3,
+        0.28,
+        0.23,
+        0.18
+      ],
+      "slowdown": [
+        0.06,
+        0.04,
+        0.04,
+        0.05
+      ],
+      "acceleration": [
+        0.6,
+        0.45,
+        0.35,
+        0.28
+      ]
+    },
+    "drivers": [
+      "architecture royalty mix and compute subsystem adoption",
+      "data-center CPU licensing and royalty conversion",
+      "customer chip shipment volumes and design concentration"
+    ],
+    "earnings_basis": "non-GAAP diluted per ordinary share / ADS",
+    "fiscal_year_end": "03-31",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}

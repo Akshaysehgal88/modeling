@@ -1,0 +1,1097 @@
+{
+  "NVDA": {
+    "eps_base": {
+      "value": 4.77,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+      "published_on": "2026-02-25",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.55,
+        0.28,
+        0.22,
+        0.15
+      ],
+      "slowdown": [
+        0.15,
+        0.05,
+        -0.05,
+        0.02
+      ],
+      "acceleration": [
+        0.85,
+        0.45,
+        0.3,
+        0.22
+      ]
+    },
+    "terminal_pe": 32,
+    "initial_credit_stress": 0.55,
+    "initial_regime": 0,
+    "peers": [
+      "AMD",
+      "AVGO",
+      "MRVL",
+      "TSMC",
+      "ARM"
+    ],
+    "drivers": [
+      "accelerator platform demand and delivery",
+      "networking attach and inference economics",
+      "export restrictions and customer concentration"
+    ],
+    "reporting_months": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "AVGO": {
+    "eps_base": {
+      "value": 6.82,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-fourth-quarter-and-fiscal-year-2025",
+      "published_on": "2025-12-11",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.5,
+        0.3,
+        0.22,
+        0.18,
+        0.14
+      ],
+      "slowdown": [
+        0.22,
+        0.08,
+        0.04,
+        0.02,
+        0.01
+      ],
+      "acceleration": [
+        0.7,
+        0.45,
+        0.32,
+        0.25,
+        0.2
+      ]
+    },
+    "terminal_pe": 28,
+    "initial_credit_stress": 0.5,
+    "initial_regime": 0,
+    "peers": [
+      "NVDA",
+      "MRVL",
+      "QCOM",
+      "AMD",
+      "TSMC"
+    ],
+    "drivers": [
+      "custom accelerator design conversion",
+      "Ethernet switching demand",
+      "infrastructure software retention and margins"
+    ],
+    "reporting_months": [
+      3,
+      6,
+      9,
+      12
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "INTC": {
+    "eps_base": {
+      "value": 0.42,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://www.intc.com/news-events/press-releases/detail/1759/intel-reports-fourth-quarter-and-full-year-2025-financial",
+      "published_on": "2026-01-22",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        1.0,
+        0.6,
+        0.4,
+        0.25,
+        0.2
+      ],
+      "slowdown": [
+        0.05,
+        0.1,
+        0.1,
+        0.08,
+        0.06
+      ],
+      "acceleration": [
+        1.5,
+        0.9,
+        0.6,
+        0.4,
+        0.3
+      ]
+    },
+    "terminal_pe": 24,
+    "initial_credit_stress": 0.8,
+    "initial_regime": -1,
+    "peers": [
+      "AMD",
+      "TSMC",
+      "QCOM",
+      "MU",
+      "AMAT"
+    ],
+    "drivers": [
+      "foundry yields and customer qualification",
+      "client and server product competitiveness",
+      "capital intensity and foundry utilization"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "QCOM": {
+    "eps_base": {
+      "value": 12.03,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://www.qualcomm.com/news/releases/2025/11/qualcomm-announces-fourth-quarter-and-fiscal-2025-results",
+      "published_on": "2025-11-05",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.04,
+        0.08,
+        0.1,
+        0.09,
+        0.08
+      ],
+      "slowdown": [
+        -0.1,
+        -0.05,
+        0.01,
+        0.03,
+        0.03
+      ],
+      "acceleration": [
+        0.14,
+        0.18,
+        0.2,
+        0.16,
+        0.13
+      ]
+    },
+    "terminal_pe": 17,
+    "initial_credit_stress": 0.35,
+    "initial_regime": 0,
+    "peers": [
+      "NXPI",
+      "ADI",
+      "AVGO",
+      "ARM",
+      "INTC"
+    ],
+    "drivers": [
+      "premium handset chipset mix",
+      "automotive and connected-device demand",
+      "licensing renewals and customer insourcing"
+    ],
+    "reporting_months": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "MU": {
+    "eps_base": {
+      "value": 75.52,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/",
+      "published_on": "2026-09-30",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.12,
+        -0.08,
+        0.05,
+        0.1
+      ],
+      "slowdown": [
+        -0.35,
+        -0.3,
+        -0.05,
+        0.05
+      ],
+      "acceleration": [
+        0.45,
+        0.2,
+        0.15,
+        0.12
+      ]
+    },
+    "terminal_pe": 12,
+    "initial_credit_stress": 0.65,
+    "initial_regime": 0,
+    "peers": [
+      "SAMSUNG",
+      "SKHYNIX",
+      "WDC",
+      "STX",
+      "TSMC"
+    ],
+    "drivers": [
+      "DRAM and NAND pricing discipline",
+      "high-bandwidth memory mix and qualification",
+      "memory supply additions and inventory"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "SNDK": {
+    "eps_base": {
+      "value": 70.88,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.sandisk.com/news-releases/news-release-details/sandisk-reports-fiscal-fourth-quarter-2026-financial-results",
+      "published_on": "2026-08-05",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.18,
+        -0.12,
+        0.04,
+        0.09
+      ],
+      "slowdown": [
+        -0.4,
+        -0.35,
+        -0.1,
+        0.02
+      ],
+      "acceleration": [
+        0.55,
+        0.25,
+        0.18,
+        0.15
+      ]
+    },
+    "terminal_pe": 13,
+    "initial_credit_stress": 0.7,
+    "initial_regime": 0,
+    "peers": [
+      "MU",
+      "WDC",
+      "STX",
+      "SAMSUNG",
+      "SKHYNIX"
+    ],
+    "drivers": [
+      "NAND pricing and enterprise SSD mix",
+      "flash technology transitions and yields",
+      "customer inventories and storage supply"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      8,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "WDC": {
+    "eps_base": {
+      "value": 10.22,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.wdc.com/news-releases/news-release-details/wd-reports-fiscal-fourth-quarter-and-fiscal-year-2026-financial",
+      "published_on": "2026-08-05",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.25,
+        0.12,
+        0.1,
+        0.08
+      ],
+      "slowdown": [
+        -0.18,
+        -0.15,
+        0.02,
+        0.04
+      ],
+      "acceleration": [
+        0.5,
+        0.3,
+        0.22,
+        0.16
+      ]
+    },
+    "terminal_pe": 18,
+    "initial_credit_stress": 0.5,
+    "initial_regime": 0,
+    "peers": [
+      "STX",
+      "MU",
+      "SAMSUNG",
+      "SKHYNIX",
+      "AMAT"
+    ],
+    "drivers": [
+      "nearline HDD exabyte demand",
+      "capacity transitions and manufacturing yields",
+      "cloud customer procurement and cash conversion"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "STX": {
+    "eps_base": {
+      "value": 15.58,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.seagate.com/news/news-details/2026/Seagate-Technology-Reports-Fiscal-Fourth-Quarter-and-Fiscal-Year-2026-Financial-Results/",
+      "published_on": "2026-07-28",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.2,
+        0.15,
+        0.1,
+        0.08
+      ],
+      "slowdown": [
+        -0.2,
+        -0.12,
+        0.03,
+        0.04
+      ],
+      "acceleration": [
+        0.45,
+        0.32,
+        0.22,
+        0.15
+      ]
+    },
+    "terminal_pe": 18,
+    "initial_credit_stress": 0.5,
+    "initial_regime": 0,
+    "peers": [
+      "WDC",
+      "MU",
+      "SAMSUNG",
+      "SKHYNIX",
+      "AVGO"
+    ],
+    "drivers": [
+      "HAMR qualification and capacity ramps",
+      "nearline HDD demand and pricing",
+      "manufacturing execution and debt funding"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "MRVL": {
+    "eps_base": {
+      "value": 2.84,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.marvell.com/news-events/press-releases/detail/1011/marvell-technology-inc-reports-fourth-quarter-and-fiscal-year-2026-financial-results",
+      "published_on": "2026-03-05",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.4,
+        0.3,
+        0.22,
+        0.16
+      ],
+      "slowdown": [
+        0.08,
+        0.02,
+        0.03,
+        0.04
+      ],
+      "acceleration": [
+        0.7,
+        0.5,
+        0.35,
+        0.25
+      ]
+    },
+    "terminal_pe": 28,
+    "initial_credit_stress": 0.6,
+    "initial_regime": 0,
+    "peers": [
+      "AVGO",
+      "NVDA",
+      "AMD",
+      "ARM",
+      "QCOM"
+    ],
+    "drivers": [
+      "custom silicon program conversion",
+      "optical interconnect and networking demand",
+      "customer concentration and program timing"
+    ],
+    "reporting_months": [
+      3,
+      6,
+      9,
+      12
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "TSMC": {
+    "eps_base": {
+      "value": 66.26,
+      "year": 2025,
+      "currency": "TWD",
+      "basis": "Taiwan IFRS diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html",
+      "published_on": null,
+      "reviewed_on": "2026-10-19",
+      "source_location": "2025 Financial Performance, annual website summary; NT$66.26 per ordinary share. January management report gives NT$66.25; this demo uses the later annual website value.",
+      "unit": "TWD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.28,
+        0.2,
+        0.16,
+        0.13,
+        0.1
+      ],
+      "slowdown": [
+        0.08,
+        0.02,
+        0.03,
+        0.04,
+        0.04
+      ],
+      "acceleration": [
+        0.45,
+        0.32,
+        0.25,
+        0.2,
+        0.15
+      ]
+    },
+    "terminal_pe": 23,
+    "initial_credit_stress": 0.4,
+    "initial_regime": 0,
+    "peers": [
+      "SAMSUNG",
+      "INTC",
+      "ASML",
+      "AMAT",
+      "LRCX"
+    ],
+    "drivers": [
+      "leading-node utilization and wafer pricing",
+      "advanced packaging capacity and yields",
+      "overseas fab costs and geopolitical disruption"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "SAMSUNG": {
+    "eps_base": {
+      "value": 6603.0,
+      "year": 2025,
+      "currency": "KRW",
+      "basis": "K-IFRS consolidated diluted ordinary",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://images.samsung.com/is/content/samsung/assets/global/ir/docs/2025_con_quarter04_all.pdf",
+      "published_on": null,
+      "reviewed_on": "2026-10-19",
+      "source_location": "Consolidated financial statements, Note 26(A)(2), PDF page 75; ordinary-share diluted EPS (not standalone or preference shares)",
+      "unit": "KRW per listed unit"
+    },
+    "growth": {
+      "reference": [
+        2.0,
+        0.12,
+        -0.08,
+        0.08,
+        0.08
+      ],
+      "slowdown": [
+        0.55,
+        -0.3,
+        -0.2,
+        0.03,
+        0.04
+      ],
+      "acceleration": [
+        3.0,
+        0.35,
+        0.15,
+        0.16,
+        0.12
+      ]
+    },
+    "terminal_pe": 15,
+    "initial_credit_stress": 0.55,
+    "initial_regime": 0,
+    "peers": [
+      "SKHYNIX",
+      "MU",
+      "TSMC",
+      "QCOM",
+      "INTC"
+    ],
+    "drivers": [
+      "memory pricing and high-bandwidth memory qualification",
+      "foundry yield progress and utilization",
+      "handset mix and capital allocation"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "SKHYNIX": {
+    "eps_base": {
+      "value": 60378.0,
+      "year": 2025,
+      "currency": "KRW",
+      "basis": "K-IFRS consolidated diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://mis-prod-koce-homepage-cdn-01-blob-ep.azureedge.net/web/attach/121822586381465204.pdf",
+      "published_on": null,
+      "reviewed_on": "2026-10-19",
+      "source_location": "Consolidated financial statements, Note 30(2), PDF page 87; diluted ordinary EPS",
+      "unit": "KRW per listed unit"
+    },
+    "growth": {
+      "reference": [
+        2.5,
+        0.18,
+        -0.1,
+        0.07,
+        0.08
+      ],
+      "slowdown": [
+        0.75,
+        -0.35,
+        -0.25,
+        0.02,
+        0.04
+      ],
+      "acceleration": [
+        4.0,
+        0.4,
+        0.18,
+        0.16,
+        0.12
+      ]
+    },
+    "terminal_pe": 12,
+    "initial_credit_stress": 0.65,
+    "initial_regime": 0,
+    "peers": [
+      "MU",
+      "SAMSUNG",
+      "TSMC",
+      "WDC",
+      "STX"
+    ],
+    "drivers": [
+      "high-bandwidth memory qualification and yields",
+      "DRAM pricing and supply discipline",
+      "NAND recovery and capital intensity"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "ASML": {
+    "eps_base": {
+      "value": 24.73,
+      "year": 2025,
+      "currency": "EUR",
+      "basis": "US GAAP basic",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.asml.com/news-releases/news-release-details/q4-2025-financial-results",
+      "published_on": "2026-01-28",
+      "reviewed_on": "2026-10-19",
+      "source_location": "FY2025 summary, EPS basic in euros; kept explicitly basic rather than relabeled diluted",
+      "unit": "EUR per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.15,
+        0.2,
+        0.18,
+        0.15,
+        0.12
+      ],
+      "slowdown": [
+        -0.05,
+        0.02,
+        0.04,
+        0.05,
+        0.05
+      ],
+      "acceleration": [
+        0.3,
+        0.35,
+        0.28,
+        0.22,
+        0.18
+      ]
+    },
+    "terminal_pe": 30,
+    "initial_credit_stress": 0.35,
+    "initial_regime": 0,
+    "peers": [
+      "AMAT",
+      "LRCX",
+      "KLAC",
+      "TSMC",
+      "SAMSUNG"
+    ],
+    "drivers": [
+      "EUV order conversion and customer fab readiness",
+      "installed-base service demand",
+      "export licensing and system acceptance timing"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "AMAT": {
+    "eps_base": {
+      "value": 9.42,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-fourth-quarter-and-fiscal-year-2025",
+      "published_on": "2025-11-13",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.05,
+        0.18,
+        0.15,
+        0.12,
+        0.1
+      ],
+      "slowdown": [
+        -0.12,
+        -0.06,
+        0.02,
+        0.04,
+        0.04
+      ],
+      "acceleration": [
+        0.18,
+        0.3,
+        0.24,
+        0.2,
+        0.15
+      ]
+    },
+    "terminal_pe": 23,
+    "initial_credit_stress": 0.4,
+    "initial_regime": 0,
+    "peers": [
+      "LRCX",
+      "KLAC",
+      "ASML",
+      "TSMC",
+      "INTC"
+    ],
+    "drivers": [
+      "leading-edge deposition and materials demand",
+      "advanced packaging and memory equipment mix",
+      "export licensing and customer capex"
+    ],
+    "reporting_months": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "LRCX": {
+    "eps_base": {
+      "value": 5.82,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.lamresearch.com/image/Q4_2026_slides_final.pdf",
+      "published_on": "2026-07-29",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.22,
+        0.18,
+        0.14,
+        0.11
+      ],
+      "slowdown": [
+        -0.12,
+        -0.08,
+        0.02,
+        0.04
+      ],
+      "acceleration": [
+        0.4,
+        0.32,
+        0.25,
+        0.18
+      ]
+    },
+    "terminal_pe": 24,
+    "initial_credit_stress": 0.45,
+    "initial_regime": 0,
+    "peers": [
+      "AMAT",
+      "KLAC",
+      "ASML",
+      "MU",
+      "TSMC"
+    ],
+    "drivers": [
+      "etch and deposition intensity",
+      "memory equipment spending and technology migrations",
+      "customer fab timing and export restrictions"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "KLAC": {
+    "eps_base": {
+      "value": 3.66,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "US GAAP diluted; June 2026 10-for-1 split adjusted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://ir.kla.com/news-events/press-releases/detail/518/kla-corporation-reports-fiscal-2026-fourth-quarter-and-full",
+      "published_on": "2026-07-28",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year GAAP diluted EPS; release explicitly restated all per-share figures for the June 11, 2026 ten-for-one split",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.2,
+        0.16,
+        0.13,
+        0.1
+      ],
+      "slowdown": [
+        -0.08,
+        -0.04,
+        0.03,
+        0.04
+      ],
+      "acceleration": [
+        0.35,
+        0.28,
+        0.22,
+        0.16
+      ]
+    },
+    "terminal_pe": 27,
+    "initial_credit_stress": 0.35,
+    "initial_regime": 0,
+    "peers": [
+      "AMAT",
+      "LRCX",
+      "ASML",
+      "TSMC",
+      "INTC"
+    ],
+    "drivers": [
+      "process-control intensity and advanced packaging",
+      "inspection demand and service mix",
+      "customer capex timing and export restrictions"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "ARM": {
+    "eps_base": {
+      "value": 1.77,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted per ordinary share / ADS",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.arm.com/static-files/344cbcfe-e28b-48ab-b272-c856e0756a91",
+      "published_on": "2026-05-06",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.3,
+        0.28,
+        0.23,
+        0.18
+      ],
+      "slowdown": [
+        0.06,
+        0.04,
+        0.04,
+        0.05
+      ],
+      "acceleration": [
+        0.6,
+        0.45,
+        0.35,
+        0.28
+      ]
+    },
+    "terminal_pe": 45,
+    "initial_credit_stress": 0.5,
+    "initial_regime": 0,
+    "peers": [
+      "QCOM",
+      "NVDA",
+      "AMD",
+      "NXPI",
+      "AVGO"
+    ],
+    "drivers": [
+      "architecture royalty mix and compute subsystem adoption",
+      "data-center CPU licensing and royalty conversion",
+      "customer chip shipment volumes and design concentration"
+    ],
+    "reporting_months": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "unit_source_url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000117/arm-20260810.htm"
+  },
+  "ADI": {
+    "eps_base": {
+      "value": 7.79,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP adjusted diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-reports-strong-fourth-quarter-and-fiscal-2025",
+      "published_on": "2025-11-25",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.18,
+        0.12,
+        0.1,
+        0.09,
+        0.08
+      ],
+      "slowdown": [
+        -0.03,
+        0.02,
+        0.03,
+        0.04,
+        0.04
+      ],
+      "acceleration": [
+        0.3,
+        0.23,
+        0.18,
+        0.15,
+        0.13
+      ]
+    },
+    "terminal_pe": 24,
+    "initial_credit_stress": 0.3,
+    "initial_regime": 0,
+    "peers": [
+      "NXPI",
+      "QCOM",
+      "INTC",
+      "AMAT",
+      "AVGO"
+    ],
+    "drivers": [
+      "industrial inventory normalization",
+      "automotive content and design conversion",
+      "factory utilization and analog pricing"
+    ],
+    "reporting_months": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  },
+  "NXPI": {
+    "eps_base": {
+      "value": 11.81,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.nxp.com/news-releases/news-release-details/nxp-semiconductors-reports-fourth-quarter-and-full-year-2025",
+      "published_on": "2026-02-03",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit"
+    },
+    "growth": {
+      "reference": [
+        0.08,
+        0.1,
+        0.1,
+        0.09,
+        0.08
+      ],
+      "slowdown": [
+        -0.1,
+        -0.04,
+        0.02,
+        0.03,
+        0.03
+      ],
+      "acceleration": [
+        0.2,
+        0.2,
+        0.18,
+        0.15,
+        0.12
+      ]
+    },
+    "terminal_pe": 20,
+    "initial_credit_stress": 0.35,
+    "initial_regime": 0,
+    "peers": [
+      "ADI",
+      "QCOM",
+      "INTC",
+      "ARM",
+      "AVGO"
+    ],
+    "drivers": [
+      "automotive content and processor design conversion",
+      "industrial inventory and distribution demand",
+      "customer production schedules and pricing"
+    ],
+    "reporting_months": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation."
+  }
+}

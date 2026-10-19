@@ -1,0 +1,632 @@
+{
+  "schema_version": 3,
+  "title": "Broadcom demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 328.75,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AVGO?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 10.23,
+    "eps27": 13.299,
+    "eps28": 16.2248,
+    "eps29": 19.1452,
+    "eps30": 21.8256,
+    "stabilized_forward_pe": 28,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.5,
+    "initial_regime": 0,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.375,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 10.23,
+      "2027": 13.299,
+      "2028": 16.2248,
+      "2029": 19.1452,
+      "2030": 21.8256
+    },
+    "slowdown": {
+      "2026": 8.3204,
+      "2027": 8.986,
+      "2028": 9.3455,
+      "2029": 9.5324,
+      "2030": 9.6277
+    },
+    "acceleration": {
+      "2026": 11.594,
+      "2027": 16.8113,
+      "2028": 22.1909,
+      "2029": 27.7386,
+      "2030": 33.2864
+    }
+  },
+  "priors": [
+    0.25,
+    0.5,
+    0.25
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/AVGO.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "Broadcom: operating checkpoint; custom accelerator design conversion",
+      "upside_evidence": "Improvement in custom accelerator design conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in custom accelerator design conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "Broadcom: earnings and outlook checkpoint; Ethernet switching demand",
+      "upside_evidence": "Improvement in Ethernet switching demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in Ethernet switching demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Broadcom: operating checkpoint; infrastructure software retention and margins",
+      "upside_evidence": "Improvement in infrastructure software retention and margins versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in infrastructure software retention and margins versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "Broadcom: operating checkpoint; custom accelerator design conversion",
+      "upside_evidence": "Improvement in custom accelerator design conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in custom accelerator design conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "Broadcom: earnings and outlook checkpoint; Ethernet switching demand",
+      "upside_evidence": "Improvement in Ethernet switching demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in Ethernet switching demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "Broadcom: operating checkpoint; infrastructure software retention and margins",
+      "upside_evidence": "Improvement in infrastructure software retention and margins versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in infrastructure software retention and margins versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "Broadcom: operating checkpoint; custom accelerator design conversion",
+      "upside_evidence": "Improvement in custom accelerator design conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in custom accelerator design conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Broadcom: earnings and outlook checkpoint; Ethernet switching demand",
+      "upside_evidence": "Improvement in Ethernet switching demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in Ethernet switching demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "Broadcom: operating checkpoint; infrastructure software retention and margins",
+      "upside_evidence": "Improvement in infrastructure software retention and margins versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in infrastructure software retention and margins versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "Broadcom: operating checkpoint; custom accelerator design conversion",
+      "upside_evidence": "Improvement in custom accelerator design conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in custom accelerator design conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Broadcom: earnings and outlook checkpoint; Ethernet switching demand",
+      "upside_evidence": "Improvement in Ethernet switching demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in Ethernet switching demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "Broadcom: operating checkpoint; infrastructure software retention and margins",
+      "upside_evidence": "Improvement in infrastructure software retention and margins versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in infrastructure software retention and margins versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "Broadcom: operating checkpoint; custom accelerator design conversion",
+      "upside_evidence": "Improvement in custom accelerator design conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in custom accelerator design conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "Broadcom: earnings and outlook checkpoint; Ethernet switching demand",
+      "upside_evidence": "Improvement in Ethernet switching demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in Ethernet switching demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Broadcom: operating checkpoint; infrastructure software retention and margins",
+      "upside_evidence": "Improvement in infrastructure software retention and margins versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in infrastructure software retention and margins versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "Broadcom: operating checkpoint; custom accelerator design conversion",
+      "upside_evidence": "Improvement in custom accelerator design conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in custom accelerator design conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "Broadcom: earnings and outlook checkpoint; Ethernet switching demand",
+      "upside_evidence": "Improvement in Ethernet switching demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in Ethernet switching demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "Broadcom: operating checkpoint; infrastructure software retention and margins",
+      "upside_evidence": "Improvement in infrastructure software retention and margins versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in infrastructure software retention and margins versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "Broadcom: operating checkpoint; custom accelerator design conversion",
+      "upside_evidence": "Improvement in custom accelerator design conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in custom accelerator design conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "Broadcom: earnings and outlook checkpoint; Ethernet switching demand",
+      "upside_evidence": "Improvement in Ethernet switching demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in Ethernet switching demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Broadcom: operating checkpoint; infrastructure software retention and margins",
+      "upside_evidence": "Improvement in infrastructure software retention and margins versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in infrastructure software retention and margins versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "Broadcom: operating checkpoint; custom accelerator design conversion",
+      "upside_evidence": "Improvement in custom accelerator design conversion versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in custom accelerator design conversion versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "Broadcom: earnings and outlook checkpoint; Ethernet switching demand",
+      "upside_evidence": "Improvement in Ethernet switching demand versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in Ethernet switching demand versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "Broadcom: operating checkpoint; infrastructure software retention and margins",
+      "upside_evidence": "Improvement in infrastructure software retention and margins versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in infrastructure software retention and margins versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "AVGO",
+    "name": "Broadcom",
+    "symbol": "AVGO",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "unit": "common_share",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "Sunday nearest October 31",
+    "eps_basis": "non-GAAP diluted"
+  },
+  "price_levels": [
+    263.0,
+    328.75,
+    394.5,
+    493.125,
+    657.5
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 6.82,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-fourth-quarter-and-fiscal-year-2025",
+      "published_on": "2025-12-11",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 6.82
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/AVGO?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "USD",
+      "unit": "common_share"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/AVGO?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "NVDA",
+        "MRVL",
+        "QCOM",
+        "AMD",
+        "TSMC"
+      ],
+      "peer_urls": {
+        "NVDA": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "MRVL": "https://query1.finance.yahoo.com/v8/finance/chart/MRVL?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "QCOM": "https://query1.finance.yahoo.com/v8/finance/chart/QCOM?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "AMD": "https://query1.finance.yahoo.com/v8/finance/chart/AMD?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "TSMC": "https://query1.finance.yahoo.com/v8/finance/chart/2330.TW?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        0.5,
+        0.3,
+        0.22,
+        0.18,
+        0.14
+      ],
+      "slowdown": [
+        0.22,
+        0.08,
+        0.04,
+        0.02,
+        0.01
+      ],
+      "acceleration": [
+        0.7,
+        0.45,
+        0.32,
+        0.25,
+        0.2
+      ]
+    },
+    "drivers": [
+      "custom accelerator design conversion",
+      "Ethernet switching demand",
+      "infrastructure software retention and margins"
+    ],
+    "earnings_basis": "non-GAAP diluted",
+    "fiscal_year_end": "Sunday nearest October 31",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}

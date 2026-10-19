@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "equity-scenario-lab"
+version = "2.0.0"
+description = "Company-specific equity scenarios with the preserved evidence, credit and regime model"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = ["numpy>=1.26,<3", "pandas>=2.0,<4"]
+
+[project.optional-dependencies]
+ui = ["streamlit>=1.39,<2", "plotly>=5.24,<7"]
+dev = ["pytest>=8,<10", "build>=1,<2"]
+
+[project.scripts]
+scenario-lab = "amd_scenario_lab.cli:main"
+amd-lab = "amd_scenario_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+amd_scenario_lab = ["data/*.json", "data/*.csv", "data/companies/*.json", "data/companies/*.csv"]
+
+[tool.setuptools.data-files]
+"share/equity-scenario-lab/docs" = ["docs/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

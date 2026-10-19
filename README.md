@@ -2,8 +2,8 @@
 
 Transparent, reproducible financial modeling tools.
 
-- [AMD Scenario Lab](amd-scenario-lab/README.md): the original AMD earnings,
-  evidence, credit, regime and adaptive-percentile model with a local browser
-  interface and monthly regime controls. Original nonpersonal assumptions are
-  retained; historical issuer facts, scenario inputs and model outputs have
-  distinct provenance.
+- [Scenario Lab](scenario-lab/README.md): select from 20 semiconductor and AI
+  infrastructure companies, load company-specific demos, and run the shared
+  earnings, evidence, credit and market-regime model. Includes native currencies,
+  optional display FX and monthly regime controls. AMD retains its original
+  model and supplied nonpersonal assumptions.

@@ -1,0 +1,226 @@
+{
+  "title": "Semiconductor and AI infrastructure focus list",
+  "selection_note": "Curated 20-company focus list, not a market-cap ranking or investment recommendation.",
+  "companies": [
+    {
+      "id": "AMD",
+      "name": "Advanced Micro Devices",
+      "symbol": "AMD",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "12-31",
+      "eps_basis": "Original adjusted EPS forecast assumptions"
+    },
+    {
+      "id": "NVDA",
+      "name": "NVIDIA",
+      "symbol": "NVDA",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Last Sunday of January",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "AVGO",
+      "name": "Broadcom",
+      "symbol": "AVGO",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Sunday nearest October 31",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "INTC",
+      "name": "Intel",
+      "symbol": "INTC",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Last Saturday of December",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "QCOM",
+      "name": "Qualcomm",
+      "symbol": "QCOM",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Last Sunday of September",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "MU",
+      "name": "Micron Technology",
+      "symbol": "MU",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Thursday nearest August 31",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "SNDK",
+      "name": "SanDisk",
+      "symbol": "SNDK",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Friday nearest June 30",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "WDC",
+      "name": "Western Digital",
+      "symbol": "WDC",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Friday nearest June 30",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "STX",
+      "name": "Seagate Technology",
+      "symbol": "STX",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "ordinary_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Friday nearest June 30",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "MRVL",
+      "name": "Marvell Technology",
+      "symbol": "MRVL",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Saturday nearest January 31",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "TSMC",
+      "name": "Taiwan Semiconductor Manufacturing",
+      "symbol": "2330.TW",
+      "exchange": "TWSE",
+      "currency": "TWD",
+      "unit": "ordinary_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "12-31",
+      "eps_basis": "Taiwan IFRS diluted"
+    },
+    {
+      "id": "SAMSUNG",
+      "name": "Samsung Electronics",
+      "symbol": "005930.KS",
+      "exchange": "KRX",
+      "currency": "KRW",
+      "unit": "ordinary_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "12-31",
+      "eps_basis": "K-IFRS consolidated diluted ordinary"
+    },
+    {
+      "id": "SKHYNIX",
+      "name": "SK hynix",
+      "symbol": "000660.KS",
+      "exchange": "KRX",
+      "currency": "KRW",
+      "unit": "ordinary_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "12-31",
+      "eps_basis": "K-IFRS consolidated diluted"
+    },
+    {
+      "id": "ASML",
+      "name": "ASML Holding",
+      "symbol": "ASML.AS",
+      "exchange": "EURONEXT_AMSTERDAM",
+      "currency": "EUR",
+      "unit": "ordinary_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "12-31",
+      "eps_basis": "US GAAP basic"
+    },
+    {
+      "id": "AMAT",
+      "name": "Applied Materials",
+      "symbol": "AMAT",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Last Sunday of October",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "LRCX",
+      "name": "Lam Research",
+      "symbol": "LRCX",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Last Sunday of June",
+      "eps_basis": "non-GAAP diluted"
+    },
+    {
+      "id": "KLAC",
+      "name": "KLA Corporation",
+      "symbol": "KLAC",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "06-30",
+      "eps_basis": "US GAAP diluted; June 2026 10-for-1 split adjusted"
+    },
+    {
+      "id": "ARM",
+      "name": "Arm Holdings",
+      "symbol": "ARM",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "ADS",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "03-31",
+      "eps_basis": "non-GAAP diluted per ordinary share / ADS"
+    },
+    {
+      "id": "ADI",
+      "name": "Analog Devices",
+      "symbol": "ADI",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "common_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "Saturday nearest October 31",
+      "eps_basis": "non-GAAP adjusted diluted"
+    },
+    {
+      "id": "NXPI",
+      "name": "NXP Semiconductors",
+      "symbol": "NXPI",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "unit": "ordinary_share",
+      "shares_per_unit": 1,
+      "fiscal_year_end": "12-31",
+      "eps_basis": "non-GAAP diluted"
+    }
+  ]
+}

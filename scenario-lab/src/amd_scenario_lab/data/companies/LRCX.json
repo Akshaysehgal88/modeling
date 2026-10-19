@@ -1,0 +1,629 @@
+{
+  "schema_version": 3,
+  "title": "Lam Research demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 263.94000244140625,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LRCX?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 5.82,
+    "eps27": 7.1004,
+    "eps28": 8.3785,
+    "eps29": 9.5515,
+    "eps30": 10.6021,
+    "stabilized_forward_pe": 24,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.45,
+    "initial_regime": 0,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.3375,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 5.82,
+      "2027": 7.1004,
+      "2028": 8.3785,
+      "2029": 9.5515,
+      "2030": 10.6021
+    },
+    "slowdown": {
+      "2026": 5.82,
+      "2027": 5.1216,
+      "2028": 4.7119,
+      "2029": 4.8061,
+      "2030": 4.9984
+    },
+    "acceleration": {
+      "2026": 5.82,
+      "2027": 8.148,
+      "2028": 10.7554,
+      "2029": 13.4442,
+      "2030": 15.8642
+    }
+  },
+  "priors": [
+    0.25,
+    0.5,
+    0.25
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/LRCX.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "Lam Research: operating checkpoint; etch and deposition intensity",
+      "upside_evidence": "Improvement in etch and deposition intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in etch and deposition intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "Lam Research: operating checkpoint; memory equipment spending and technology migrations",
+      "upside_evidence": "Improvement in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Lam Research: earnings and outlook checkpoint; customer fab timing and export restrictions",
+      "upside_evidence": "Improvement in customer fab timing and export restrictions versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer fab timing and export restrictions versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "Lam Research: operating checkpoint; etch and deposition intensity",
+      "upside_evidence": "Improvement in etch and deposition intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in etch and deposition intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "Lam Research: operating checkpoint; memory equipment spending and technology migrations",
+      "upside_evidence": "Improvement in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "Lam Research: earnings and outlook checkpoint; customer fab timing and export restrictions",
+      "upside_evidence": "Improvement in customer fab timing and export restrictions versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer fab timing and export restrictions versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "Lam Research: operating checkpoint; etch and deposition intensity",
+      "upside_evidence": "Improvement in etch and deposition intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in etch and deposition intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Lam Research: operating checkpoint; memory equipment spending and technology migrations",
+      "upside_evidence": "Improvement in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "Lam Research: earnings and outlook checkpoint; customer fab timing and export restrictions",
+      "upside_evidence": "Improvement in customer fab timing and export restrictions versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer fab timing and export restrictions versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "Lam Research: operating checkpoint; etch and deposition intensity",
+      "upside_evidence": "Improvement in etch and deposition intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in etch and deposition intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Lam Research: operating checkpoint; memory equipment spending and technology migrations",
+      "upside_evidence": "Improvement in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "Lam Research: earnings and outlook checkpoint; customer fab timing and export restrictions",
+      "upside_evidence": "Improvement in customer fab timing and export restrictions versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer fab timing and export restrictions versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "Lam Research: operating checkpoint; etch and deposition intensity",
+      "upside_evidence": "Improvement in etch and deposition intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in etch and deposition intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "Lam Research: operating checkpoint; memory equipment spending and technology migrations",
+      "upside_evidence": "Improvement in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Lam Research: earnings and outlook checkpoint; customer fab timing and export restrictions",
+      "upside_evidence": "Improvement in customer fab timing and export restrictions versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer fab timing and export restrictions versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "Lam Research: operating checkpoint; etch and deposition intensity",
+      "upside_evidence": "Improvement in etch and deposition intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in etch and deposition intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "Lam Research: operating checkpoint; memory equipment spending and technology migrations",
+      "upside_evidence": "Improvement in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "Lam Research: earnings and outlook checkpoint; customer fab timing and export restrictions",
+      "upside_evidence": "Improvement in customer fab timing and export restrictions versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer fab timing and export restrictions versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "Lam Research: operating checkpoint; etch and deposition intensity",
+      "upside_evidence": "Improvement in etch and deposition intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in etch and deposition intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "Lam Research: operating checkpoint; memory equipment spending and technology migrations",
+      "upside_evidence": "Improvement in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Lam Research: earnings and outlook checkpoint; customer fab timing and export restrictions",
+      "upside_evidence": "Improvement in customer fab timing and export restrictions versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer fab timing and export restrictions versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "Lam Research: operating checkpoint; etch and deposition intensity",
+      "upside_evidence": "Improvement in etch and deposition intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in etch and deposition intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "Lam Research: operating checkpoint; memory equipment spending and technology migrations",
+      "upside_evidence": "Improvement in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory equipment spending and technology migrations versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "Lam Research: earnings and outlook checkpoint; customer fab timing and export restrictions",
+      "upside_evidence": "Improvement in customer fab timing and export restrictions versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in customer fab timing and export restrictions versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "LRCX",
+    "name": "Lam Research",
+    "symbol": "LRCX",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "unit": "common_share",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "Last Sunday of June",
+    "eps_basis": "non-GAAP diluted"
+  },
+  "price_levels": [
+    211.152,
+    263.94,
+    316.728,
+    395.91,
+    527.88
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 5.82,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investor.lamresearch.com/image/Q4_2026_slides_final.pdf",
+      "published_on": "2026-07-29",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 5.82
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/LRCX?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "USD",
+      "unit": "common_share"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/LRCX?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "AMAT",
+        "KLAC",
+        "ASML",
+        "MU",
+        "TSMC"
+      ],
+      "peer_urls": {
+        "AMAT": "https://query1.finance.yahoo.com/v8/finance/chart/AMAT?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "KLAC": "https://query1.finance.yahoo.com/v8/finance/chart/KLAC?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "ASML": "https://query1.finance.yahoo.com/v8/finance/chart/ASML.AS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "MU": "https://query1.finance.yahoo.com/v8/finance/chart/MU?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "TSMC": "https://query1.finance.yahoo.com/v8/finance/chart/2330.TW?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        0.22,
+        0.18,
+        0.14,
+        0.11
+      ],
+      "slowdown": [
+        -0.12,
+        -0.08,
+        0.02,
+        0.04
+      ],
+      "acceleration": [
+        0.4,
+        0.32,
+        0.25,
+        0.18
+      ]
+    },
+    "drivers": [
+      "etch and deposition intensity",
+      "memory equipment spending and technology migrations",
+      "customer fab timing and export restrictions"
+    ],
+    "earnings_basis": "non-GAAP diluted",
+    "fiscal_year_end": "Last Sunday of June",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}

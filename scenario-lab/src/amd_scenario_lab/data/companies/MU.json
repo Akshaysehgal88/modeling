@@ -1,0 +1,629 @@
+{
+  "schema_version": 3,
+  "title": "Micron Technology demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 878.8400268554688,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/MU?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 75.52,
+    "eps27": 84.5824,
+    "eps28": 77.8158,
+    "eps29": 81.7066,
+    "eps30": 89.8773,
+    "stabilized_forward_pe": 12,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.65,
+    "initial_regime": 0,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.48750000000000004,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 75.52,
+      "2027": 84.5824,
+      "2028": 77.8158,
+      "2029": 81.7066,
+      "2030": 89.8773
+    },
+    "slowdown": {
+      "2026": 75.52,
+      "2027": 49.088,
+      "2028": 34.3616,
+      "2029": 32.6435,
+      "2030": 34.2757
+    },
+    "acceleration": {
+      "2026": 75.52,
+      "2027": 109.504,
+      "2028": 131.4048,
+      "2029": 151.1155,
+      "2030": 169.2494
+    }
+  },
+  "priors": [
+    0.35,
+    0.45,
+    0.2
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/MU.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "Micron Technology: operating checkpoint; DRAM and NAND pricing discipline",
+      "upside_evidence": "Improvement in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "Micron Technology: operating checkpoint; high-bandwidth memory mix and qualification",
+      "upside_evidence": "Improvement in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Micron Technology: earnings and outlook checkpoint; memory supply additions and inventory",
+      "upside_evidence": "Improvement in memory supply additions and inventory versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory supply additions and inventory versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "Micron Technology: operating checkpoint; DRAM and NAND pricing discipline",
+      "upside_evidence": "Improvement in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "Micron Technology: operating checkpoint; high-bandwidth memory mix and qualification",
+      "upside_evidence": "Improvement in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "Micron Technology: earnings and outlook checkpoint; memory supply additions and inventory",
+      "upside_evidence": "Improvement in memory supply additions and inventory versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory supply additions and inventory versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "Micron Technology: operating checkpoint; DRAM and NAND pricing discipline",
+      "upside_evidence": "Improvement in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Micron Technology: operating checkpoint; high-bandwidth memory mix and qualification",
+      "upside_evidence": "Improvement in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "Micron Technology: earnings and outlook checkpoint; memory supply additions and inventory",
+      "upside_evidence": "Improvement in memory supply additions and inventory versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory supply additions and inventory versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "Micron Technology: operating checkpoint; DRAM and NAND pricing discipline",
+      "upside_evidence": "Improvement in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Micron Technology: operating checkpoint; high-bandwidth memory mix and qualification",
+      "upside_evidence": "Improvement in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "Micron Technology: earnings and outlook checkpoint; memory supply additions and inventory",
+      "upside_evidence": "Improvement in memory supply additions and inventory versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory supply additions and inventory versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "Micron Technology: operating checkpoint; DRAM and NAND pricing discipline",
+      "upside_evidence": "Improvement in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "Micron Technology: operating checkpoint; high-bandwidth memory mix and qualification",
+      "upside_evidence": "Improvement in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Micron Technology: earnings and outlook checkpoint; memory supply additions and inventory",
+      "upside_evidence": "Improvement in memory supply additions and inventory versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory supply additions and inventory versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "Micron Technology: operating checkpoint; DRAM and NAND pricing discipline",
+      "upside_evidence": "Improvement in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "Micron Technology: operating checkpoint; high-bandwidth memory mix and qualification",
+      "upside_evidence": "Improvement in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "Micron Technology: earnings and outlook checkpoint; memory supply additions and inventory",
+      "upside_evidence": "Improvement in memory supply additions and inventory versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory supply additions and inventory versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "Micron Technology: operating checkpoint; DRAM and NAND pricing discipline",
+      "upside_evidence": "Improvement in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "Micron Technology: operating checkpoint; high-bandwidth memory mix and qualification",
+      "upside_evidence": "Improvement in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Micron Technology: earnings and outlook checkpoint; memory supply additions and inventory",
+      "upside_evidence": "Improvement in memory supply additions and inventory versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory supply additions and inventory versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "Micron Technology: operating checkpoint; DRAM and NAND pricing discipline",
+      "upside_evidence": "Improvement in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM and NAND pricing discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "Micron Technology: operating checkpoint; high-bandwidth memory mix and qualification",
+      "upside_evidence": "Improvement in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory mix and qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "Micron Technology: earnings and outlook checkpoint; memory supply additions and inventory",
+      "upside_evidence": "Improvement in memory supply additions and inventory versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in memory supply additions and inventory versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "MU",
+    "name": "Micron Technology",
+    "symbol": "MU",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "unit": "common_share",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "Thursday nearest August 31",
+    "eps_basis": "non-GAAP diluted"
+  },
+  "price_levels": [
+    703.072,
+    878.84,
+    1054.608,
+    1318.26,
+    1757.6801
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 75.52,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/",
+      "published_on": "2026-09-30",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 75.52
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MU?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "USD",
+      "unit": "common_share"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/MU?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "SAMSUNG",
+        "SKHYNIX",
+        "WDC",
+        "STX",
+        "TSMC"
+      ],
+      "peer_urls": {
+        "SAMSUNG": "https://query1.finance.yahoo.com/v8/finance/chart/005930.KS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "SKHYNIX": "https://query1.finance.yahoo.com/v8/finance/chart/000660.KS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "WDC": "https://query1.finance.yahoo.com/v8/finance/chart/WDC?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "STX": "https://query1.finance.yahoo.com/v8/finance/chart/STX?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "TSMC": "https://query1.finance.yahoo.com/v8/finance/chart/2330.TW?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        0.12,
+        -0.08,
+        0.05,
+        0.1
+      ],
+      "slowdown": [
+        -0.35,
+        -0.3,
+        -0.05,
+        0.05
+      ],
+      "acceleration": [
+        0.45,
+        0.2,
+        0.15,
+        0.12
+      ]
+    },
+    "drivers": [
+      "DRAM and NAND pricing discipline",
+      "high-bandwidth memory mix and qualification",
+      "memory supply additions and inventory"
+    ],
+    "earnings_basis": "non-GAAP diluted",
+    "fiscal_year_end": "Thursday nearest August 31",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}

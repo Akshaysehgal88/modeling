@@ -1,0 +1,629 @@
+{
+  "schema_version": 3,
+  "title": "Seagate Technology demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 639.010009765625,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/STX?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 15.58,
+    "eps27": 18.696,
+    "eps28": 21.5004,
+    "eps29": 23.6504,
+    "eps30": 25.5425,
+    "stabilized_forward_pe": 18,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.5,
+    "initial_regime": 0,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.375,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 15.58,
+      "2027": 18.696,
+      "2028": 21.5004,
+      "2029": 23.6504,
+      "2030": 25.5425
+    },
+    "slowdown": {
+      "2026": 15.58,
+      "2027": 12.464,
+      "2028": 10.9683,
+      "2029": 11.2974,
+      "2030": 11.7493
+    },
+    "acceleration": {
+      "2026": 15.58,
+      "2027": 22.591,
+      "2028": 29.8201,
+      "2029": 36.3805,
+      "2030": 41.8376
+    }
+  },
+  "priors": [
+    0.35,
+    0.45,
+    0.2
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/STX.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "Seagate Technology: operating checkpoint; HAMR qualification and capacity ramps",
+      "upside_evidence": "Improvement in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "Seagate Technology: operating checkpoint; nearline HDD demand and pricing",
+      "upside_evidence": "Improvement in nearline HDD demand and pricing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in nearline HDD demand and pricing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Seagate Technology: earnings and outlook checkpoint; manufacturing execution and debt funding",
+      "upside_evidence": "Improvement in manufacturing execution and debt funding versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in manufacturing execution and debt funding versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "Seagate Technology: operating checkpoint; HAMR qualification and capacity ramps",
+      "upside_evidence": "Improvement in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "Seagate Technology: operating checkpoint; nearline HDD demand and pricing",
+      "upside_evidence": "Improvement in nearline HDD demand and pricing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in nearline HDD demand and pricing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "Seagate Technology: earnings and outlook checkpoint; manufacturing execution and debt funding",
+      "upside_evidence": "Improvement in manufacturing execution and debt funding versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in manufacturing execution and debt funding versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "Seagate Technology: operating checkpoint; HAMR qualification and capacity ramps",
+      "upside_evidence": "Improvement in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Seagate Technology: operating checkpoint; nearline HDD demand and pricing",
+      "upside_evidence": "Improvement in nearline HDD demand and pricing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in nearline HDD demand and pricing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "Seagate Technology: earnings and outlook checkpoint; manufacturing execution and debt funding",
+      "upside_evidence": "Improvement in manufacturing execution and debt funding versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in manufacturing execution and debt funding versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "Seagate Technology: operating checkpoint; HAMR qualification and capacity ramps",
+      "upside_evidence": "Improvement in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Seagate Technology: operating checkpoint; nearline HDD demand and pricing",
+      "upside_evidence": "Improvement in nearline HDD demand and pricing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in nearline HDD demand and pricing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "Seagate Technology: earnings and outlook checkpoint; manufacturing execution and debt funding",
+      "upside_evidence": "Improvement in manufacturing execution and debt funding versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in manufacturing execution and debt funding versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "Seagate Technology: operating checkpoint; HAMR qualification and capacity ramps",
+      "upside_evidence": "Improvement in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "Seagate Technology: operating checkpoint; nearline HDD demand and pricing",
+      "upside_evidence": "Improvement in nearline HDD demand and pricing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in nearline HDD demand and pricing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Seagate Technology: earnings and outlook checkpoint; manufacturing execution and debt funding",
+      "upside_evidence": "Improvement in manufacturing execution and debt funding versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in manufacturing execution and debt funding versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "Seagate Technology: operating checkpoint; HAMR qualification and capacity ramps",
+      "upside_evidence": "Improvement in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "Seagate Technology: operating checkpoint; nearline HDD demand and pricing",
+      "upside_evidence": "Improvement in nearline HDD demand and pricing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in nearline HDD demand and pricing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "Seagate Technology: earnings and outlook checkpoint; manufacturing execution and debt funding",
+      "upside_evidence": "Improvement in manufacturing execution and debt funding versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in manufacturing execution and debt funding versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "Seagate Technology: operating checkpoint; HAMR qualification and capacity ramps",
+      "upside_evidence": "Improvement in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "Seagate Technology: operating checkpoint; nearline HDD demand and pricing",
+      "upside_evidence": "Improvement in nearline HDD demand and pricing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in nearline HDD demand and pricing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Seagate Technology: earnings and outlook checkpoint; manufacturing execution and debt funding",
+      "upside_evidence": "Improvement in manufacturing execution and debt funding versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in manufacturing execution and debt funding versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "Seagate Technology: operating checkpoint; HAMR qualification and capacity ramps",
+      "upside_evidence": "Improvement in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in HAMR qualification and capacity ramps versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "Seagate Technology: operating checkpoint; nearline HDD demand and pricing",
+      "upside_evidence": "Improvement in nearline HDD demand and pricing versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in nearline HDD demand and pricing versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "Seagate Technology: earnings and outlook checkpoint; manufacturing execution and debt funding",
+      "upside_evidence": "Improvement in manufacturing execution and debt funding versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in manufacturing execution and debt funding versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "STX",
+    "name": "Seagate Technology",
+    "symbol": "STX",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "unit": "ordinary_share",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "Friday nearest June 30",
+    "eps_basis": "non-GAAP diluted"
+  },
+  "price_levels": [
+    511.208,
+    639.01,
+    766.812,
+    958.515,
+    1278.02
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 15.58,
+      "year": 2026,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://investors.seagate.com/news/news-details/2026/Seagate-Technology-Reports-Fiscal-Fourth-Quarter-and-Fiscal-Year-2026-Financial-Results/",
+      "published_on": "2026-07-28",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 15.58
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/STX?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "USD",
+      "unit": "ordinary_share"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/STX?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "WDC",
+        "MU",
+        "SAMSUNG",
+        "SKHYNIX",
+        "AVGO"
+      ],
+      "peer_urls": {
+        "WDC": "https://query1.finance.yahoo.com/v8/finance/chart/WDC?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "MU": "https://query1.finance.yahoo.com/v8/finance/chart/MU?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "SAMSUNG": "https://query1.finance.yahoo.com/v8/finance/chart/005930.KS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "SKHYNIX": "https://query1.finance.yahoo.com/v8/finance/chart/000660.KS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "AVGO": "https://query1.finance.yahoo.com/v8/finance/chart/AVGO?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        0.2,
+        0.15,
+        0.1,
+        0.08
+      ],
+      "slowdown": [
+        -0.2,
+        -0.12,
+        0.03,
+        0.04
+      ],
+      "acceleration": [
+        0.45,
+        0.32,
+        0.22,
+        0.15
+      ]
+    },
+    "drivers": [
+      "HAMR qualification and capacity ramps",
+      "nearline HDD demand and pricing",
+      "manufacturing execution and debt funding"
+    ],
+    "earnings_basis": "non-GAAP diluted",
+    "fiscal_year_end": "Friday nearest June 30",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}

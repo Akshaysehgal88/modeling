@@ -1,0 +1,632 @@
+{
+  "schema_version": 3,
+  "title": "Intel demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 89.8499984741211,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/INTC?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 0.84,
+    "eps27": 1.344,
+    "eps28": 1.8816,
+    "eps29": 2.352,
+    "eps30": 2.8224,
+    "stabilized_forward_pe": 24,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.8,
+    "initial_regime": -1,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.6000000000000001,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 0.84,
+      "2027": 1.344,
+      "2028": 1.8816,
+      "2029": 2.352,
+      "2030": 2.8224
+    },
+    "slowdown": {
+      "2026": 0.441,
+      "2027": 0.4851,
+      "2028": 0.5336,
+      "2029": 0.5763,
+      "2030": 0.6109
+    },
+    "acceleration": {
+      "2026": 1.05,
+      "2027": 1.995,
+      "2028": 3.192,
+      "2029": 4.4688,
+      "2030": 5.8094
+    }
+  },
+  "priors": [
+    0.25,
+    0.5,
+    0.25
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/INTC.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "Intel: operating checkpoint; foundry yields and customer qualification",
+      "upside_evidence": "Improvement in foundry yields and customer qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yields and customer qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "Intel: operating checkpoint; client and server product competitiveness",
+      "upside_evidence": "Improvement in client and server product competitiveness versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in client and server product competitiveness versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "Intel: earnings and outlook checkpoint; capital intensity and foundry utilization",
+      "upside_evidence": "Improvement in capital intensity and foundry utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in capital intensity and foundry utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "Intel: operating checkpoint; foundry yields and customer qualification",
+      "upside_evidence": "Improvement in foundry yields and customer qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yields and customer qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "Intel: operating checkpoint; client and server product competitiveness",
+      "upside_evidence": "Improvement in client and server product competitiveness versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in client and server product competitiveness versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "Intel: earnings and outlook checkpoint; capital intensity and foundry utilization",
+      "upside_evidence": "Improvement in capital intensity and foundry utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in capital intensity and foundry utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "Intel: operating checkpoint; foundry yields and customer qualification",
+      "upside_evidence": "Improvement in foundry yields and customer qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yields and customer qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "Intel: operating checkpoint; client and server product competitiveness",
+      "upside_evidence": "Improvement in client and server product competitiveness versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in client and server product competitiveness versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "Intel: earnings and outlook checkpoint; capital intensity and foundry utilization",
+      "upside_evidence": "Improvement in capital intensity and foundry utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in capital intensity and foundry utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "Intel: operating checkpoint; foundry yields and customer qualification",
+      "upside_evidence": "Improvement in foundry yields and customer qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yields and customer qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "Intel: operating checkpoint; client and server product competitiveness",
+      "upside_evidence": "Improvement in client and server product competitiveness versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in client and server product competitiveness versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "Intel: earnings and outlook checkpoint; capital intensity and foundry utilization",
+      "upside_evidence": "Improvement in capital intensity and foundry utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in capital intensity and foundry utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "Intel: operating checkpoint; foundry yields and customer qualification",
+      "upside_evidence": "Improvement in foundry yields and customer qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yields and customer qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "Intel: operating checkpoint; client and server product competitiveness",
+      "upside_evidence": "Improvement in client and server product competitiveness versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in client and server product competitiveness versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "Intel: earnings and outlook checkpoint; capital intensity and foundry utilization",
+      "upside_evidence": "Improvement in capital intensity and foundry utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in capital intensity and foundry utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "Intel: operating checkpoint; foundry yields and customer qualification",
+      "upside_evidence": "Improvement in foundry yields and customer qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yields and customer qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "Intel: operating checkpoint; client and server product competitiveness",
+      "upside_evidence": "Improvement in client and server product competitiveness versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in client and server product competitiveness versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "Intel: earnings and outlook checkpoint; capital intensity and foundry utilization",
+      "upside_evidence": "Improvement in capital intensity and foundry utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in capital intensity and foundry utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "Intel: operating checkpoint; foundry yields and customer qualification",
+      "upside_evidence": "Improvement in foundry yields and customer qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yields and customer qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "Intel: operating checkpoint; client and server product competitiveness",
+      "upside_evidence": "Improvement in client and server product competitiveness versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in client and server product competitiveness versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "Intel: earnings and outlook checkpoint; capital intensity and foundry utilization",
+      "upside_evidence": "Improvement in capital intensity and foundry utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in capital intensity and foundry utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "Intel: operating checkpoint; foundry yields and customer qualification",
+      "upside_evidence": "Improvement in foundry yields and customer qualification versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in foundry yields and customer qualification versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "Intel: operating checkpoint; client and server product competitiveness",
+      "upside_evidence": "Improvement in client and server product competitiveness versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in client and server product competitiveness versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "Intel: earnings and outlook checkpoint; capital intensity and foundry utilization",
+      "upside_evidence": "Improvement in capital intensity and foundry utilization versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in capital intensity and foundry utilization versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.55,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "INTC",
+    "name": "Intel",
+    "symbol": "INTC",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "unit": "common_share",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "Last Saturday of December",
+    "eps_basis": "non-GAAP diluted"
+  },
+  "price_levels": [
+    71.88,
+    89.85,
+    107.82,
+    134.775,
+    179.7
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 0.42,
+      "year": 2025,
+      "currency": "USD",
+      "basis": "non-GAAP diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://www.intc.com/news-events/press-releases/detail/1759/intel-reports-fourth-quarter-and-full-year-2025-financial",
+      "published_on": "2026-01-22",
+      "reviewed_on": "2026-10-19",
+      "source_location": "Full-year EPS table / annual highlights",
+      "unit": "USD per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 0.42
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/INTC?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "USD",
+      "unit": "common_share"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/INTC?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "AMD",
+        "TSMC",
+        "QCOM",
+        "MU",
+        "AMAT"
+      ],
+      "peer_urls": {
+        "AMD": "https://query1.finance.yahoo.com/v8/finance/chart/AMD?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "TSMC": "https://query1.finance.yahoo.com/v8/finance/chart/2330.TW?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "QCOM": "https://query1.finance.yahoo.com/v8/finance/chart/QCOM?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "MU": "https://query1.finance.yahoo.com/v8/finance/chart/MU?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "AMAT": "https://query1.finance.yahoo.com/v8/finance/chart/AMAT?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        1.0,
+        0.6,
+        0.4,
+        0.25,
+        0.2
+      ],
+      "slowdown": [
+        0.05,
+        0.1,
+        0.1,
+        0.08,
+        0.06
+      ],
+      "acceleration": [
+        1.5,
+        0.9,
+        0.6,
+        0.4,
+        0.3
+      ]
+    },
+    "drivers": [
+      "foundry yields and customer qualification",
+      "client and server product competitiveness",
+      "capital intensity and foundry utilization"
+    ],
+    "earnings_basis": "non-GAAP diluted",
+    "fiscal_year_end": "Last Saturday of December",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}

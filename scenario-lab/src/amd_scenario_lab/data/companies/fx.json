@@ -1,0 +1,16 @@
+{
+  "as_of": "2026-10-16",
+  "retrieved_on": "2026-10-19",
+  "base": "USD",
+  "units_per_usd": {
+    "USD": 1.0,
+    "EUR": 0.8918099655410809,
+    "KRW": 1340.949951171875,
+    "TWD": 32.326900482177734
+  },
+  "sources": {
+    "EUR": "https://query1.finance.yahoo.com/v8/finance/chart/EURUSD%3DX?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "KRW": "https://query1.finance.yahoo.com/v8/finance/chart/KRW%3DX?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "TWD": "https://query1.finance.yahoo.com/v8/finance/chart/TWD%3DX?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits"
+  }
+}

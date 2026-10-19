@@ -1,0 +1,632 @@
+{
+  "schema_version": 3,
+  "title": "SK hynix demo",
+  "start_month": "2026-10",
+  "horizon_months": 24,
+  "n_paths": 6000,
+  "seed": 20261018,
+  "anchor": {
+    "price": 1272000.0,
+    "classification": "public_observation",
+    "as_of": "2026-10-16",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/000660.KS?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+    "note": "Dated public feed close for this listed instrument; native currency, split-adjusted listing units."
+  },
+  "settings": {
+    "eps26": 211323.0,
+    "eps27": 249361.14,
+    "eps28": 224425.026,
+    "eps29": 240134.7778,
+    "eps30": 259345.56,
+    "stabilized_forward_pe": 12,
+    "pe_normalization_months": 24.0,
+    "initial_credit_stress": 0.65,
+    "initial_regime": 0,
+    "credit_persistence": 0.94,
+    "credit_long_run": 0.48750000000000004,
+    "credit_monthly_noise": 0.14,
+    "credit_price_sensitivity": 0.32,
+    "evidence_strength": 1.0,
+    "scenario_discrimination": 0.2,
+    "earnings_scenario_spread": 1.0,
+    "peer_shock_scale": 0.65,
+    "idio_shock_scale": 0.6,
+    "optimism_feedback": 1.0,
+    "pessimism_feedback": 1.0,
+    "momentum_feedback": 0.26,
+    "switching_tendency": 1.0,
+    "sentiment_persistence": 0.82,
+    "initial_lookthrough_weight": 0.16
+  },
+  "scenario_eps": {
+    "reference": {
+      "2026": 211323.0,
+      "2027": 249361.14,
+      "2028": 224425.026,
+      "2029": 240134.7778,
+      "2030": 259345.56
+    },
+    "slowdown": {
+      "2026": 105661.5,
+      "2027": 68679.975,
+      "2028": 51509.9813,
+      "2029": 52540.1809,
+      "2030": 54641.7881
+    },
+    "acceleration": {
+      "2026": 301890.0,
+      "2027": 422646.0,
+      "2028": 498722.28,
+      "2029": 578517.8448,
+      "2030": 647939.9862
+    }
+  },
+  "priors": [
+    0.35,
+    0.45,
+    0.2
+  ],
+  "regime_log_premiums": [
+    -0.18,
+    -0.09,
+    0,
+    0.1,
+    0.24
+  ],
+  "calibration": {
+    "dataset": "companies/SKHYNIX.csv",
+    "window_start": "2024-11",
+    "window_end": "2026-09",
+    "classification": "public_market_data"
+  },
+  "events": [
+    {
+      "month": "2026-11",
+      "catalyst": "SK hynix: operating checkpoint; high-bandwidth memory qualification and yields",
+      "upside_evidence": "Improvement in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2026-12",
+      "catalyst": "SK hynix: operating checkpoint; DRAM pricing and supply discipline",
+      "upside_evidence": "Improvement in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-01",
+      "catalyst": "SK hynix: earnings and outlook checkpoint; NAND recovery and capital intensity",
+      "upside_evidence": "Improvement in NAND recovery and capital intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in NAND recovery and capital intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-02",
+      "catalyst": "SK hynix: operating checkpoint; high-bandwidth memory qualification and yields",
+      "upside_evidence": "Improvement in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-03",
+      "catalyst": "SK hynix: operating checkpoint; DRAM pricing and supply discipline",
+      "upside_evidence": "Improvement in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-04",
+      "catalyst": "SK hynix: earnings and outlook checkpoint; NAND recovery and capital intensity",
+      "upside_evidence": "Improvement in NAND recovery and capital intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in NAND recovery and capital intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-05",
+      "catalyst": "SK hynix: operating checkpoint; high-bandwidth memory qualification and yields",
+      "upside_evidence": "Improvement in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-06",
+      "catalyst": "SK hynix: operating checkpoint; DRAM pricing and supply discipline",
+      "upside_evidence": "Improvement in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-07",
+      "catalyst": "SK hynix: earnings and outlook checkpoint; NAND recovery and capital intensity",
+      "upside_evidence": "Improvement in NAND recovery and capital intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in NAND recovery and capital intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-08",
+      "catalyst": "SK hynix: operating checkpoint; high-bandwidth memory qualification and yields",
+      "upside_evidence": "Improvement in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-09",
+      "catalyst": "SK hynix: operating checkpoint; DRAM pricing and supply discipline",
+      "upside_evidence": "Improvement in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-10",
+      "catalyst": "SK hynix: earnings and outlook checkpoint; NAND recovery and capital intensity",
+      "upside_evidence": "Improvement in NAND recovery and capital intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in NAND recovery and capital intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-11",
+      "catalyst": "SK hynix: operating checkpoint; high-bandwidth memory qualification and yields",
+      "upside_evidence": "Improvement in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2027-12",
+      "catalyst": "SK hynix: operating checkpoint; DRAM pricing and supply discipline",
+      "upside_evidence": "Improvement in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-01",
+      "catalyst": "SK hynix: earnings and outlook checkpoint; NAND recovery and capital intensity",
+      "upside_evidence": "Improvement in NAND recovery and capital intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in NAND recovery and capital intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-02",
+      "catalyst": "SK hynix: operating checkpoint; high-bandwidth memory qualification and yields",
+      "upside_evidence": "Improvement in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-03",
+      "catalyst": "SK hynix: operating checkpoint; DRAM pricing and supply discipline",
+      "upside_evidence": "Improvement in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-04",
+      "catalyst": "SK hynix: earnings and outlook checkpoint; NAND recovery and capital intensity",
+      "upside_evidence": "Improvement in NAND recovery and capital intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in NAND recovery and capital intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-05",
+      "catalyst": "SK hynix: operating checkpoint; high-bandwidth memory qualification and yields",
+      "upside_evidence": "Improvement in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-06",
+      "catalyst": "SK hynix: operating checkpoint; DRAM pricing and supply discipline",
+      "upside_evidence": "Improvement in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-07",
+      "catalyst": "SK hynix: earnings and outlook checkpoint; NAND recovery and capital intensity",
+      "upside_evidence": "Improvement in NAND recovery and capital intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in NAND recovery and capital intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-08",
+      "catalyst": "SK hynix: operating checkpoint; high-bandwidth memory qualification and yields",
+      "upside_evidence": "Improvement in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in high-bandwidth memory qualification and yields versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-09",
+      "catalyst": "SK hynix: operating checkpoint; DRAM pricing and supply discipline",
+      "upside_evidence": "Improvement in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in DRAM pricing and supply discipline versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.45,
+      "materiality": 0.5,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    },
+    {
+      "month": "2028-10",
+      "catalyst": "SK hynix: earnings and outlook checkpoint; NAND recovery and capital intensity",
+      "upside_evidence": "Improvement in NAND recovery and capital intensity versus the chosen reference scenario",
+      "downside_evidence": "Deterioration in NAND recovery and capital intensity versus the chosen reference scenario",
+      "timing": "Hypothetical reporting / monitoring window; no exact future announcement date asserted",
+      "prob_positive": 0.5,
+      "revelation_chance": 0.85,
+      "materiality": 0.9,
+      "status": "pending",
+      "classification": "forecast_assumption"
+    }
+  ],
+  "selector": {
+    "selector_seed": 20261019,
+    "path_index": null,
+    "low_percentile": 0.1,
+    "high_percentile": 0.9,
+    "min_conditional_paths": 12,
+    "method": "conditioned",
+    "condition_strength": 1.0,
+    "psyche_strength": 0.65
+  },
+  "monthly_overrides": [
+    {
+      "month": "2026-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2026-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-11",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2027-12",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-01",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-02",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-03",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-04",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-05",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-06",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-07",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-08",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-09",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    },
+    {
+      "month": "2028-10",
+      "market_condition": "Auto",
+      "manual_percentile": 0.0,
+      "notes": ""
+    }
+  ],
+  "company": {
+    "id": "SKHYNIX",
+    "name": "SK hynix",
+    "symbol": "000660.KS",
+    "exchange": "KRX",
+    "currency": "KRW",
+    "unit": "ordinary_share",
+    "shares_per_unit": 1,
+    "fiscal_year_end": "12-31",
+    "eps_basis": "K-IFRS consolidated diluted"
+  },
+  "price_levels": [
+    1017600.0,
+    1272000.0,
+    1526400.0,
+    1908000.0,
+    2544000.0
+  ],
+  "sources": {
+    "eps_base": {
+      "value": 60378.0,
+      "year": 2025,
+      "currency": "KRW",
+      "basis": "K-IFRS consolidated diluted",
+      "classification": "public_disclosed_fact",
+      "source_url": "https://mis-prod-koce-homepage-cdn-01-blob-ep.azureedge.net/web/attach/121822586381465204.pdf",
+      "published_on": null,
+      "reviewed_on": "2026-10-19",
+      "source_location": "Consolidated financial statements, Note 30(2), PDF page 87; diluted ordinary EPS",
+      "unit": "KRW per listed unit",
+      "split_divisor_since_publication": 1.0,
+      "aligned_value": 60378.0
+    },
+    "quote": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/000660.KS?period1=1789516800&period2=1792281600&interval=1d&events=div%2Csplits",
+      "as_of": "2026-10-16",
+      "retrieved_on": "2026-10-19",
+      "currency": "KRW",
+      "unit": "ordinary_share"
+    },
+    "history": {
+      "provider": "Yahoo Finance public chart endpoint",
+      "asset_url": "https://query1.finance.yahoo.com/v8/finance/chart/000660.KS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+      "retrieved_on": "2026-10-19",
+      "peer_ids": [
+        "MU",
+        "SAMSUNG",
+        "TSMC",
+        "WDC",
+        "STX"
+      ],
+      "peer_urls": {
+        "MU": "https://query1.finance.yahoo.com/v8/finance/chart/MU?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "SAMSUNG": "https://query1.finance.yahoo.com/v8/finance/chart/005930.KS?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "TSMC": "https://query1.finance.yahoo.com/v8/finance/chart/2330.TW?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "WDC": "https://query1.finance.yahoo.com/v8/finance/chart/WDC?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits",
+        "STX": "https://query1.finance.yahoo.com/v8/finance/chart/STX?period1=1725148800&period2=1792281600&interval=1mo&events=div%2Csplits"
+      },
+      "observations": 23,
+      "adjustment": "Split-and-dividend-adjusted monthly prices; local exchange months; simple returns; equal-weight native-return peer basket; complete observations only"
+    }
+  },
+  "forecast_notes": {
+    "classification": "forecast_assumption",
+    "rationale": "Company-specific demo scenario rates and market sensitivities are authored assumptions, not analyst consensus or issuer guidance. Forecast EPS is projected on the issuer fiscal-year labels using the original calendar-month interpolation approximation.",
+    "annual_growth": {
+      "reference": [
+        2.5,
+        0.18,
+        -0.1,
+        0.07,
+        0.08
+      ],
+      "slowdown": [
+        0.75,
+        -0.35,
+        -0.25,
+        0.02,
+        0.04
+      ],
+      "acceleration": [
+        4.0,
+        0.4,
+        0.18,
+        0.16,
+        0.12
+      ]
+    },
+    "drivers": [
+      "high-bandwidth memory qualification and yields",
+      "DRAM pricing and supply discipline",
+      "NAND recovery and capital intensity"
+    ],
+    "earnings_basis": "K-IFRS consolidated diluted",
+    "fiscal_year_end": "12-31",
+    "calendar_approximation": "Issuer fiscal-year labels feed the original calendar-month EPS interpolation; this is a scenario approximation, not a quarterly financial model."
+  }
+}
