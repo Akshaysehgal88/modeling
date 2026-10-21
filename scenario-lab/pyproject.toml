@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,7 +8,9 @@ version = "2.0.2"
 description = "Equity scenario simulations for 20 semiconductor and AI infrastructure companies"
 readme = "README.md"
 requires-python = ">=3.10"
-license = "MIT"
+license = "LicenseRef-DVIT-Utilities-1.0"
+license-files = ["LICENSE", "NOTICE", "BRANDING.txt"]
+authors = [{name = "Akshay Sehgal"}]
 dependencies = ["numpy>=1.26,<3", "pandas>=2.0,<4"]
 
 [project.optional-dependencies]

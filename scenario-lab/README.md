@@ -219,5 +219,22 @@ or fetches market data.
 
 Read [Company data and sources](docs/COMPANY_DATA.md),
 [Methodology](docs/METHODOLOGY.md), and [Input policy](docs/PUBLIC_DATA_POLICY.md).
-The code is MIT licensed. Referenced issuer material and provider data retain
-their owners' rights. This project is independent of the listed companies.
+Referenced issuer material and provider data retain their owners' rights.
+This project is independent of the listed companies.
+
+## License and credit
+
+Created by **Akshay Sehgal**, owner of [DVIT](https://github.com/Akshaysehgal88/DVIT_PROD).
+Original repository: [Akshaysehgal88/modeling](https://github.com/Akshaysehgal88/modeling).
+
+Released under the custom [DVIT Utilities Source-Available License](LICENSE).
+Use and modify the tool for personal or business work, including qualifying
+commercial products. Free forks are allowed with the original credit and links.
+Selling or commercially repackaging the tool, or offering paid access to its
+functionality, requires Akshay Sehgal's separate written permission. See the
+license for the product, service and redistribution boundaries.
+
+Keep [NOTICE](NOTICE) with copies and follow the [DVIT branding terms](BRANDING.txt).
+The license does not claim ownership of your inputs or results. Third-party
+data retains its own terms. This is source-available software; its resale
+restrictions mean it is not OSI-approved open-source software.
